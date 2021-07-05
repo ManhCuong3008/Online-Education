@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineEducation", "OnlineEducation\OnlineEducation.csproj", "{AD7C70A3-535F-4674-A17B-DAA0C02E145C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineEduDB", "OnlineEduDB\OnlineEduDB.csproj", "{639D2BF5-FA77-43CD-BF74-36E963725A4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineEduDB", "OnlineEduDB\OnlineEduDB.csproj", "{749F828B-3ED8-4ED2-9FCC-35A96DE151CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{AD7C70A3-535F-4674-A17B-DAA0C02E145C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD7C70A3-535F-4674-A17B-DAA0C02E145C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD7C70A3-535F-4674-A17B-DAA0C02E145C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{639D2BF5-FA77-43CD-BF74-36E963725A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{639D2BF5-FA77-43CD-BF74-36E963725A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{639D2BF5-FA77-43CD-BF74-36E963725A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{639D2BF5-FA77-43CD-BF74-36E963725A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{749F828B-3ED8-4ED2-9FCC-35A96DE151CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{749F828B-3ED8-4ED2-9FCC-35A96DE151CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{749F828B-3ED8-4ED2-9FCC-35A96DE151CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{749F828B-3ED8-4ED2-9FCC-35A96DE151CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{639D2BF5-FA77-43CD-BF74-36E963725A4E}</ProjectGuid>
+    <ProjectGuid>{749F828B-3ED8-4ED2-9FCC-35A96DE151CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OnlineEduDB</RootNamespace>
@@ -56,7 +56,6 @@
     <Compile Include="Chapter.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Description.cs" />
-    <Compile Include="Image.cs" />
     <Compile Include="MyCourse.cs" />
     <Compile Include="MyDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -396,10 +396,12 @@ nav > ul {
 nav .logo {
   width: 9.5%;
   margin-right: 2%;
+  padding-top: 10px;
 }
-nav .logo img {
-  width: 100%;
-}
+    nav .logo img {
+        width: 100%;
+        border-radius: 100px;
+    }
 
 nav .search {
   margin-bottom: 8px;
@@ -435,6 +437,7 @@ nav .search .search__input {
   border: none;
   background-color: transparent;
   color: #3b5b8c;
+  padding: 15px;
 }
 nav .search .search__input::placeholder {
   color: #3b5b8c;

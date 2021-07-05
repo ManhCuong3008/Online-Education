@@ -15,7 +15,12 @@ namespace OnlineEducation.Controllers
         // GET: Search
         [HttpGet]
         public ActionResult Index()
-        {   
+        {
+            User user = (User)Session["UserModel"];
+            if (user != null)
+            {
+                ViewBag.UserModel = user;
+            }
             string textSearch = Request["txtSearch"];
             int index = 1;
             try
@@ -27,14 +32,15 @@ namespace OnlineEducation.Controllers
                 index = 1;
             }
             List<Course> List = courseDAO.getListCourseByName(textSearch);
-            int maxItemOnPage = 3;
+            int maxItemOnPage = 6;
             int totalItem = List.Count;
             PageRequest page = new PageRequest(index, maxItemOnPage);
             int totalPage = (int)Math.Ceiling((double)totalItem / maxItemOnPage);
             List<Course> ListCourse = courseDAO.getListByOffset(page,textSearch);
+            ViewBag.index = index;
             ViewBag.ListCourse = ListCourse;
             ViewBag.txtSearch = textSearch;
-            ViewBag.totalPae = totalPage;
+            ViewBag.totalPage = totalPage;
             ViewBag.totalItem = totalItem;
             return View();
         }

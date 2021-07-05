@@ -96,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\demo.css" />
-    <Content Include="Content\css\hocexcel.css" />
     <Content Include="Content\css\login\includeHTML.js" />
     <Content Include="Content\css\login\style.css" />
     <Content Include="Content\css\Search\Search.css" />
@@ -106,13 +105,35 @@
     <Content Include="Content\images\1.png" />
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\3.png" />
+    <Content Include="Content\images\food1.jpg" />
+    <Content Include="Content\images\food10.jpg" />
+    <Content Include="Content\images\food11.jpg" />
+    <Content Include="Content\images\food12.jpg" />
+    <Content Include="Content\images\food13.jpg" />
+    <Content Include="Content\images\food2.jpg" />
+    <Content Include="Content\images\food3.jpg" />
+    <Content Include="Content\images\food4.jpg" />
+    <Content Include="Content\images\food5.jpg" />
+    <Content Include="Content\images\food6.jpg" />
+    <Content Include="Content\images\food7.jpg" />
+    <Content Include="Content\images\food8.jpg" />
+    <Content Include="Content\images\food9.jpg" />
     <Content Include="Content\images\hp20.png" />
     <Content Include="Content\images\hp21.png" />
     <Content Include="Content\images\hp22.png" />
-    <Content Include="Content\images\kh.jpg" />
     <Content Include="Content\images\kh1.jpg" />
+    <Content Include="Content\images\kh10.jpg" />
+    <Content Include="Content\images\kh11.jpg" />
+    <Content Include="Content\images\kh12.jpg" />
     <Content Include="Content\images\kh2.jpg" />
-    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\kh3.jpg" />
+    <Content Include="Content\images\kh4.jpg" />
+    <Content Include="Content\images\kh5.jpg" />
+    <Content Include="Content\images\kh6.jpg" />
+    <Content Include="Content\images\kh7.jpg" />
+    <Content Include="Content\images\kh8.jpg" />
+    <Content Include="Content\images\kh9.jpg" />
+    <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\js\index.js" />
     <Content Include="Content\routes\index.js" />
     <Content Include="Content\routes\users.js" />
@@ -159,7 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineEduDB\OnlineEduDB.csproj">
-      <Project>{639d2bf5-fa77-43cd-bf74-36e963725a4e}</Project>
+      <Project>{749f828b-3ed8-4ed2-9fcc-35a96de151ca}</Project>
       <Name>OnlineEduDB</Name>
     </ProjectReference>
   </ItemGroup>

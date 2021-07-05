@@ -114,13 +114,13 @@ body {
     width: 33%;
 }
 
-.tabTop .card_inner {
-    background: white;
-    border-radius: 5px;
-    min-width: 225px;
-    width: 100%;
-    border: 1px slategrey solid;
-}
+    .tabTop .card_inner {
+        background: white;
+        border-radius: 5px;
+        min-width: 225px;
+        width: 100%;
+        box-shadow: 1px 1px 8px #333;
+    }
 
 .tabTop .card_inner:hover {
     border: 50px 50px 50px 50px;
@@ -129,27 +129,24 @@ body {
     box-shadow: 1px 1px 10px aquamarine;
 }
 
-.tabTop .card_item img {
-    display: block;
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    border-radius: 5px 0 0;
-    margin-bottom: 10px;
-}
+    .tabTop .card_item img {
+        display: block;
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 5px 5px 0 0;
+        margin-bottom: 10px;
+    }
 
-.tabTop .card_item .role_name {
-    color: #e36686;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0px 5px;
-}
+    .tabTop .card_item .role_name {
+        color: #e36686;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0px 5px;
+    }
 
 .tabTop .card_item .real_name {
     color: #b6c0c2;
@@ -166,19 +163,22 @@ body {
     padding:5px;
 }
 
-.tabTop .card_item .btn-outline-warning {
-    width: 100%;
-    height: 100%;
-    font-size: 20px;
-}
+    .tabTop .card_item .btn-outline-warning {
+        width: 100%;
+        height: 100%;
+        font-size: 20px;
+        color: #FDC500;
+        border: 1px solid;
+        padding-bottom: 3px;
+    }
 
-.tabTop .card_item .btn-outline-warning:hover {
-    color: white;
-    font-size: 20px;
-    background-color: orange;
-    width: 100%;
-    height: 100%;
-}
+    .tabTop .card_item .btn-outline-warning:hover {
+            color: white;
+            font-size: 20px;
+            background-color: #FDC500;
+            width: 100%;
+            height: 100%;
+    }
 
 .clear-both{
     clear: both;
@@ -187,10 +187,19 @@ body {
 .paging {
     margin-top: 40px;
     text-align: center;
+    margin: 20px auto;
+    width: 960px;
 }
  .paging a {
         text-decoration: none;
         border-radius: 5px;
-        padding: 4px 8px;
-        border: 1px solid;
+        padding: 5px 8px;
+        border: 1px solid ;
+        font-weight: 700;
+        font-size: 16px;
   }
+
+  .active {
+    background-color: cadetblue;
+    color: white;
+}

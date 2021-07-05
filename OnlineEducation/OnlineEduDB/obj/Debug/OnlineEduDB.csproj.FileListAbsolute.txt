@@ -5,6 +5,7 @@ C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\
 C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\OnlineEduDB\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\OnlineEduDB\bin\Debug\EntityFramework.xml
 C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\OnlineEduDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\OnlineEduDB\obj\Debug\OnlineEduDB.csprojAssemblyReference.cache
 C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\OnlineEduDB\obj\Debug\OnlineEduDB.csproj.CoreCompileInputs.cache
 C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\OnlineEduDB\obj\Debug\OnlineEduDB.csproj.CopyComplete
 C:\Users\NguyenManhCuong\Desktop\ProjectC#\OnlineEducation_Demo\OnlineEducation\OnlineEduDB\obj\Debug\OnlineEduDB.dll

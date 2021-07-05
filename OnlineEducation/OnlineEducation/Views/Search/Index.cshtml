@@ -5,17 +5,20 @@
 }
 
 <body>
+    <style>
+  
+    </style>
     <div id="wrapper">
         <div id="tabsTop">
             <div id="bodySearch">
-                <div class="searchLeft">Kết quả tìm kiếm: @ViewBag.txtSearch</div>
-                <div class="searchRight">Tìm thấy @ViewBag.totalItem khóa học</div>
+                <div class="searchLeft">Kết quả tìm kiếm: <span style="color:darkcyan;font-weight:700;font-size:18px;">@ViewBag.txtSearch</span></div>
+                <div class="searchRight">Tìm thấy <span style="color:darkcyan;font-weight:700;font-size:18px;">@ViewBag.totalItem</span> khóa học</div>
                 <div class="clear-both"></div>
             </div>
             <div class="titleCourse">
 
                 <div class="titleCourse">
-                    <a class="nav-link active" aria-current="page" href="#">Học nhiều nhất</a>
+                    <a class="nav-link" aria-current="page" href="#">Học nhiều nhất</a>
                     <a class="nav-link" href="#">Đánh giá cao</a>
                     <a class="nav-link" href="#">Mới nhất</a>
                     <a class="nav-link" href="#">Giá thấp đến cao</a>
@@ -28,23 +31,34 @@
                 {
                     <div class="card_item">
                         <div class="card_inner">
-                            <img src="https://laptrinhit.net/wp-content/uploads/2020/03/maxresdefault.jpg">
+                            <img src="~/Content/images/@item.Image_url">
                             <div class="role_name">@item.CourseName</div>
-                            <div class="real_name">Ten Giang Vien Cua Course</div>
-                            <div class="film">@item.Price</div>
+                            <div class="real_name">Gv: Tony</div>
+                            <div class="film">@item.Price Đ</div>
                             <div><button type="button" class="btn btn-outline-warning">KHÁM PHÁ</button></div>
                         </div>
                     </div>
                 }
-                <center>
-                    <div class="paging">
-                        @for (int i = 1; i < ViewBag.totalPae; i++)
-                        {
-                            <a href="/search?txtSearch=@ViewBag.txtSearch&&index=@i">@i</a>
-                        }
-                    </div>
-                </center>
+
             </div>
+            <center>
+                <div class="paging">
+                    @if (ViewBag.totalPage > 1)
+                    {
+                        for (int i = 1; i <= ViewBag.totalPage; i++)
+                        {
+                            if (ViewBag.index == i)
+                            {
+                                <a class="active" href="/search?txtSearch=@ViewBag.txtSearch&&index=@i">@i</a>
+                            }
+                            else
+                            {
+                                <a href="/search?txtSearch=@ViewBag.txtSearch&&index=@i">@i</a>
+                            }
+                        }
+                    }
+                </div>
+            </center>
         </div>
     </div>
 </body>

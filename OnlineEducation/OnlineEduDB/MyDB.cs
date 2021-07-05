@@ -17,7 +17,6 @@ namespace OnlineEduDB
         public virtual DbSet<Chapter> Chapters { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Description> Descriptions { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<MyCourse> MyCourses { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -73,15 +72,7 @@ namespace OnlineEduDB
                 .IsUnicode(false);
 
             modelBuilder.Entity<Course>()
-                .Property(e => e.CourseName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Course>()
                 .Property(e => e.Active_ID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Course>()
-                .Property(e => e.Price)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Course>()
@@ -92,12 +83,6 @@ namespace OnlineEduDB
 
             modelBuilder.Entity<Course>()
                 .HasMany(e => e.Descriptions)
-                .WithRequired(e => e.Course)
-                .HasForeignKey(e => e.Course_ID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.Images)
                 .WithRequired(e => e.Course)
                 .HasForeignKey(e => e.Course_ID)
                 .WillCascadeOnDelete(false);
@@ -125,14 +110,6 @@ namespace OnlineEduDB
                 .IsUnicode(false);
 
             modelBuilder.Entity<Description>()
-                .Property(e => e.Course_ID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Image>()
-                .Property(e => e.Image_url)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Image>()
                 .Property(e => e.Course_ID)
                 .IsUnicode(false);
 
@@ -185,6 +162,10 @@ namespace OnlineEduDB
 
             modelBuilder.Entity<User>()
                 .Property(e => e.PhoneNumber)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Image_url)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()

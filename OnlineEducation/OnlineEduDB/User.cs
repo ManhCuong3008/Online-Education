@@ -36,6 +36,9 @@ namespace OnlineEduDB
 
         public int Role_ID { get; set; }
 
+        [StringLength(255)]
+        public string Image_url { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MyCourse> MyCourses { get; set; }
 

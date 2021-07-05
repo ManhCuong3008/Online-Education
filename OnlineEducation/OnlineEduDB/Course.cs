@@ -14,7 +14,6 @@ namespace OnlineEduDB
         {
             Chapters = new HashSet<Chapter>();
             Descriptions = new HashSet<Description>();
-            Images = new HashSet<Image>();
             MyCourses = new HashSet<MyCourse>();
         }
 
@@ -28,7 +27,7 @@ namespace OnlineEduDB
         public int CategoryCourse { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? CreateDate { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public int? Teacher_ID { get; set; }
 
@@ -37,6 +36,9 @@ namespace OnlineEduDB
 
         [StringLength(100)]
         public string Price { get; set; }
+
+        [StringLength(100)]
+        public string Image_url { get; set; }
 
         public virtual Active Active { get; set; }
 
@@ -49,9 +51,6 @@ namespace OnlineEduDB
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Description> Descriptions { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Image> Images { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MyCourse> MyCourses { get; set; }
