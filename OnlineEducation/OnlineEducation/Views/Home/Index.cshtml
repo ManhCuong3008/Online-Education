@@ -1,0 +1,912 @@
+﻿
+
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="hd-header">
+    <section class="hd-slider-header">
+        <div class="">
+            <img class="hd-slider-header__banner" src="~/Content/images/1.png" alt="" />
+        </div>
+        <div class="">
+            <img class="hd-slider-header__banner" src="~/Content/images/2.png" alt="" />
+        </div>
+        <div class="">
+            <img class="hd-slider-header__banner" src="~/Content/images/3.png" alt="" />
+        </div>
+    </section>
+    <menu class="hd-menu-section">
+        <div class="hd-menu-container">
+            <style>
+                .hd-menu .hd-menu__li {
+                    position: relative;
+                }
+
+                    .hd-menu .hd-menu__li .hd-menu__li_dropdown {
+                        color: #000;
+                        display: none;
+                        position: absolute;
+                        background: #fff;
+                        min-width: 150%;
+                        top: 26px;
+                        box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+                        border-bottom: #7f9fd0 3px solid;
+                        z-index: 99;
+                    }
+
+                        .hd-menu .hd-menu__li:hover .hd-menu__li_dropdown,
+                        .hd-menu .hd-menu__li .hd-menu__li_dropdown.show {
+                            display: block;
+                        }
+
+                        .hd-menu .hd-menu__li .hd-menu__li_dropdown li {
+                            padding: 0;
+                            color: #023160;
+                            display: flex;
+                        }
+
+                            .hd-menu .hd-menu__li .hd-menu__li_dropdown li a {
+                                color: #023160;
+                                padding: 7px 10px;
+                                width: 100%;
+                                white-space: nowrap;
+                                border: 0.5px solid #ccc;
+                                border-left: 0;
+                                border-right: 0;
+                            }
+
+                            .hd-menu .hd-menu__li .hd-menu__li_dropdown li:first-child a {
+                                border-top: 0;
+                            }
+
+                            .hd-menu .hd-menu__li .hd-menu__li_dropdown li:last-child a {
+                                border-bottom: 0;
+                            }
+
+                            .hd-menu .hd-menu__li .hd-menu__li_dropdown li a:hover {
+                                background: #023160;
+                                color: #fff;
+                            }
+            </style>
+            <ul class="hd-menu">
+                <li class="hd-menu__li">
+                    <a href="#" data-language="10">Khóa học</a>
+                    <div class="hd-menu__li_dropdown" id="">
+                        <ul>
+                            <li><a href="#">Lập trình</a></li>
+                            <li><a href="#">Ielts</a></li>
+                            <li><a href="#">Quản trị kinh doanh</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="hd-menu__li">
+                    <a href="#" data-language="57">KHAI GIẢNG</a>
+                    <div class="hd-menu__li_dropdown" id="categories_1">
+                        <ul>
+                            <li><a href="#">Lập trình</a></li>
+                            <li><a href="#">Ielts</a></li>
+                            <li><a href="#">Quản trị kinh doanh</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div id="menu-collapse" class="hd-menu-collapse" href="javascript:void(0);">
+                <a id="menu-collapse-btn" class="hd-menu-collapse__a">☰</a>
+            </div>
+        </div>
+        <style>
+            .hd-row ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            /*fix prefix css*/
+            .hd-col-menu .hd-row li {
+                padding: 5px 0;
+                width: calc(50% - 10px);
+                border-bottom: 1.8px dotted #ccc;
+                margin-left: 10px;
+                display: flex;
+            }
+
+                .hd-col-menu .hd-row li:nth-child(odd) {
+                    margin-left: 0;
+                    margin-right: 10px;
+                }
+
+                .hd-col-menu .hd-row li a {
+                    width: 100%;
+                    height: fit-content;
+                }
+
+            .hd-group-head .hd-group-head__title-group {
+                position: relative;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+
+                .hd-group-head .hd-group-head__title-group .hd-group-head__title-group-detail {
+                    position: absolute;
+                    display: none;
+                    z-index: 999;
+                    left: -100%;
+                    width: 100%;
+                    background: #fff;
+                    top: 0;
+                    border: 1px solid #3b5b8c;
+                }
+
+                .hd-group-head .hd-group-head__title-group:hover .hd-group-head__title-group-detail {
+                    display: block;
+                }
+
+                .hd-group-head .hd-group-head__title-group .hd-group-head__title-group-detail li {
+                    display: flex;
+                }
+
+                    .hd-group-head .hd-group-head__title-group .hd-group-head__title-group-detail li a {
+                        padding: 5px;
+                        flex: 1;
+                    }
+
+                        .hd-group-head .hd-group-head__title-group .hd-group-head__title-group-detail li a:hover {
+                            color: #fff;
+                            background: #3b5b8c;
+                        }
+        </style>
+        <div id="all-menu" class="hd-all-menu" aria-expanded="true">
+            <div class="hd-col-menu">
+                <div class="hd-menu-group">
+                    <div class="hd-group-head"
+                         style="margin-bottom: 5px;padding-bottom: 5px;border-bottom: 3px solid #3b5b8c;">
+                        <a class="hd-group-head__title-group" href="#" data-language="12"></a>
+                    </div>
+                    <div class="hd-row">
+                        <ul>
+                            <li><a href="#">123</a></li>
+                            <li><a href="#">123</a></li>
+                            <li><a href="#">123</a></li>
+                            <li><a href="#">123</a></li>
+                            <li><a href="#">123</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="hd-col-menu">
+                <div class="hd-menu-group">
+                    <div class="hd-group-head"
+                         style="margin-bottom: 5px;padding-bottom: 5px;border-bottom: 3px solid #3b5b8c;">
+                        <a class="hd-group-head__title-group" href="#" target="_blank" rel="noopener"
+                           data-language="10">ỨNG DỤNG</a>
+                    </div>
+                    <div class="hd-row">
+                        <ul>
+                            <li><a href="#">Lập trình</a></li>
+                            <li><a href="#">Ielts</a></li>
+                            <li><a href="#">Đầu tư &amp; Kinh doanh</a></li>
+                            <li><a href="#">Tình huống thực tế</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </menu>
+</header>
+<section class="homepage section section--1st">
+    <div class="homepage section--1st-left">
+        <span></span>
+        <h2 class="homepage section__h2">
+            Khóa học bán chạy nhất
+        </h2>
+        <hr style="margin-left: 0" />
+        <p>
+            Hoconline thiết lập những chuyên đề huấn luyện phù hợp với từng loại
+            hình doanh nghiệp. Setup toàn bộ cơ chế vận hành nhằm thúc đẩy phát
+            triển chiến lược, đo lường rủi ro... Xây dựng biểu mẫu phù hợp cho
+            doanh nghiệp theo từng phòng ban (tài chính kế toán, kinh doanh, nhân
+            sự,...)
+        </p>
+        <div>
+            <button class="homepage section--1st-left__button" data-language="18">XEM THÊM</button>
+        </div>
+    </div>
+    <div class="homepage section--1st-right">
+        <img src="~/Content/images/kh1.jpg"
+             alt="" />
+    </div>
+</section>
+
+<section class="homepage section section--3rd">
+    <div class="container course-grid">
+        <h3 class="text-uppercase text-center" style="margin: 30px 0;">Khóa học nổi bật</h3>
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Khóa học lập trình C#">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh2.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh2.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="homepage section section--3rd">
+    <div class="container course-grid">
+        <h3 class="text-uppercase text-center" style="margin: 30px 0;">KHÓA HỌC KHÁC</h3>
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Khóa học lập trình C#">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh2.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh2.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 course-item">
+                <div class="thumbnail" style="background-color: pink;">
+                    <a class="block-img"
+                       href="#">
+                        <img class="img-responsive cou-pic"
+                             src="~/Content/images/kh1.jpg"
+                             alt="Thủ thuật Excel cập nhật h&agrave;ng tuần từ Học Excel Online">
+                    </a>
+                    <div class="caption">
+                        <h3>
+                            <a href="#"
+                               title="Khóa học lập trình C#">
+                                <span>
+                                    Khóa học lập trình C# từ cơ bản đến chuyên nghiệp trong vòng 3 tháng
+                                </span>
+                            </a>
+                        </h3>
+
+                        <p class="line-break"></p>
+                        <div class="use-info use-info-small">
+                            <a class="u-avatar pull-left" href="#"
+                               title="Giảng Viên">
+                                <img class="img-responsive img-circle"
+                                     src="~/Content/images/GV.png"
+                                     alt="Giảng Viên" />
+                            </a>
+                            <p class="u-name">
+                                <a title="Phan Quân" href="#">
+                                    Phan Quân
+                                </a>
+                                <span class="nn">Founder &amp; CEO </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="price">199,000 đ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="homepage section section--7th">
+    <h2 class="homepage section__h2" data-language="32">KHÓA HỌC SẮP TỚI</h2>
+    <hr />
+    <div class="homepage video-container">
+        <div class="homepage video-bl video-left">
+            <div class="homepage video">
+                <a href="">
+                    <iframe width="806" height="438" src="https://www.youtube.com/embed/wQbcVDq0bm0" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </a>
+            </div>
+        </div>
+        <div class="homepage video-bl video-right">
+            <div class="homepage video">
+                <a href="">
+                    <iframe width="270" height="148" src="https://www.youtube.com/embed/PbHeYnAZl0A" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </a>
+            </div>
+            <div class="homepage video">
+                <a href="">
+                    <iframe width="270" height="148" src="https://www.youtube.com/embed/p_6-CzPOIHQ" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </a>
+            </div>
+            <div class="homepage video">
+                <a href="">
+                    <iframe width="270" height="148" src="https://www.youtube.com/embed/GdiAQdiTCtM" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="homepage section section--2nd" style="min-height: 386px;">
+    <h2 class="homepage section__h2" data-language="">HỆ THỐNG CUNG CẤP ĐIỀU GÌ</h2>
+    <hr>
+    <div class="homepage list">
+        <ul class="homepage list__ul">
+            <li>
+                <div class="homepage list-style-type-cus">
+                    <span>1</span>
+                </div>
+                <p class="homepage list__p" data-language="">THỜI GIAN HỌC NHANH, KIẾN THỨC ĐẦY ĐỦ THEO GIÁO TRÌNH ĐƯỢC KIỂM DUYỆT</p>
+            </li>
+            <li>
+                <div class="homepage list-style-type-cus">
+                    <span>2</span>
+                </div>
+                <p class="homepage list__p" data-language="">THỜI GIAN HỌC NHANH, KIẾN THỨC ĐẦY ĐỦ THEO GIÁO TRÌNH ĐƯỢC KIỂM DUYỆT</p>
+            </li>
+            <li>
+                <div class="homepage list-style-type-cus">
+                    <span>3</span>
+                </div>
+                <p class="homepage list__p" data-language="">THỜI GIAN HỌC NHANH, KIẾN THỨC ĐẦY ĐỦ THEO GIÁO TRÌNH ĐƯỢC KIỂM DUYỆT</p>
+            </li>
+            <li>
+                <div class="homepage list-style-type-cus">
+                    <span>4</span>
+                </div>
+                <p class="homepage list__p" data-language="">THỜI GIAN HỌC NHANH, KIẾN THỨC ĐẦY ĐỦ THEO GIÁO TRÌNH ĐƯỢC KIỂM DUYỆT</p>
+            </li>
+            <li>
+                <div class="homepage list-style-type-cus">
+                    <span>5</span>
+                </div>
+                <p class="homepage list__p" data-language="">THỜI GIAN HỌC NHANH, KIẾN THỨC ĐẦY ĐỦ THEO GIÁO TRÌNH ĐƯỢC KIỂM DUYỆT</p>
+            </li>
+            <li>
+                <div class="homepage list-style-type-cus">
+                    <span>6</span>
+                </div>
+                <p class="homepage list__p" data-language="">THỜI GIAN HỌC NHANH, KIẾN THỨC ĐẦY ĐỦ THEO GIÁO TRÌNH ĐƯỢC KIỂM DUYỆT</p>
+            </li>
+        </ul>
+    </div>
+</section>

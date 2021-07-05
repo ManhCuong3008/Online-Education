@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="form-ctn">
+    @using (Html.BeginForm("CheckLogin", "Login"))
+    {
+        <input type="hidden" name="_token" value="W2gijDDalPkcKeO8wOWv8hwpSZv2sdNWEUsfphLs">
+        <h1>ĐĂNG NHẬP</h1>
+        <p style="color:red;" >@Session["message"]</p>
+        <input type="text" id="username" name="username" placeholder="Tên đăng nhập" />
+        <input type="password" class="password_form" name="password" placeholder="Mật khẩu" />
+        <button class="btn-dangky" type="submit" style="text-transform: uppercase;">
+            ĐĂNG
+            NHẬP
+        </button>
+        <a href="/register" data-language="68">Chưa có tài khoản?</a>
+        <a class="forgot-pass" href="#" data-language="70">Quên mật khẩu?</a>
+     }
+</div>
+

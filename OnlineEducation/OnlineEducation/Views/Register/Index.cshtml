@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="form-ctn">
+    @using (Html.BeginForm("CheckRegister", "Register"))
+    {
+        <h1 data-language="14">ĐĂNG KÝ</h1>
+        <p style="color:red;">@Session["message"]</p>
+        <input type="text" id="username" name="username" placeholder="Tên đăng nhập"/>
+        <input type="text" id="hovaten" name="fullname" placeholder="Tên đầy đủ"/>
+        <input type="text" id="hovaten" name="phone" placeholder="SĐT"   />
+        <input type="text" id="username" name="email" placeholder="Email" />
+        <input type="password" class="password_form" name="password" placeholder="Mật khẩu" />
+        <input type="password" id="username" class="password_form" name="re_password"placeholder="Nhập lại mật khẩu"/>
+        <button class="btn-dangky" type="submit" style="text-transform: uppercase;">
+            ĐĂNG
+            KÝ
+        </button>
+        <a href="/login" data-language="71">Đã có tài khoản?</a>
+        <a class="forgot-pass" href="#" data-language="70">Quên mật khẩu?</a>
+    }
+</div>
+
