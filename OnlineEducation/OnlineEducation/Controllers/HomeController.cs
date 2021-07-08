@@ -12,6 +12,7 @@ namespace OnlineEducation.Controllers
     public class HomeController : Controller
     {
         UserDAO userDAO = new UserDAO();
+        CourseDAO courseDAO = new CourseDAO();
         // GET: Home
         public ActionResult Index() // đã add layout 
         {
@@ -20,6 +21,10 @@ namespace OnlineEducation.Controllers
             {
                 ViewBag.UserModel = user;
             }
+            List<Course> ListHL = courseDAO.getListCoursebyCategory(1);
+            List<Course> ListFood = courseDAO.getListCoursebyCategory(5);
+            ViewBag.ListHL = ListHL;
+            ViewBag.ListFood = ListFood;
             return View();
         }
 

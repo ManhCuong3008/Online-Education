@@ -15,8 +15,7 @@ namespace OnlineEduDB
             Videos = new HashSet<Video>();
         }
 
-        [StringLength(255)]
-        public string ChapterID { get; set; }
+        public int ChapterID { get; set; }
 
         [StringLength(255)]
         public string Name { get; set; }

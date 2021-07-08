@@ -10,12 +10,14 @@ body {
     color: black;
     background-color: rgba(0, 0, 0, 0);
 }
- #wrapper {
+
+#wrapper {
     width: 1160px;
     margin: 0px auto;
     box-sizing: border-box;
     margin-top: 120px;
 }
+
 #bodySearch {
     width: 100%;
     height: 50px;
@@ -23,18 +25,18 @@ body {
     display: block;
 }
 
-#bodySearch .searchLeft {
-    float: left;
-    padding-left: 20px;
-    line-height: 50px;
-}
+    #bodySearch .searchLeft {
+        float: left;
+        padding-left: 20px;
+        line-height: 50px;
+    }
 
-#bodySearch .searchRight {
-    float: right;
-    padding: 0px;
-    line-height: 50px;
-    padding-right: 20px;
-}
+    #bodySearch .searchRight {
+        float: right;
+        padding: 0px;
+        line-height: 50px;
+        padding-right: 20px;
+    }
 
 .titleCourse {
     background-color: #FFC43C;
@@ -45,16 +47,17 @@ body {
     font-weight: bold;
 }
 
- .titleCourse a {
+    .titleCourse a {
         float: left;
         text-decoration: none;
         line-height: 25px;
         padding: 0px 40px;
-       
     }
+
 .nav-link {
     font-size: 16px;
 }
+
 .titleCourse2 {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -73,19 +76,19 @@ body {
     /* background-color: #F2F2F2; */
 }
 
-.tabContentBox .IntroCourse .NameCourse {
-    text-align: left;
-    font-style: initial;
-    font-size: 50px;
-    margin: 10px 30px 20px 10px;
-}
+    .tabContentBox .IntroCourse .NameCourse {
+        text-align: left;
+        font-style: initial;
+        font-size: 50px;
+        margin: 10px 30px 20px 10px;
+    }
 
-.tabContentBox .IntroCourse .InformatioCourse {
-    text-align: left;
-    font-size: 20px;
-    margin: 30px 50px 30px 5px;
-    display: block;
-}
+    .tabContentBox .IntroCourse .InformatioCourse {
+        text-align: left;
+        font-size: 20px;
+        margin: 30px 50px 30px 5px;
+        display: block;
+    }
 
 .tabContentBox .img-course img {
     float: right;
@@ -101,20 +104,21 @@ body {
 /* Information Course Top */
 
 .tabTop {
-    padding: 20px 20px 20px 20px ;
+    padding: 20px 0px 20px 0px;
     width: 100%;
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
-    background-color: whitesmoke;
+    background-color: white;
     box-sizing: border-box;
 }
 
-.tabTop .card_item {
-    padding: 15px 25px;
-    width: 33%;
-}
+    .tabTop .card_item {
+        padding: 15px 25px;
+        width: 33%;
+    }
 
     .tabTop .card_inner {
+        position: relative;
         background: white;
         border-radius: 5px;
         min-width: 225px;
@@ -122,12 +126,12 @@ body {
         box-shadow: 1px 1px 8px #333;
     }
 
-.tabTop .card_inner:hover {
-    border: 50px 50px 50px 50px;
-    border-style: solid;
-    border-color: #FFC43C;
-    box-shadow: 1px 1px 10px aquamarine;
-}
+        .tabTop .card_inner:hover {
+            border: 50px 50px 50px 50px;
+            border-style: solid;
+            border-color: #FFC43C;
+            box-shadow: 1px 1px 10px #78C98E;
+        }
 
     .tabTop .card_item img {
         display: block;
@@ -145,44 +149,72 @@ body {
         margin-bottom: 10px;
         overflow: hidden;
         text-overflow: ellipsis;
-        padding: 0px 5px;
+        padding: 0px 10px;
+        min-height: 36px;
+        line-height: 21px;
+        font-size:16px;
     }
 
-.tabTop .card_item .real_name {
-    color: #b6c0c2;
-    font-size: 18px;
-    font-weight: 100px;
-    padding: 5px
-}
-
-.tabTop .card_item .film {
-    font-size: 14px;
-    line-height: 24px;
-    font-size: 20px;
-    max-height: 150px;
-    padding:5px;
-}
-
-    .tabTop .card_item .btn-outline-warning {
-        width: 100%;
-        height: 100%;
-        font-size: 20px;
-        color: #FDC500;
-        border: 1px solid;
-        padding-bottom: 3px;
+    .tabTop .card_item .real_name {
+        color: #b6c0c2;
+        font-size: 16px;
+        padding: 0px;
+        padding-bottom: 10px;
+        padding-left: 10px;
     }
 
-    .tabTop .card_item .btn-outline-warning:hover {
-            color: white;
-            font-size: 20px;
-            background-color: #FDC500;
-            width: 100%;
-            height: 100%;
+    .tabTop .card_item .film {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #fff;
+        padding: 4px 15px;
+        border-radius: 2px;
+        box-shadow: 0 0 0 4px rgb(255 255 255 / 20%);
+        font-weight: 600;
+        color: #3b5b8c;
+        font-size: 1rem;
+        text-align: end;
     }
 
-.clear-both{
-    clear: both;
+.nav-detail {
+    padding: 14px 20px;
+    width: 100%;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    border-top: 1px solid #f0f1f5;
 }
+    .nav-detail .register-course {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 700;
+        opacity: 1;
+        color: #3b5b8c;
+        background-color: #aaccff30;
+        padding: 8px 18px;
+        border-radius: 50px;
+        margin-right: 20px;
+    }
+    .nav-detail .detail-course {
+        background: rgba(30, 173, 107, 0.13);
+        color: #1ead6b;
+        padding: 8px 28px;
+        font-size: 13px;
+        border-radius: 50px;
+        font-weight: 700;
+    }
+
+        .nav-detail .detail-course:hover {
+            color: lime;
+        }
+        .nav-detail .register-course:hover {
+            color: #1e70bf;
+        }
+
+    .clear-both {
+        clear: both;
+    }
 
 .paging {
     margin-top: 40px;
@@ -190,16 +222,17 @@ body {
     margin: 20px auto;
     width: 960px;
 }
- .paging a {
+
+    .paging a {
         text-decoration: none;
         border-radius: 5px;
         padding: 5px 8px;
-        border: 1px solid ;
+        border: 1px solid;
         font-weight: 700;
         font-size: 16px;
-  }
+    }
 
-  .active {
+.active {
     background-color: cadetblue;
     color: white;
 }

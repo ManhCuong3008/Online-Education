@@ -1,0 +1,268 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Slide show</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/login/style.css" />
+    <link href="~/content/slideshow/assets/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/content/slideshow/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Home.css" rel="stylesheet" />
+    <script src="~/Content/SlideShow/jquery.min.js"></script>
+    <script src="~/Content/SlideShow/owl.carousel.min.js"></script>
+</head>
+
+<body class="homepage">
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            })
+        });
+    </script>
+    <nav id="nav" style="position:static">
+        <div class="nav-top">
+            <div>
+                <div class="contact">
+                    <span><i style="color: #f7c24b"></i>0947.47.5661</span>
+                    <span style="margin: 0 5px 0 10px; color: rgb(255, 255, 255)">|</span>
+                    <span>
+                        <i style="color: #f7c24b"></i>
+                        hoconline@gmail.com
+                    </span>
+                </div>
+                <div class="dn-dx">
+                    <a class="dn-dx__login" href="/Desktop/TEST/signin.html" data-language="13">Đăng nhập</a>
+                    <span>|</span>
+                    <a class="dn-dx__signup" href="/Desktop/TEST/signup.html" data-language="14">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+        <ul id="nav-ul" class="wb ul">
+            <li class="btn-cll">
+                <a id="nav-collapse" class="mb nav-collapse" href="javascript:void(0);"><span>☰</span></a>
+            </li>
+            <li class="logo">
+                <a href="https://facebook.com/chien3182"><img src="images/logo.png" alt="" /></a>
+            </li>
+
+            <li class="search">
+                <div>
+                    <!-- <i class="uil uil-search" id="search_icon"></i> -->
+                    <input id="search_value" class="search__input" type="text"
+                           placeholder="Bạn đang cần tìm khóa học..." data-language-placeholder="69" style="width: 100%" />
+                </div>
+            </li>
+
+            <li class="links">
+                <a class="homepage" href="/" data-language="2">Trang chủ</a>
+                <a class="training" href="#" data-language="1">Đào tạo</a>
+                <a class="ct" href="#" data-language="3">Liên hệ</a>
+            </li>
+
+            <li class="language">
+                <label class="switch">
+                    <input class="switch__checkbox" type="checkbox" />
+                    <span class="switch__slider round"></span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Set up your HTML -->
+    <div class="content-main">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="/images/kh7.jpg">
+                        <div class="role_name">Lập tr&#236;nh Back-end với Python</div>
+                        <div class="real_name">Gv: Tony</div>
+                        <div class="film">399.000 VNĐ</div>
+                        <div class="nav-detail">
+                            <a class="register-course" href="">Đăng ký ngay</a>
+                            <a class="detail-course" href="">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="/images/kh7.jpg">
+                        <div class="role_name">Lập tr&#236;nh Back-end với Python</div>
+                        <div class="real_name">Gv: Tony</div>
+                        <div class="film">399.000 VNĐ</div>
+                        <div class="nav-detail">
+                            <a class="register-course" href="">Đăng ký ngay</a>
+                            <a class="detail-course" href="">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="/images/kh7.jpg">
+                        <div class="role_name">Lập tr&#236;nh Back-end với Python</div>
+                        <div class="real_name">Gv: Tony</div>
+                        <div class="film">399.000 VNĐ</div>
+                        <div class="nav-detail">
+                            <a class="register-course" href="">Đăng ký ngay</a>
+                            <a class="detail-course" href="">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <h4>
+                    <div class="card_item">
+                        <div class="card_inner">
+                            <img src="/images/kh7.jpg">
+                            <div class="role_name">Lập tr&#236;nh Back-end với Python</div>
+                            <div class="real_name">Gv: Tony</div>
+                            <div class="film">399.000 VNĐ</div>
+                            <div class="nav-detail">
+                                <a class="register-course" href="">Đăng ký ngay</a>
+                                <a class="detail-course" href="">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+            <div class="item">
+                <h4>
+                    <div class="card_item">
+                        <div class="card_inner">
+                            <img src="/images/kh7.jpg">
+                            <div class="role_name">Lập tr&#236;nh Back-end với Python</div>
+                            <div class="real_name">Gv: Tony</div>
+                            <div class="film">399.000 VNĐ</div>
+                            <div class="nav-detail">
+                                <a class="register-course" href="">Đăng ký ngay</a>
+                                <a class="detail-course" href="">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+            <div class="item">
+                <h4>
+                    <div class="card_item">
+                        <div class="card_inner">
+                            <img src="/images/kh7.jpg">
+                            <div class="role_name">Lập tr&#236;nh Back-end với Python</div>
+                            <div class="real_name">Gv: Tony</div>
+                            <div class="film">399.000 VNĐ</div>
+                            <div class="nav-detail">
+                                <a class="register-course" href="">Đăng ký ngay</a>
+                                <a class="detail-course" href="">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <section class="section section--8th">
+            <div class="footer-body">
+                <div class="row1">
+                    <div class="col col-1">
+                        <div class="cty">
+                            <h1 data-language="35">NHÓM 1 PRN 292</h1>
+                            <p><img class="lg-f" src="images/logo.png" alt="" /></p>
+                            <p>
+                                <i class="uil uil-location-point"></i>
+                                <span data-language="36">Đại học FPT</span>
+                                <br />
+                                <i class="uil uil-phone-volume"></i>
+                                <span>Hotline: 0947475661</span>
+                            </p>
+                            <p><i class="uil uil-envelope"></i>hoconline@gmail.com</p>
+
+                        </div>
+                    </div>
+                    <div class="col col-2">
+                        <h1 data-language="43">CHUYÊN MỤC</h1>
+                        <p>
+                            <a style="color: white" href="#">Excel</a>
+                        </p>
+                        <p>
+                            <a style="color: white" href="#">Phần mềm kế toán</a>
+                        </p>
+                        <p>
+                            <a style="color: white" href="#">
+                                Giới thiệu việc
+                                làm
+                            </a>
+                        </p>
+                        <p>
+                            <a style="color: white" href="#">
+                                Ứng dụng
+                                B
+                            </a>
+                        </p>
+                        <p>
+                            <a style="color: white" href="#">
+                                Kế
+                                toán - tài chính
+                            </a>
+                        </p>
+                        <p>
+                            <a style="color: white" href="#">
+                                Tài liệu chuyên
+                                ngành
+                            </a>
+                        </p>
+                        <p>
+                            <a style="color: white" href="#">
+                                Không
+                                có danh mục con
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col col-3">
+                        <h1 data-language="40">TIN TỨC TÀI CHÍNH</h1>
+                        <a data-language="41" href="#">Xem lịch khai giảng</a>
+                        <p>123</p>
+                        <p>123</p>
+                        <p>123</p>
+                        <p>123</p>
+
+                    </div>
+
+                </div>
+                <div class="div1" style="border-bottom: none">
+                    <div id="div1__collaspe" class="div1__collaspe" style="text-align: center;
+    padding-top: 15px;
+    margin-bottom: -20px;">
+                        <a class="div1__a">© 2021 C# - SE1435</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </footer>
+
+
+</body>
+</html>

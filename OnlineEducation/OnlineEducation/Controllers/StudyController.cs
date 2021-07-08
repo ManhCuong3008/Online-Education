@@ -6,23 +6,14 @@ using System.Web.Mvc;
 
 namespace OnlineEducation.Controllers
 {
-    public class ProfileController : Controller
+    public class StudyController : Controller
     {
-        // GET: Profile
+        // GET: Study
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult MyCourse()
-        {
-            return View();
-        }
-
-        public ActionResult ActiveCourse()
-        {
-            return View();
-        }
 
     }
 }

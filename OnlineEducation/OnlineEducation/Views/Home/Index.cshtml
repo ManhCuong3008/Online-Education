@@ -4,6 +4,29 @@
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/css/Home.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        })
+    });
+</script>
+
+@*Banner*@
 
 <header class="hd-header">
     <section class="hd-slider-header">
@@ -194,11 +217,14 @@
         </div>
     </menu>
 </header>
+
+@*Khóa học bán chạy nhất*@
+
 <section class="homepage section section--1st">
     <div class="homepage section--1st-left">
         <span></span>
         <h2 class="homepage section__h2">
-            Khóa học bán chạy nhất
+            Khóa học mới nhất
         </h2>
         <hr style="margin-left: 0" />
         <p>
@@ -209,20 +235,76 @@
             sự,...)
         </p>
         <div>
-            <button class="homepage section--1st-left__button" data-language="18">XEM THÊM</button>
+            @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+            {
+                <input  type="hidden" name="txtSearch" value="Lập trình"/>
+                <button class="homepage section--1st-left__button">CHI TIẾT</button>
+            }
         </div>
     </div>
     <div class="homepage section--1st-right">
-        <img src="~/Content/images/kh1.jpg"
-             alt="" />
+        <img src="~/Content/images/kh1.jpg" alt=""/>
     </div>
 </section>
 
+<!-- Khóa học -->
+<div class="content-main">
+    <h2 class="Title-category">KHÓA HỌC NỔI BẬT</h2>
+    <hr />
+    <div class="owl-carousel owl-theme">
+        @foreach (OnlineEduDB.Course item in @ViewBag.ListHL)
+        {
+        <div class="item">
+            <div class="card_item">
+                <div class="card_inner">
+                    <a href="/detailcourse?CourseID=@item.CourseID"><img src="~/Content/images/@item.Image_url"></a>
+                    <div class="role_name">
+                        <a style="color:#e36686;" href="/detailcourse?CourseID=@item.CourseID">@item.CourseName</a>
+                    </div>
+                    <div class="real_name">Gv: Tony</div>
+                    <div class="film">@item.Price VNĐ</div>
+                    <div class="nav-detail">
+                        <a class="register-course" href="">Đăng ký ngay</a>
+                        <a class="detail-course" href="/detailcourse?CourseID=@item.CourseID">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
 
 
+    </div>
+
+    <h2 class="Title-category" style="padding-top:80px;">NẤU ĂN CHUYÊN NGHIỆP</h2>
+    <hr />
+    <div class="owl-carousel owl-theme">
+        @foreach (OnlineEduDB.Course item in ViewBag.ListFood)
+        {
+            <div class="item">
+                <div class="card_item">
+                    <div class="card_inner">
+                        <a href="/detailcourse?CourseID=@item.CourseID"><img src="~/Content/images/@item.Image_url"></a>
+                        <div class="role_name">
+                            <a style="color:#e36686;" href="/detailcourse?CourseID=@item.CourseID">@item.CourseName</a>
+                        </div>
+                        <div class="real_name">Gv: Tony</div>
+                        <div class="film">@item.Price VNĐ</div>
+                        <div class="nav-detail">
+                            <a class="register-course" href="">Đăng ký ngay</a>
+                            <a class="detail-course" href="/detailcourse?CourseID=@item.CourseID">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
 
+@*-----------------------------------------------------------------------------------------------------*@
 
+
+@*Khóa học sắp tới*@
 <section class="homepage section section--7th">
     <h2 class="homepage section__h2" data-language="32">KHÓA HỌC SẮP TỚI</h2>
     <hr />
@@ -262,6 +344,7 @@
     </div>
 </section>
 
+@*Hệ thống cung cấp điều gì*@
 <section class="homepage section section--2nd" style="min-height: 386px;">
     <h2 class="homepage section__h2" data-language="">HỆ THỐNG CUNG CẤP ĐIỀU GÌ</h2>
     <hr>
@@ -304,5 +387,34 @@
                 <p class="homepage list__p" data-language="">THỜI GIAN HỌC NHANH, KIẾN THỨC ĐẦY ĐỦ THEO GIÁO TRÌNH ĐƯỢC KIỂM DUYỆT</p>
             </li>
         </ul>
+    </div>
+</section>
+
+@*Đồng hành cùng doanh nghiệp*@
+<section class="homepage section section--5th">
+    <div class="homepage section--5th-left">
+        <h1 class="homepage section__h2" data-language="27">
+            ĐỒNG HÀNH CNG +10.000 DOANH NGHIỆP
+        </h1>
+        <hr style="margin-left: 0" />
+        <p>
+            DAVID PC thiết lp nhng chuyên đ huấn luyn phù hp vi tng loại hình
+            doanh nghiệp.
+        </p>
+        <div>
+            <button class="homepage section--5th-left__button" data-language="18">XEM THÊM</button>
+        </div>
+    </div>
+    <div class="homepage section--5th-right">
+        <img src="~/Content/images/hp20.png" alt="" />
+        <img src="~/Content/images/hp21.png" alt="" />
+        <img src="~/Content/images/hp22.png" alt="" />
+        <img src="~/Content/images/hp20.png" alt="" />
+        <img src="~/Content/images/hp20.png" alt="" />
+        <img src="~/Content/images/hp21.png" alt="" />
+        <img src="~/Content/images/hp22.png" alt="" />
+        <img src="~/Content/images/hp20.png" alt="" />
+        <img src="~/Content/images/hp20.png" alt="" />
+        <img src="~/Content/images/hp21.png" alt="" />
     </div>
 </section>

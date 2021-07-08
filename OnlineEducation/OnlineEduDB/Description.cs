@@ -15,15 +15,8 @@ namespace OnlineEduDB
         [StringLength(255)]
         public string DescriptonTitle { get; set; }
 
-        [Column("Description")]
-        [StringLength(255)]
+        [Column("Description", TypeName = "ntext")]
         public string Description1 { get; set; }
-
-        [StringLength(255)]
-        public string ShortTitle { get; set; }
-
-        [StringLength(255)]
-        public string ShortDesc { get; set; }
 
         [Required]
         [StringLength(255)]

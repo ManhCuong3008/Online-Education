@@ -17,9 +17,7 @@ namespace OnlineEduDB
         [StringLength(255)]
         public string Video_url { get; set; }
 
-        [Required]
-        [StringLength(255)]
-        public string Chapter_ID { get; set; }
+        public int Chapter_ID { get; set; }
 
         public virtual Chapter Chapter { get; set; }
     }

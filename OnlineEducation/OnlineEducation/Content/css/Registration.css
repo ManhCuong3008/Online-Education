@@ -1,0 +1,259 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+a {
+    text-decoration: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+#main{
+    margin-top:100px;
+}
+img {
+    max-width: 100%;
+    border-style: solid;
+    border-top-color: white;
+}
+
+body {
+    font-family: 'Sarala', sans-serif;
+    line-height: 1;
+    color: black;
+    width: 100%;
+    height: 100%;
+    font-size:16px;
+}
+
+#InformationCourse {
+    width: 100%;
+    height: 420px;
+    background-color: #0B3955;
+    margin-bottom: 50px;
+}
+
+#IntroduceCourse {
+    width: 100%;
+}
+
+#ContentCourse {
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.LeftInformationCourse {
+    width: 50%;
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 10%;
+    padding-top: 10px;
+    float: left;
+}
+
+.LeftInformationCourse .NameOfCourse {
+    font-size: 40px;
+    height: 37%;
+    color: white;
+    padding: 40px 0px 0px 0px;
+    overflow: hidden;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.LeftInformationCourse .InforCourse {
+    font-size: 20px;
+    color: white;
+    height: 10%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0px 5px 5px 0px;
+    margin-bottom: 0px;
+}
+
+.LeftInformationCourse .Button {
+    height: 10%;
+    margin-top: 30px;
+    float: inline-start;
+}
+
+.RightInformationCourse {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    float: right;
+    padding: 30px 10px 10px 10px;
+    margin-bottom: 5px;
+}
+
+#cover-title-content {
+    margin: 0 auto;
+    width: 66%;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid #efefef;
+    transition: all 0.4s ease;
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 25%);
+}
+
+#cover-title-content2 {
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+.RightInformationCourse iframe {
+    width: 86%;
+    height: 100%;
+}
+
+.buttonClickBuy {
+    background: #FFF3F3;
+    border: 2px solid white;
+    margin-bottom: 100px;
+    font-family: "montserrat", sans-serif;
+    text-transform: uppercase;
+    padding: 12px 12px;
+    min-width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.4s linear;
+    position: relative;
+}
+
+.buttonClickBuy:hover {
+    color: tomato;
+}
+
+.buttonClickBuy ::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0.0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+}
+
+
+/* accordion course design code */
+
+.accordion {
+    width: 90%;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.contentBx {
+    background-color: #fff;
+    color: #111;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.accordion-item-header {
+    padding: 0.5rem 0.5rem 0.5rem 3rem;
+    min-height: 3.5rem;
+    line-height: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-item-header::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f107";
+    font-size: 2rem;
+    position: absolute;
+    left: 1rem;
+}
+
+.accordion-item-header.active::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f106";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.accordion-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.accordion-item-body-content {
+    padding: 1rem;
+    line-height: 1.5rem;
+    display: flex;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+}
+
+.title-Content-CourseView {
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Lalezar', cursive;
+    padding: 5px 0px 0px 0px;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.content {
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height:1.5;
+}
+
+
+
+.accordion-item-body-content .content-item {
+    float: left;
+    width: 80%;
+    height: 100%;
+    padding: auto;
+}
+
+.accordion-item-body-content button {
+    padding: 5px 5px;
+    float: right;
+    width: 20%;
+    height: 100%;
+}
+
+#cover-title-content .content .content-item {
+    flex-basis: 50%;
+    font-size: 16px;
+}
+    #cover-title-content .content .content-item:before {
+        content: "✔ ";
+        font-size:16px;
+        font-weight:700;
+        color:forestgreen;
+    }
+#main hr {
+    background-color: #FDC500;
+    height: 1.6px;
+    width: 72px;
+    border: solid #FDC500;
+    margin: 0px auto;
+    margin-bottom: 24px;
+    margin-top: 10px;
+    opacity: 1;
+}

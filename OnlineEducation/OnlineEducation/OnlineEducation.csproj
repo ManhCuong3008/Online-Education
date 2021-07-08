@@ -95,9 +95,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\demo.css" />
+    <Content Include="Content\css\Home.css" />
     <Content Include="Content\css\login\includeHTML.js" />
     <Content Include="Content\css\login\style.css" />
+    <Content Include="Content\css\Registration.css" />
     <Content Include="Content\css\Search\Search.css" />
     <Content Include="Content\css\semantic\semantic.min.css" />
     <Content Include="Content\css\style.css" />
@@ -137,17 +138,30 @@
     <Content Include="Content\js\index.js" />
     <Content Include="Content\routes\index.js" />
     <Content Include="Content\routes\users.js" />
+    <Content Include="Content\SlideShow\assets\ajax-loader.gif" />
+    <Content Include="Content\SlideShow\assets\owl.carousel.css" />
+    <Content Include="Content\SlideShow\assets\owl.carousel.min.css" />
+    <Content Include="Content\SlideShow\assets\owl.theme.default.css" />
+    <Content Include="Content\SlideShow\assets\owl.theme.default.min.css" />
+    <Content Include="Content\SlideShow\assets\owl.theme.green.css" />
+    <Content Include="Content\SlideShow\assets\owl.theme.green.min.css" />
+    <Content Include="Content\SlideShow\assets\owl.video.play.png" />
+    <Content Include="Content\SlideShow\jquery.min.js" />
+    <Content Include="Content\SlideShow\owl.carousel.js" />
+    <Content Include="Content\SlideShow\owl.carousel.min.js" />
     <Content Include="Content\stylesheets\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DetailCourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\StudyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,6 +173,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Content\css\unicons\front\unicons.woff2" />
+    <Content Include="Content\SlideShow\README.md" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -166,6 +181,12 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Account\SlideShow.cshtml" />
+    <Content Include="Views\DetailCourse\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\MyCourse.cshtml" />
+    <Content Include="Views\Profile\ActiveCourse.cshtml" />
+    <Content Include="Views\Study\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -175,12 +196,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Account\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineEduDB\OnlineEduDB.csproj">
-      <Project>{749f828b-3ed8-4ed2-9fcc-35a96de151ca}</Project>
+      <Project>{51ef5e09-cde6-4565-a14c-8ee1f865988a}</Project>
       <Name>OnlineEduDB</Name>
     </ProjectReference>
   </ItemGroup>

@@ -3,10 +3,9 @@
     ViewBag.Title = "Tìm Kiếm Khóa Học";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="~/Content/css/Search/Search.css" rel="stylesheet" />
 <body>
     <style>
-  
     </style>
     <div id="wrapper">
         <div id="tabsTop">
@@ -29,17 +28,23 @@
             <div class="tabTop">
                 @foreach (OnlineEduDB.Course item in @ViewBag.ListCourse)
                 {
-                    <div class="card_item">
-                        <div class="card_inner">
-                            <img src="~/Content/images/@item.Image_url">
-                            <div class="role_name">@item.CourseName</div>
-                            <div class="real_name">Gv: Tony</div>
-                            <div class="film">@item.Price Đ</div>
-                            <div><button type="button" class="btn btn-outline-warning">KHÁM PHÁ</button></div>
+                    <a href="/detailcourse">
+                        <div class="card_item">
+                            <div class="card_inner">
+                                <a href="/detailcourse?CourseID=@item.CourseID"><img src="~/Content/images/@item.Image_url"></a>
+                                <div class="role_name">
+                                    <a style="color:#e36686;" href="/detailcourse?CourseID=@item.CourseID">@item.CourseName</a>
+                                </div>
+                                <div class="real_name">Gv: Tony</div>
+                                <div class="film">@item.Price VNĐ</div>
+                                <div class="nav-detail">
+                                    <a class="register-course" href="">Đăng ký ngay</a>
+                                    <a class="detail-course" href="/detailcourse?CourseID=@item.CourseID">Xem chi tiết</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 }
-
             </div>
             <center>
                 <div class="paging">

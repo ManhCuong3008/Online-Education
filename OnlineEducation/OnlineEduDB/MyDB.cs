@@ -46,18 +46,6 @@ namespace OnlineEduDB
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Chapter>()
-                .Property(e => e.ChapterID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Chapter>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Chapter>()
-                .Property(e => e.Title)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Chapter>()
                 .Property(e => e.Course_ID)
                 .IsUnicode(false);
 
@@ -95,18 +83,6 @@ namespace OnlineEduDB
 
             modelBuilder.Entity<Description>()
                 .Property(e => e.DescriptonTitle)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Description>()
-                .Property(e => e.Description1)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Description>()
-                .Property(e => e.ShortTitle)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Description>()
-                .Property(e => e.ShortDesc)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Description>()
@@ -175,15 +151,7 @@ namespace OnlineEduDB
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Video>()
-                .Property(e => e.Title)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Video>()
                 .Property(e => e.Video_url)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Video>()
-                .Property(e => e.Chapter_ID)
                 .IsUnicode(false);
         }
     }

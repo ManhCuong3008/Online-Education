@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var currentCourse = ViewBag.Course as OnlineEduDB.Course;
+    int count = 1;
+    int count1 = 1;
+    var courseDAO = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarala&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="~/Content/css/Registration.css" rel="stylesheet" />
+
+<div id="main">
+    <div id="InformationCourse">
+        <div class="LeftInformationCourse">
+            <div class="NameOfCourse">@currentCourse.CourseName</div>
+            <div class="InforCourse">
+                Learn React 16, Redux, D3, ES2015, Testing, CSS Flexbox, Animations, SVG, AJAX, and more!
+            </div>
+            <div class="IntroTeacher" style="width: 100%; height: 30%; display: flex; margin-bottom: 10px; margin-top: 10px;">
+                <div style=" width: 20%; height: 100%;"><img src="https://avatarfiles.alphacoders.com/699/thumb-69905.png" style="width: 120px; height: 120px; border-radius: 50%; padding: auto;"></div>
+                <div style=" width: 80%; height: 100%; padding-top: 20px; padding-left: 10px;  overflow: auto; color: white;">
+                    <P style=" font-size: 20px;"><strong>Tony</strong></P>
+                    <p style=" font-size: 15px;">
+                        Hi! I'm Elie and I’m passionate about education and web development. I've spend the past three years as a Lead Instructor at multiple coding schools before co-founding Rithm School. Before Rithm School, I co-taught with Colt Steele
+                        at Galvanize's SF's 6 month immersive program as a Lead Instructor. As a self-taught developer, I’ve experienced firsthand the professional and personal growth that comes with learning how to code. I’m happiest when I’m learning
+                        new technologies and teaching students how to code, and I’m excited to play a part in helping them change their careers and lives for the better. My graduates work at LinkedIn, Google, and Salesforce, and many more.
+                    </p>
+                </div>
+            </div>
+            <div class="Button">
+                <button class="buttonClickBuy">MUA NGAY CHỈ VỚI @currentCourse.Price VNĐ</button>
+            </div>
+        </div>
+        <div class="RightInformationCourse">
+            <iframe src="https://www.youtube.com/embed/CFD9EFcNZTQ"></iframe>
+            <!-- <img src="https://www.g24i.org/wp-content/uploads/2020/03/kissanime.jpg"> -->
+        </div>
+    </div>
+    <div class="title-Content-CourseView">
+        bạn sẽ học được gì
+    </div>
+    <hr>
+    <div id="IntroduceCourse">
+        <div id="cover-title-content">
+            <div class="content">
+                <p class="content-item">Học được điều 1<p>
+                <p class="content-item">Học được điều 2<p>
+                <p class="content-item">Học được điều 3<p>
+                <p class="content-item">Học được điều 4<p>
+                <p class="content-item">Học được điều 5<p>
+                <p class="content-item">Học được điều 6<p>
+                <p class="content-item">Học được điều 7<p>
+            </div>
+        </div>
+        <div class="title-Content-CourseView">
+            giới thiệu khoá học
+        </div>
+        <hr>
+        <div id="cover-title-content">
+
+            <div class="content">
+                Ngôn ngữ lập trình C++ được xây dựng và phát triển từ ngôn ngữ C. Ngôn ngữ C++ không phải
+                là ngôn ngữ hướng đối tượng hoàn toàn mà là ngôn ngữ “đa hướng”. Vì C++ hỗ trợ cả lập trình
+                hướng hành động và lập trình hướng đối tượng. Nó là một trong những ngôn ngữ phổ biến để
+                viết các ứng dụng máy tính – và ngôn ngữ thông dụng nhất để lập trình games.
+            </div>
+        </div>
+    </div>
+    <div id="cover-title-content2">
+        <div class="title-Content-CourseView"> nội dung khoá học </div>
+    </div>
+    <hr>
+    <div id="ContentCourse">
+        <div class="accordion">
+            <div class="contentBx">
+                @foreach (OnlineEduDB.Chapter item in ViewBag.ListChapter)
+                {
+                    if (currentCourse.CourseID == item.Course_ID)
+                    {
+                        <div class="accordion-item-header">
+                            Chương @count: @item.Title
+                        </div>
+                        <div class="accordion-item-body">
+                            @foreach (OnlineEduDB.Video item1 in courseDAO.getListVideobyChapterID(item.ChapterID))
+                            {
+                                <div class="accordion-item-body-content">
+                                    <div class="content-item"> Bài @count1. @item1.Title</div>
+                                    <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?videoID=@item1.VideoID">Học</a>
+                                </div>
+                                count1++;
+                            }
+
+                        </div>
+                    }
+                    count++;
+                }
+            </div>
+        </div>
+    </div>
+    <!-- JS - Accordtion effect -->
+    <script>
+        const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+        accordionItemHeaders.forEach(accordionItemHeader => {
+            accordionItemHeader.addEventListener("click", event => {
+                accordionItemHeader.classList.toggle("active");
+                const accordionItemBody = accordionItemHeader.nextElementSibling;
+                if (accordionItemHeader.classList.contains("active")) {
+                    accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                } else {
+                    accordionItemBody.style.maxHeight = 0;
+                }
+
+            });
+        });
+    </script>
+</div>
+
+
