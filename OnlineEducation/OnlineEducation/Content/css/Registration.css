@@ -55,22 +55,22 @@ body {
 
 .LeftInformationCourse .NameOfCourse {
     font-size: 40px;
-    height: 37%;
     color: white;
     padding: 40px 0px 0px 0px;
     overflow: hidden;
     font-family: 'Fjalla One', sans-serif;
 }
 
-.LeftInformationCourse .InforCourse {
-    font-size: 20px;
-    color: white;
-    height: 10%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0px 5px 5px 0px;
-    margin-bottom: 0px;
-}
+    .LeftInformationCourse .InforCourse {
+        font-size: 20px;
+        color: white;
+        height: 20%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0px 5px 5px 0px;
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
 
 .LeftInformationCourse .Button {
     height: 10%;
@@ -240,6 +240,7 @@ body {
 #cover-title-content .content .content-item {
     flex-basis: 50%;
     font-size: 16px;
+    padding: 10px;
 }
     #cover-title-content .content .content-item:before {
         content: "✔ ";

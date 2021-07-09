@@ -1,8 +1,146 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Vào Học";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var currentCourse = ViewBag.Course as OnlineEduDB.Course;
+    int count = 1;
+    int count1 = 1;
+    var courseDAO = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
+    var currentVideo = ViewBag.Video as OnlineEduDB.Video;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarala&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="~/Content/css/Study.css" rel="stylesheet" />
+<link href="~/Content/css/Registration.css" rel="stylesheet" />
+<div id="wapper-study">
+    <section class="hoconline ctn-sn">
+        <div class="hoconline sn sn--left" style="position: relative">
+            <div>
+                <a class="hoconline btn-back" href="/">Quay lại</a>
+                <p>Bài học: @currentVideo.Title</p>
+            </div>
+            <div class="hmvideo">
+                <a href="">
+                    <iframe src="https://www.youtube.com/embed/FhAIc0tlyaQ" height="600" width="1150"
+                            title="Iframe Example"></iframe>
+                </a>
+            </div>
+            <div class="hoconline ctl-lesson">
+                <div class="hoconline mb mode-auto">
+                    <label class="hoconline switch">
+                        <input type="checkbox" checked />
+                        <span class="hoconline slider round"></span>
+                    </label>
+                    <span>tự động chuyển</span>
+                </div>
+                <div>
+                    <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@ViewBag.beforeID">Bài trước</a>
+                    <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@ViewBag.afterID">Bài tiếp</a>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+            <div class="hoconline mode-auto" style="position: absolute; top: 7px; right: 7px; padding: 0">
+                <label class="hoconline switch">
+                    <input type="checkbox" checked />
+                    <span class="hoconline slider round"></span>
+                </label>
+                <span>Tự động chuyển bài</span>
+            </div>
+        </div>
+        <div class="hoconline sn sn--right">
+            <div id="ContentCourse">
+                <div id="cover-title-content2">
+                    <div class="title-Content-CourseView"> nội dung khoá học </div>
+                </div>
+                <div class="accordion">
+                    <div class="contentBx">
+                        @foreach (OnlineEduDB.Chapter item in ViewBag.ListChapter)
+                        {
+                            if (currentCourse.CourseID == item.Course_ID)
+                            {
+                                if (currentVideo.Chapter_ID == item.ChapterID)
+                                {
+                                    <div class="accordion-item-header Leaned">
+                                        Chương @count: @item.Title
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="accordion-item-header">
+                                        Chương @count: @item.Title
+                                    </div>
+                                }
+                                <div class="accordion-item-body">
+                                    @foreach (OnlineEduDB.Video item1 in courseDAO.getListVideobyChapterID(item.ChapterID))
+                                    {
+                                        if (currentVideo.VideoID == item1.VideoID)
+                                        {
+                                            <div class="accordion-item-body-content current-video">
+                                                <div class="content-item"> Bài @count1. @item1.Title</div>
+                                                <div>
+                                                    <a class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="accordion-item-body-content">
+                                                <div class="content-item"> Bài @count1. @item1.Title</div>
+                                                <div>
+                                                    <a class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
+                                                </div>
+                                            </div>
+                                        }
+                                        count1++;
+                                    }
+                                </div>
+                            }
+                            count++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+        accordionItemHeaders.forEach(accordionItemHeader => {
+            accordionItemHeader.addEventListener("click", event => {
+                accordionItemHeader.classList.toggle("active");
+                const accordionItemBody = accordionItemHeader.nextElementSibling;
+                if (accordionItemHeader.classList.contains("active")) {
+                    accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                } else {
+                    accordionItemBody.style.maxHeight = 0;
+                }
+            });
+        });
 
-<h2>Index</h2>
+        accordionItemHeaders.forEach(accordionItemHeader => {
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if (accordionItemHeader.classList.contains("Leaned")) {
+                accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+            } else {
+                accordionItemBody.style.maxHeight = 0;
+            }
+        });
+    </script>
+</div>
+
 

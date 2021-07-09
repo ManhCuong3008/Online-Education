@@ -21,6 +21,19 @@ namespace OnlineEducation.Model
             return myDB.Courses.Where(c => c.CourseName.Contains(courseName)).OrderBy(c => c.CourseName).Skip(page.getOffset()).Take(page.getLimit()).ToList();
         }
 
+        public List<Course> getListAscByOffset(PageRequest page, string courseName)
+        {
+            return myDB.Courses.Where(c => c.CourseName.Contains(courseName)).OrderBy(c => c.Price).Skip(page.getOffset()).Take(page.getLimit()).ToList();
+        }
+        public List<Course> getListByOffsetOrderByDate(PageRequest page, string courseName)
+        {
+            return myDB.Courses.Where(c => c.CourseName.Contains(courseName)).OrderByDescending(c => c.CreateDate).Skip(page.getOffset()).Take(page.getLimit()).ToList();
+        }
+        public List<Course> getListDescByOffset(PageRequest page, string courseName)
+        {
+            return myDB.Courses.Where(c => c.CourseName.Contains(courseName)).OrderByDescending(c => c.Price).Skip(page.getOffset()).Take(page.getLimit()).ToList();
+        }
+
         public List<Course> getListCoursebyCategory(int  category)
         {
             return myDB.Courses.Where(c => c.CategoryCourse == category).OrderBy(c => SqlFunctions.Checksum(Guid.NewGuid())).Take(6).ToList();
@@ -30,6 +43,11 @@ namespace OnlineEducation.Model
         {
             return myDB.Courses.Where(c => c.CourseID == id).FirstOrDefault();
         }
+        public Teacher getTeacherByID(int teacherid)
+        {
+            return myDB.Teachers.Where(t => t.TeacherID == teacherid).FirstOrDefault();
+        }
+
 
         public List<Chapter> getListChapterByCourseID(string courseID)
         {
@@ -39,6 +57,21 @@ namespace OnlineEducation.Model
         public List<Video> getListVideobyChapterID(int chapterid)
         {
             return myDB.Videos.Where(v => v.Chapter_ID == chapterid).ToList();
+        }
+
+        public Video getVideoByID(int id)
+        {
+            return myDB.Videos.Where(v => v.VideoID == id).FirstOrDefault();
+        }
+
+        public Description getDescByTitle(string title,string courseID)
+        {
+            return myDB.Descriptions.Where(d => d.DescriptonTitle == title && d.Course_ID == courseID).FirstOrDefault();
+        }
+
+        public List<Description> getListDescbyTitle(string title,string courseID)
+        {
+            return myDB.Descriptions.Where(d => d.DescriptonTitle == title && d.Course_ID == courseID).ToList();
         }
 
     }

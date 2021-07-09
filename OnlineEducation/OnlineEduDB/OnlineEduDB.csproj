@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{51EF5E09-CDE6-4565-A14C-8EE1F865988A}</ProjectGuid>
+    <ProjectGuid>{95796AF5-C173-49E3-854E-F376775015D3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OnlineEduDB</RootNamespace>

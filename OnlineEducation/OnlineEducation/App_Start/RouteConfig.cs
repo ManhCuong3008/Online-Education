@@ -17,7 +17,7 @@ namespace OnlineEducation
               url: "home",
               defaults: new { controller = "Home", action = "Index" }
             );
-
+          
             routes.MapRoute(
                 name: "logout",
                 url: "logout",

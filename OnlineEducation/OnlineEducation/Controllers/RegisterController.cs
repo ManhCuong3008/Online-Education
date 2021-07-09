@@ -33,19 +33,19 @@ namespace OnlineEducation.Controllers
             string email = Request["email"];
             string password = Request["password"];
             string re_password= Request["re_password"];
-            string message = "";
+            string messageregister = "";
             User user = userDAO.getUserByUserName(username);
             if (username == "" || fulname==""||phone==""||email==""||password == ""||re_password=="")
             {
-                message = "Thông tin không được để trống";
+                messageregister = "Thông tin không được để trống";
             }
             else if (!password.Equals(re_password))
             {
-                message = "Nhập lại mật khẩu không khớp";
+                messageregister = "Nhập lại mật khẩu không khớp";
             }
             else if (user!=null)
             {
-                message = "Tên tài khoản đã tồn tại";
+                messageregister = "Tên tài khoản đã tồn tại";
             }
             else
             {
@@ -60,16 +60,16 @@ namespace OnlineEducation.Controllers
              
                 if (userDAO.getUser(username, password)==null)
                 {
-                    message = "Đăng ký thất bại, hệ thống đang bị lỗi";
+                    messageregister = "Đăng ký thất bại, hệ thống đang bị lỗi";
                 }
                 else
                 {
-                    message = "Đăng ký tài khoản thành công";
+                    messageregister = "Đăng ký tài khoản thành công";
                     Session["UserModel"] = userModel;
                     Session.Timeout = 15;
                 }
             }
-            Session.Add("message", message);
+            Session.Add("messageregister", messageregister);
             return RedirectToAction("Index", "Register");// có thể thay bằng foward
         }
     }

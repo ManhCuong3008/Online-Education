@@ -26,7 +26,7 @@ namespace OnlineEduDB
         [StringLength(255)]
         public string Url_Image { get; set; }
 
-        [StringLength(255)]
+        [Column(TypeName = "ntext")]
         public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

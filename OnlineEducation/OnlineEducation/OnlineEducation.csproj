@@ -101,11 +101,14 @@
     <Content Include="Content\css\Registration.css" />
     <Content Include="Content\css\Search\Search.css" />
     <Content Include="Content\css\semantic\semantic.min.css" />
+    <Content Include="Content\css\Study.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\unicons\css\unicons.css" />
     <Content Include="Content\images\1.png" />
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\3.png" />
+    <Content Include="Content\images\BillGates.jpg" />
+    <Content Include="Content\images\Elon_Musk.jpg" />
     <Content Include="Content\images\food1.jpg" />
     <Content Include="Content\images\food10.jpg" />
     <Content Include="Content\images\food11.jpg" />
@@ -122,6 +125,7 @@
     <Content Include="Content\images\hp20.png" />
     <Content Include="Content\images\hp21.png" />
     <Content Include="Content\images\hp22.png" />
+    <Content Include="Content\images\Jeff_Bezos.jpg" />
     <Content Include="Content\images\kh1.jpg" />
     <Content Include="Content\images\kh10.jpg" />
     <Content Include="Content\images\kh11.jpg" />
@@ -135,6 +139,9 @@
     <Content Include="Content\images\kh8.jpg" />
     <Content Include="Content\images\kh9.jpg" />
     <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\sir_alex.jpg" />
+    <Content Include="Content\images\WarrenBuffett.png" />
+    <Content Include="Content\images\zuckerberg.jpg" />
     <Content Include="Content\js\index.js" />
     <Content Include="Content\routes\index.js" />
     <Content Include="Content\routes\users.js" />
@@ -156,6 +163,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DetailCourseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -187,6 +195,7 @@
     <Content Include="Views\Profile\MyCourse.cshtml" />
     <Content Include="Views\Profile\ActiveCourse.cshtml" />
     <Content Include="Views\Study\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -199,7 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineEduDB\OnlineEduDB.csproj">
-      <Project>{51ef5e09-cde6-4565-a14c-8ee1f865988a}</Project>
+      <Project>{95796af5-c173-49e3-854e-f376775015d3}</Project>
       <Name>OnlineEduDB</Name>
     </ProjectReference>
   </ItemGroup>

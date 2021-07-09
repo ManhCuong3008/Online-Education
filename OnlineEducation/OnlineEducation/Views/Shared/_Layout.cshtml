@@ -73,11 +73,11 @@
                     {
                         if (ViewBag.txtSearch != null)
                         {
-                            <input id="search_value" class="search__input" type="text" name="txtSearch" placeholder="@ViewBag.txtSearch" style="width: 100%" />
+                            <input required id="search_value" class="search__input" type="text" name="txtSearch" placeholder="@ViewBag.txtSearch" style="width: 100%" />
                         }
                         else
                         {
-                            <input id="search_value" class="search__input" type="text" name="txtSearch"
+                            <input required id="search_value" class="search__input" type="text" name="txtSearch"
                                    placeholder="Bạn đang cần tìm khóa học..." style="width: 100%" />
                         }
                     }
@@ -96,7 +96,6 @@
             </li>
         </ul>
     </nav>
-    <hr />
     <div>
         @RenderBody()
     </div>

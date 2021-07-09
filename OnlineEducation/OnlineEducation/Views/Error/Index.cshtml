@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body{
+        background-color: white;
+    }
+    #wapper-error{
+        min-height:500px;
+    }
+        #wapper-error h1 {
+            color: #008B8B;
+            font-size: 36px;
+            padding-top: 200px;
+        }
+</style>
+<div id="wapper-error">
+    <center>
+        <h1> @ViewBag.message</h1>
+    </center>
+</div>
+  
+

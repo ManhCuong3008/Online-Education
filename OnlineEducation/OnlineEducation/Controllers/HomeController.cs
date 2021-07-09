@@ -11,8 +11,10 @@ namespace OnlineEducation.Controllers
 {
     public class HomeController : Controller
     {
+
         UserDAO userDAO = new UserDAO();
         CourseDAO courseDAO = new CourseDAO();
+
         // GET: Home
         public ActionResult Index() // đã add layout 
         {
@@ -28,16 +30,13 @@ namespace OnlineEducation.Controllers
             return View();
         }
 
-        public ActionResult Logout() // đã add layout 
+        public ActionResult Logout() 
         {
             Session.Remove("UserModel");
+            Session.Remove("messageregister");
+            Session.Remove("messagelogin");
+            Session.Remove("message");
             Response.Redirect("/home");
-            return View();
-        }
-
-        public ActionResult Register()// chưa add layout 
-        {
-      
             return View();
         }
     }

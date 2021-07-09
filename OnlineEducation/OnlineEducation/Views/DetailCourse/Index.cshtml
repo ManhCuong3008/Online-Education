@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
+    var teacher = ViewBag.teacher as OnlineEduDB.Teacher;
     var currentCourse = ViewBag.Course as OnlineEduDB.Course;
     int count = 1;
     int count1 = 1;
@@ -25,6 +26,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+
+
 <link href="~/Content/css/Registration.css" rel="stylesheet" />
 
 <div id="main">
@@ -32,17 +36,19 @@
         <div class="LeftInformationCourse">
             <div class="NameOfCourse">@currentCourse.CourseName</div>
             <div class="InforCourse">
-                Learn React 16, Redux, D3, ES2015, Testing, CSS Flexbox, Animations, SVG, AJAX, and more!
+                @foreach (OnlineEduDB.Description i in ViewBag.descTitle)
+                {
+                    <div>
+                        @i.Description1
+                    </div>   
+                }
             </div>
             <div class="IntroTeacher" style="width: 100%; height: 30%; display: flex; margin-bottom: 10px; margin-top: 10px;">
-                <div style=" width: 20%; height: 100%;"><img src="https://avatarfiles.alphacoders.com/699/thumb-69905.png" style="width: 120px; height: 120px; border-radius: 50%; padding: auto;"></div>
+                <div style=" width: 20%; height: 100%;"><img src="~/Content/images/@teacher.Url_Image" style="width: 120px; height: 120px; border-radius: 50%; padding: auto;"></div>
                 <div style=" width: 80%; height: 100%; padding-top: 20px; padding-left: 10px;  overflow: auto; color: white;">
-                    <P style=" font-size: 20px;"><strong>Tony</strong></P>
+                    <P style=" font-size: 20px;"><strong>GV: @teacher.Name</strong></P>
                     <p style=" font-size: 15px;">
-                        Hi! I'm Elie and I’m passionate about education and web development. I've spend the past three years as a Lead Instructor at multiple coding schools before co-founding Rithm School. Before Rithm School, I co-taught with Colt Steele
-                        at Galvanize's SF's 6 month immersive program as a Lead Instructor. As a self-taught developer, I’ve experienced firsthand the professional and personal growth that comes with learning how to code. I’m happiest when I’m learning
-                        new technologies and teaching students how to code, and I’m excited to play a part in helping them change their careers and lives for the better. My graduates work at LinkedIn, Google, and Salesforce, and many more.
-                    </p>
+                        @teacher.Description
                 </div>
             </div>
             <div class="Button">
@@ -61,13 +67,12 @@
     <div id="IntroduceCourse">
         <div id="cover-title-content">
             <div class="content">
-                <p class="content-item">Học được điều 1<p>
-                <p class="content-item">Học được điều 2<p>
-                <p class="content-item">Học được điều 3<p>
-                <p class="content-item">Học được điều 4<p>
-                <p class="content-item">Học được điều 5<p>
-                <p class="content-item">Học được điều 6<p>
-                <p class="content-item">Học được điều 7<p>
+                @foreach (OnlineEduDB.Description i in ViewBag.listDescLearn)
+                {
+                    <p class="content-item">
+                        @i.Description1
+                    </p>
+                }
             </div>
         </div>
         <div class="title-Content-CourseView">
@@ -75,63 +80,62 @@
         </div>
         <hr>
         <div id="cover-title-content">
-
-            <div class="content">
-                Ngôn ngữ lập trình C++ được xây dựng và phát triển từ ngôn ngữ C. Ngôn ngữ C++ không phải
-                là ngôn ngữ hướng đối tượng hoàn toàn mà là ngôn ngữ “đa hướng”. Vì C++ hỗ trợ cả lập trình
-                hướng hành động và lập trình hướng đối tượng. Nó là một trong những ngôn ngữ phổ biến để
-                viết các ứng dụng máy tính – và ngôn ngữ thông dụng nhất để lập trình games.
-            </div>
+            @foreach (OnlineEduDB.Description i in ViewBag.listDescIntro)
+            {
+                <div class="content">
+                    <p>
+                        👉 @i.Description1
+                    </p>
+                </div>
+            }
         </div>
     </div>
-    <div id="cover-title-content2">
-        <div class="title-Content-CourseView"> nội dung khoá học </div>
-    </div>
-    <hr>
-    <div id="ContentCourse">
-        <div class="accordion">
-            <div class="contentBx">
-                @foreach (OnlineEduDB.Chapter item in ViewBag.ListChapter)
-                {
-                    if (currentCourse.CourseID == item.Course_ID)
+        <div id="cover-title-content2">
+            <div class="title-Content-CourseView"> nội dung khoá học </div>
+        </div>
+        <hr>
+        <div id="ContentCourse">
+            <div class="accordion">
+                <div class="contentBx">
+                    @foreach (OnlineEduDB.Chapter item in ViewBag.ListChapter)
                     {
-                        <div class="accordion-item-header">
-                            Chương @count: @item.Title
-                        </div>
-                        <div class="accordion-item-body">
-                            @foreach (OnlineEduDB.Video item1 in courseDAO.getListVideobyChapterID(item.ChapterID))
-                            {
-                                <div class="accordion-item-body-content">
-                                    <div class="content-item"> Bài @count1. @item1.Title</div>
-                                    <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?videoID=@item1.VideoID">Học</a>
-                                </div>
-                                count1++;
-                            }
-
-                        </div>
+                        if (currentCourse.CourseID == item.Course_ID)
+                        {
+                            <div class="accordion-item-header">
+                                Chương @count: @item.Title
+                            </div>
+                            <div class="accordion-item-body">
+                                @foreach (OnlineEduDB.Video item1 in courseDAO.getListVideobyChapterID(item.ChapterID))
+                                {
+                                    <div class="accordion-item-body-content">
+                                        <div class="content-item"> Bài @count1. @item1.Title</div>
+                                        <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
+                                    </div>
+                                    count1++;
+                                }
+                            </div>
+                        }
+                        count++;
                     }
-                    count++;
-                }
+                </div>
             </div>
         </div>
-    </div>
-    <!-- JS - Accordtion effect -->
-    <script>
-        const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+        <!-- JS - Accordtion effect -->
+        <script>
+            const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+            accordionItemHeaders.forEach(accordionItemHeader => {
+                accordionItemHeader.addEventListener("click", event => {
+                    accordionItemHeader.classList.toggle("active");
+                    const accordionItemBody = accordionItemHeader.nextElementSibling;
+                    if (accordionItemHeader.classList.contains("active")) {
+                        accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                    } else {
+                        accordionItemBody.style.maxHeight = 0;
+                    }
 
-        accordionItemHeaders.forEach(accordionItemHeader => {
-            accordionItemHeader.addEventListener("click", event => {
-                accordionItemHeader.classList.toggle("active");
-                const accordionItemBody = accordionItemHeader.nextElementSibling;
-                if (accordionItemHeader.classList.contains("active")) {
-                    accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
-                } else {
-                    accordionItemBody.style.maxHeight = 0;
-                }
-
+                });
             });
-        });
-    </script>
-</div>
+        </script>
+    </div>
 
 

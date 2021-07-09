@@ -24,23 +24,24 @@ namespace OnlineEducation.Controllers
         {
             string username = Request["username"];
             string password = Request["password"];
-            string message = "";
+            string messagelogin = "";
             User user = userDAO.getUser(username, password);
             if (username == "" || password == "")
             {
-                message = "Tài khoản mật khẩu không được để trống";
+                messagelogin = "Tài khoản mật khẩu không được để trống";
             }
             else if (user == null)
             {
-                message = "Tên đăng nhập hoặc mật khẩu sai";
+                messagelogin = "Tên đăng nhập hoặc mật khẩu sai";
             }
             else
             {
+                messagelogin = "";
                 Session["UserModel"] = user;
                 Session.Timeout = 15;
                 return RedirectToAction("Index","Home");
             }
-            Session.Add("message", message);
+            Session.Add("messagelogin", messagelogin);
             return RedirectToAction("Index","Login");// có thể thay bằng foward
         }
     }

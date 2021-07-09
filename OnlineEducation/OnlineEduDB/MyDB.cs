@@ -116,10 +116,6 @@ namespace OnlineEduDB
                 .IsUnicode(false);
 
             modelBuilder.Entity<Teacher>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Teacher>()
                 .HasMany(e => e.Courses)
                 .WithOptional(e => e.Teacher)
                 .HasForeignKey(e => e.Teacher_ID);
