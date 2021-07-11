@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +26,19 @@ namespace OnlineEducation.Model
             //      new SqlParameter("@password", password)
             //      ).FirstOrDefault();
             return mydb.Users.Where(u => u.Username == username&&u.Password==password).FirstOrDefault();
+        }
+        public User getUser(string username, string password,string fullname, string phone, string email)
+        {
+            return mydb.Users.Where(u => u.Username == username && u.Password == password&&u.FullName==fullname&&u.PhoneNumber== phone&&u.Email==email).FirstOrDefault();
+        }
+        public void updateInforUser(User user)
+        {
+            var userUpdate = mydb.Users.Where(u => u.Username == user.Username).FirstOrDefault();
+            userUpdate.Password = user.Password;
+            userUpdate.FullName = user.FullName;
+            userUpdate.PhoneNumber = user.PhoneNumber;
+            userUpdate.Email = user.Email;
+            mydb.SaveChanges();
         }
 
         public User getUserByUserName(string username)

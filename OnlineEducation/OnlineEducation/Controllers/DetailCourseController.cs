@@ -14,13 +14,23 @@ namespace OnlineEducation.Controllers
         // GET: DetailCourse
         public ActionResult Index()
         {
+
             User user = (User)Session["UserModel"];
+            int userid = 0;
             if (user != null)
             {
+                userid = user.UserID;
                 ViewBag.UserModel = user;
             }
-            
             string CourseID = Request["CourseID"];
+            MyCourse myCourse = courseDAO.getMyCourse(userid, CourseID);
+            string status = "Viewer";
+            if (myCourse!=null)
+            {
+                 status = "customer";
+            }
+           
+           
             Course course = courseDAO.getCourseByID(CourseID);
             Teacher teacher = courseDAO.getTeacherByID(Convert.ToInt32(course.Teacher_ID));
             List<Description> descTitle = courseDAO.getListDescbyTitle("Title",CourseID);
@@ -33,6 +43,7 @@ namespace OnlineEducation.Controllers
             ViewBag.descTitle = descTitle;
             ViewBag.listDescLearn = listDescLearn;
             ViewBag.listDescIntro = listDescIntro;
+            ViewBag.status = status;
             return View();
         }
     }

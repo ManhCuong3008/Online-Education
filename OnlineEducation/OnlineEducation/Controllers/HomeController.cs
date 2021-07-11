@@ -27,17 +27,18 @@ namespace OnlineEducation.Controllers
             List<Course> ListFood = courseDAO.getListCoursebyCategory(5);
             ViewBag.ListHL = ListHL;
             ViewBag.ListFood = ListFood;
+            ViewBag.courseDAO = courseDAO;
             return View();
         }
 
-        public ActionResult Logout() 
+        public ActionResult Contact()
+        {
+            return View();
+        }
+            public ActionResult Logout() 
         {
             Session.Remove("UserModel");
-            Session.Remove("messageregister");
-            Session.Remove("messagelogin");
-            Session.Remove("message");
-            Response.Redirect("/home");
-            return View();
+            return Redirect("/home");
         }
     }
 }

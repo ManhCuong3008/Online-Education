@@ -3,6 +3,9 @@
     ViewBag.Title = "Tìm Kiếm Khóa Học";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var courseDao = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
+}
 <link href="~/Content/css/Search/Search.css" rel="stylesheet" />
 <body>
     <style>
@@ -35,7 +38,7 @@
                                 <div class="role_name">
                                     <a style="color:#e36686;" href="/detailcourse?CourseID=@item.CourseID">@item.CourseName</a>
                                 </div>
-                                <div class="real_name">Gv: Tony</div>
+                                <div class="real_name">Gv: @courseDao.getTeacherByID(Convert.ToInt32(item.Teacher_ID)).Name</div>
                                 <div class="film">@item.Price VNĐ</div>
                                 <div class="nav-detail">
                                     <a class="register-course" href="">Đăng ký ngay</a>

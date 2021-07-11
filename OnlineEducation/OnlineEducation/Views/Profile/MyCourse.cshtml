@@ -1,8 +1,91 @@
-﻿
-@{
-    ViewBag.Title = "MyCourse";
+﻿@{
+    ViewBag.Title = "Khóa học đã mua";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var courseDao = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
+    Random random = new Random();
+}
 
-<h2>Khóa học đã mua</h2>
-
+   
+<link href="~/Content/css/user.css" rel="stylesheet" />
+<body>
+    <section class="tcnvcd ctn-sn ctn-sn-1" style="margin-top:110px">
+        <div class="tcnvcd nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="tcnvcd nav-link" id="nav-khdm-tab" data-bs-target="#khdm" role="tab" href="/Profile/MyCourse">
+                KHÓA HỌC ĐÃ MUA
+            </a>
+            <a class="tcnvcd nav-link active" id="nav-hscn-tab" data-bs-target="#hscn" role="tab" href="/Profile/Index">
+                HỒ SƠ CÁ NHÂN
+            </a>
+        </div>
+        <div class="khoahoc ctn-sn ctn-sn-1">
+           
+                <div id="sidebar" class="khoahoc sidebar">
+                    <div class="khoahoc bar bar-2">
+                        <div class="khoahoc bar-head">
+                            <h2 class="khoahoc bar-head__title">KHÓA HỌC ĐỀ XUẤT NÊN MUA</h2>
+                        </div>
+                        <div class="khoahoc bar-content">
+                            <ul>
+                                @for (int i = 0; i <= 2; i++)
+                                {
+                                    int index = random.Next(ViewBag.ListCourseOffer.Count);
+                                    OnlineEduDB.Course Course = ViewBag.ListCourseOffer[index];
+                                    <li>
+                                        <div>
+                                            <div class="img-div">
+                                                <a href="/detailcourse?CourseID=@Course.CourseID">
+                                                    <img src="~/Content/images/kh7.jpg" alt="" />
+                                                </a>
+                                            </div>
+                                            <a href="/detailcourse?CourseID=@Course.CourseID">
+                                                <div>@Course.CourseName</div>
+                                                <div>Xem chi tiết</div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            @foreach (OnlineEducation.Model.MyCourseModel item in ViewBag.listMyCourse)
+            {
+                <div class="khoahoc lst-crse">
+                    <div class="khoahoc owl-item active">
+                        <div class="khoahoc item">
+                            <div class="khoahoc fcrse_1">
+                                <a href="/detailcourse?CourseID=@item.CourseID"
+                                   class="khoahoc fcrse_img">
+                                    <img src="~/Content/images/kh7.jpg" alt="" />
+                                </a>
+                                <div class="khoahoc fcrse_content">
+                                    <h3 class="khoahoc bl-title">
+                                        <a href="/detailcourse?CourseID=@item.CourseID">@item.CourseName</a>
+                                    </h3>
+                                    <div>
+                                        <p>GV: @courseDao.getTeacherByID(Convert.ToInt32(item.Teacher_ID)).Name</p>
+                                        <div>
+                                            <div class="khoahoc auth1lnkprce">
+                                                <div class="khoahoc education_block_author">
+                                                    <h5><a href="/Study?courseID=@item.CourseID&&videoID=@courseDao.getVideoIdMyCourse(item.CourseID)" tabindex="-1">Vào Học</a></h5>
+                                                </div>
+                                                <a href="/detailcourse?CourseID=@item.CourseID">
+                                                    <div class="khoahoc shrt-cart-btn">
+                                                        <i class="khoahoc"></i>
+                                                        <span>Xem chi tiết</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</body>

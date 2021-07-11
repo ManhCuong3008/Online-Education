@@ -11,7 +11,7 @@ namespace OnlineEducation.Controllers
         // GET: Error
         public ActionResult Index()
         {
-            ViewBag.message = Session["message"];
+            ViewBag.message = "Không tìm thấy khóa học với từ khóa trên";
             return View();
         }
     }

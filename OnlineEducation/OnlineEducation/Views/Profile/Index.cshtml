@@ -1,8 +1,64 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Thông tin cá nhân";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = ViewBag.UserModel as OnlineEduDB.User;
 }
 
-<h2>Đây là trang chủ của profile</h2>
+<link href="~/Content/css/user.css" rel="stylesheet" />
+
+    <section class="tcnvcd ctn-sn ctn-sn-1" style="margin-top: 110px">
+        <div class="tcnvcd nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="tcnvcd nav-link" id="nav-khdm-tab" data-bs-target="#khdm" role="tab" href="/Profile/MyCourse">
+                KHÓA HỌC ĐÃ MUA
+            </a>
+            <a class="tcnvcd nav-link active" id="nav-hscn-tab" data-bs-target="#hscn" role="tab" href="/Profile/Index">
+                HỒ SƠ CÁ NHÂN
+            </a>
+        </div>
+        <div class="tcnvcd sn tab-content" id="nav-tabContent">
+            <div class="tcnvcd tab-pane fade" id="khdm" role="tabpanel" aria-labelledby="nav-khdm-tab">
+                <div class="tcnvcd khdm">
+                    <div class="tcnvcd slider slider-content1" style="color: black">
+                    </div>
+                </div>
+            </div>
+            <div class="tcnvcd tab-pane fade show active" id="hscn" role="tabpanel" aria-labelledby="nav-hscn-tab">
+               
+                @using (Html.BeginForm("Update", "Profile", FormMethod.Post))
+                {
+                    <input type="hidden" name="_token" value="tTXT53Dve8x0Vxi1Y81JSlQBsolCQyhVFDWCJqph">
+                    <div class="tcnvcd hscn">
+                        <div>
+                            <div>
+                                <img src="https://davidfc.vn/img/avatar/default.jpg" alt="" />
+                            </div>
+                            <div>
+                                <p style="color:red;">@ViewBag.message</p>
+                                <label for="username" class="tcnvcd form-label" >Tên đăng nhập</label>
+                                <input type="text" class="tcnvcd form-control" id="username" name="username" value="@user.Username" disabled /><br>
+                                <label for="password" class="tcnvcd form-label">Mật khẩu</label>
+                                <input type="text" class="tcnvcd form-control" id="password" name="password" value="@user.Password" /><br>
+                                <label for="fullname" class="tcnvcd form-label">Họ và tên</label>
+                                <input type="text" class="tcnvcd form-control" id="fullname" name='fullname' value="@user.FullName" /><br>
+                            </div>
+                            <div>
+                                <br>
+                                <label for="email" class="tcnvcd form-label">Email</label>
+                                <input type="email" class="tcnvcd form-control" id="email" name="email" value="@user.Email" /><br>
+                                <label for="phone" class="tcnvcd form-label">Số điện thoại</label>
+                                <input type="number" name="phone" class="tcnvcd form-control" id="phone" value="@user.PhoneNumber" />
+                            </div>
+                        </div>
+                        <button type="submit" class="tcnvcd btn btn-primary">
+                            Lưu thông tin
+                        </button>
+                        <div style="clear: both"></div>
+                    </div>
+                }
+                </di>
+        </div>
+    </section>
+
+
 

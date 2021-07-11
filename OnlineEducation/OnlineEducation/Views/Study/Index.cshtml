@@ -32,7 +32,7 @@
     <section class="hoconline ctn-sn">
         <div class="hoconline sn sn--left" style="position: relative">
             <div>
-                <a class="hoconline btn-back" href="/">Quay lại</a>
+                <a class="hoconline btn-back" href="/detailcourse?CourseID=@currentCourse.CourseID">Quay lại</a>
                 <p>Bài học: @currentVideo.Title</p>
             </div>
             <div class="hmvideo">
@@ -50,8 +50,17 @@
                     <span>tự động chuyển</span>
                 </div>
                 <div>
-                    <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@ViewBag.beforeID">Bài trước</a>
-                    <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@ViewBag.afterID">Bài tiếp</a>
+                    @if (ViewBag.status != "Viewer")
+                    {
+                        <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@ViewBag.beforeID">Bài trước</a>
+                        <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@ViewBag.afterID">Bài tiếp</a>
+                    }
+                    else
+                    {
+                        <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@currentVideo.VideoID">Bài trước</a>
+                        <a href="/Study?courseID=@currentCourse.CourseID&&videoID=@currentVideo.VideoID">Bài tiếp</a>
+
+                    }
                     <div style="clear: both"></div>
                 </div>
             </div>
@@ -94,7 +103,14 @@
                                             <div class="accordion-item-body-content current-video">
                                                 <div class="content-item"> Bài @count1. @item1.Title</div>
                                                 <div>
-                                                    <a class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
+                                                    @if (ViewBag.status == "Viewer" && count1 <= 2)
+                                                    {
+                                                        <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học thử</a>
+                                                    }
+                                                    @if (ViewBag.status != "Viewer")
+                                                    {
+                                                        <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
+                                                    }
                                                 </div>
                                             </div>
                                         }
@@ -103,7 +119,14 @@
                                             <div class="accordion-item-body-content">
                                                 <div class="content-item"> Bài @count1. @item1.Title</div>
                                                 <div>
-                                                    <a class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
+                                                    @if (ViewBag.status == "Viewer" && count1 <= 2)
+                                                    {
+                                                        <a style="margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học thử</a>
+                                                    }
+                                                    @if (ViewBag.status != "Viewer")
+                                                    {
+                                                        <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
+                                                    }
                                                 </div>
                                             </div>
                                         }

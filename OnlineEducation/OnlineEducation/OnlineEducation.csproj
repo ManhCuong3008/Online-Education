@@ -104,6 +104,7 @@
     <Content Include="Content\css\Study.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\unicons\css\unicons.css" />
+    <Content Include="Content\css\user.css" />
     <Content Include="Content\images\1.png" />
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\3.png" />
@@ -174,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\CourseDAO.cs" />
+    <Compile Include="Model\MyCourseModel.cs" />
     <Compile Include="Model\UserDAO.cs" />
     <Compile Include="Paging\PageRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,6 +198,7 @@
     <Content Include="Views\Profile\ActiveCourse.cshtml" />
     <Content Include="Views\Study\Index.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

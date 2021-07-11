@@ -9,13 +9,13 @@
     @using (Html.BeginForm("CheckRegister", "Register"))
     {
         <h1 data-language="14">ĐĂNG KÝ</h1>
-        <p style="color:red;">@Session["messageregister"]</p>
-        <input type="text" id="username" name="username" placeholder="Tên đăng nhập"/>
-        <input type="text" id="hovaten" name="fullname" placeholder="Tên đầy đủ"/>
-        <input type="text" id="hovaten" name="phone" placeholder="SĐT"   />
-        <input type="text" id="username" name="email" placeholder="Email" />
-        <input type="password" class="password_form" name="password" placeholder="Mật khẩu" />
-        <input type="password" id="username" class="password_form" name="re_password"placeholder="Nhập lại mật khẩu"/>
+        <p style="color:red;">@ViewBag.messageregister</p>
+        <input type="text" id="username" name="username" placeholder="Tên đăng nhập" value="@ViewBag.username"/>
+        <input type="text" id="hovaten" name="fullname" placeholder="Tên đầy đủ" value="@ViewBag.fulname"/>
+        <input type="text" id="hovaten" name="phone" placeholder="SĐT" value="@ViewBag.phone" />
+        <input type="text" id="username" name="email" placeholder="Email" value="@ViewBag.email" />
+        <input type="password" class="password_form" name="password" placeholder="Mật khẩu" value="@ViewBag.password"/>
+        <input type="password" id="username" class="password_form" name="re_password"placeholder="Nhập lại mật khẩu" value="@ViewBag.re_password"/>
         <button class="btn-dangky" type="submit" style="text-transform: uppercase;">
             ĐĂNG
             KÝ

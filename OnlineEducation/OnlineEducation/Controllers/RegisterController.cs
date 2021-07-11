@@ -69,8 +69,16 @@ namespace OnlineEducation.Controllers
                     Session.Timeout = 15;
                 }
             }
-            Session.Add("messageregister", messageregister);
-            return RedirectToAction("Index", "Register");// có thể thay bằng foward
+            //Session.Add("messageregister", messageregister);
+            ViewBag.messageregister = messageregister;
+            ViewBag.username = username;
+            ViewBag.fulname = fulname;
+            ViewBag.phone = phone;
+            ViewBag.email = email;
+            ViewBag.password = password;
+            ViewBag.re_password = re_password;
+            //  return RedirectToAction("Index", "Register");// có thể thay bằng foward
+            return View("Index");
         }
     }
 }

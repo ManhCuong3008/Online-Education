@@ -41,8 +41,12 @@ namespace OnlineEducation.Controllers
                 Session.Timeout = 15;
                 return RedirectToAction("Index","Home");
             }
-            Session.Add("messagelogin", messagelogin);
-            return RedirectToAction("Index","Login");// có thể thay bằng foward
+            //Session.Add("messagelogin", messagelogin);
+            ViewBag.messagelogin = messagelogin;
+            ViewBag.username = username;
+            ViewBag.password = password;
+            // return RedirectToAction("Index","Login");// có thể thay bằng foward
+            return View("Index"); // đây la điều hướng bằng foward
         }
     }
 }

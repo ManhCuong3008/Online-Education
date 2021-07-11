@@ -42,9 +42,6 @@ namespace OnlineEducation.Controllers
             List<Course> ListCourse = new List<Course>();
             if (textSearch=="")
             {
-                message = "Không tìm thấy khóa học với từ khóa trên";
-                Session["message"] = message;
-                Session.Timeout = 15;
                 return RedirectToAction("Index", "Error");
             }
             if (sortBy== "ascPrice")
@@ -68,6 +65,7 @@ namespace OnlineEducation.Controllers
             ViewBag.txtSearch = textSearch;
             ViewBag.totalPage = totalPage;
             ViewBag.totalItem = totalItem;
+            ViewBag.courseDAO = courseDAO;
             return View();
         }
     }

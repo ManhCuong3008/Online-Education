@@ -30,7 +30,7 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <nav id="nav" style="background-color:#F5F5F5;">
+    <nav id="nav" style=" background-color:#FFFFFF;">
         <div class="nav-top">
             <div>
                 <div class="contact">
@@ -73,12 +73,12 @@
                     {
                         if (ViewBag.txtSearch != null)
                         {
-                            <input required id="search_value" class="search__input" type="text" name="txtSearch" placeholder="@ViewBag.txtSearch" style="width: 100%" />
+                            <input required id="search_value" class="search__input" type="text" name="txtSearch" placeholder="@ViewBag.txtSearch" style="width: 100%" autocomplete="on" />
                         }
                         else
                         {
                             <input required id="search_value" class="search__input" type="text" name="txtSearch"
-                                   placeholder="Bạn đang cần tìm khóa học..." style="width: 100%" />
+                                   placeholder="Bạn đang cần tìm khóa học..." style="width: 100%" autocomplete="on"/>
                         }
                     }
                 </div>
@@ -86,7 +86,7 @@
 
             <li class="links">
                 <a class="homepage" href="/home" data-language="2">Trang chủ</a>
-                <a class="ct">@Html.ActionLink("Liên hệ", "Index", "SlideShow")</a>
+                <a class="ct"href="/contact">Liên hệ</a>
             </li>
             <li class="language">
                 <label class="switch">
