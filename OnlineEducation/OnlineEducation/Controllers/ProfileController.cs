@@ -50,7 +50,6 @@ namespace OnlineEducation.Controllers
             {
                 userDAO.updateInforUser(UserModel);
                 message = "Cập nhật thành công";
-                
             }
             ViewBag.message = message;
             Session["UserModel"] = UserModel;
