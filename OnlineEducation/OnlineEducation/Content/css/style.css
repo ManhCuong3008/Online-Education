@@ -160,7 +160,7 @@ body {
     -webkit-animation-duration: 1.5s;
     animation-name: body-fade;
     animation-duration: 1.5s;
-    background-color: #0975B4;
+    background-color: #FDC500;
     height: unset;
     font-family: "Roboto", sans-serif;
 }
@@ -443,7 +443,7 @@ nav .logo {
 }
 
     nav .logo img {
-       height:60%;
+        height: 60%;
     }
 
 nav .search {
@@ -7173,7 +7173,6 @@ body.khoahoc {
     width: 35%;
     height: 100%;
     float: right;
-    margin-top: 76px;
 }
 
 .khoahoc.bar {
@@ -7187,7 +7186,7 @@ body.khoahoc {
 
 .khoahoc.bar-head {
     padding: 25px;
-    background-color: #023160;
+    background-color: #FDC500;
     border-radius: 10px 10px 0 0;
 }
 

@@ -32,7 +32,6 @@ namespace OnlineEducation.Controllers
             {
                 ViewBag.UserModel = UserModel;
             }
-            string username = Request["username"];
             string password = Request["password"];
             string fullname = Request["fullname"];
             string email = Request["email"];

@@ -123,6 +123,5 @@ namespace OnlineEducation.Model
             }
             return ListAllCourse;
         }
-
     }
 }
