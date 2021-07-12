@@ -99,29 +99,21 @@ namespace OnlineEducation.Model
                         };
             return model.ToList();
         }
-        
+
 
         public int getVideoIdMyCourse(string courseId)
         {
-            Chapter chapter1 =  getListChapterByCourseID(courseId)[0];
+            Chapter chapter1 = getListChapterByCourseID(courseId)[0];
             Video video = getListVideobyChapterID(chapter1.ChapterID)[0];
             return Convert.ToInt32(video.VideoID);
         }
 
-        public List<Course> getListCouserOffer(int userid) {
-            List<Course> ListAllCourse = myDB.Courses.ToList();
-            List<MyCourse> myCourses = myDB.MyCourses.Where(mc => mc.User_ID == userid).ToList();
-            for (int i = 0; i < ListAllCourse.Count; i++)
-            {
-                for (int j = 0; j < myCourses.Count; j++)
-                {
-                    if (ListAllCourse[i].CourseID==myCourses[j].Course_ID)
-                    {
-                        ListAllCourse.Remove(ListAllCourse[i]);
-                    }
-                }
-            }
-            return ListAllCourse;
+        public List<Course> getListCourseOffer(int userid)
+        {
+            var listOffer = myDB.Courses.SqlQuery(
+                "  SELECT * FROM Course AS c JOIN (SELECT CourseID FROM Course EXCEPT SELECT mc.Course_ID  FROM MyCourse AS mc WHERE mc.User_ID ='"+ userid + "') AS b ON b.CourseID = c.CourseID ORDER BY CHECKSUM(NEWID())"
+                ).Take(3).ToList();
+            return listOffer;
         }
     }
 }

@@ -368,6 +368,8 @@ nav .nav-top .contact {
 
 nav .nav-top .dn-dx a {
     color: white;
+    padding-left: 1px;
+    padding-right: 5px;
 }
 
 nav .dn-dx .dn-dx__login,

@@ -4,12 +4,11 @@
 }
 @{
     var courseDao = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
-    Random random = new Random();
 }
 
 <link href="~/Content/css/user.css" rel="stylesheet" />
 <link href="~/Content/css/style.css" rel="stylesheet" />
-<body>
+<div id="wapper-mycourse">
     <section class="tcnvcd ctn-sn ctn-sn-1" style="margin-top:110px">
         <div class="tcnvcd nav nav-tabs" id="nav-tab" role="tablist">
             <a class="tcnvcd nav-link" id="nav-khdm-tab" data-bs-target="#khdm" role="tab" href="/Profile/MyCourse">
@@ -27,19 +26,17 @@
                     </div>
                     <div class="khoahoc bar-content">
                         <ul>
-                            @for (int i = 0; i <= 2; i++)
+                            @foreach (OnlineEduDB.Course item in ViewBag.ListCourseOffer)
                             {
-                                int index = random.Next(ViewBag.ListCourseOffer.Count);
-                                OnlineEduDB.Course Course = ViewBag.ListCourseOffer[index];
                                 <li>
                                     <div>
                                         <div class="img-div">
-                                            <a href="/detailcourse?CourseID=@Course.CourseID">
+                                            <a href="/detailcourse?CourseID=@item.CourseID">
                                                 <img src="~/Content/images/kh7.jpg" alt="" />
                                             </a>
                                         </div>
-                                        <a href="/detailcourse?CourseID=@Course.CourseID">
-                                            <div>@Course.CourseName</div>
+                                        <a href="/detailcourse?CourseID=@item.CourseID">
+                                            <div>@item.CourseName</div>
                                             <div>Xem chi tiết</div>
                                         </a>
                                     </div>
@@ -68,7 +65,7 @@
                                         <div>
                                             <div class="khoahoc auth1lnkprce">
                                                 <div class="khoahoc education_block_author">
-                                                     <h5><a href="/Study?courseID=@item.CourseID&&videoID=@courseDao.getVideoIdMyCourse(item.CourseID)" tabindex="-1">Vào Học</a></h5>
+                                                    <h5><a href="/Study?courseID=@item.CourseID&&videoID=@courseDao.getVideoIdMyCourse(item.CourseID)" tabindex="-1">Vào Học</a></h5>
                                                 </div>
                                                 <a href="/detailcourse?CourseID=@item.CourseID">
                                                     <div class="khoahoc shrt-cart-btn">
@@ -87,5 +84,4 @@
             </div>
         </div>
     </section>
-</body>
-
+</div>
