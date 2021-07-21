@@ -18,6 +18,8 @@ namespace OnlineEduDB
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Description> Descriptions { get; set; }
         public virtual DbSet<MyCourse> MyCourses { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
@@ -70,6 +72,17 @@ namespace OnlineEduDB
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Course>()
+                .HasMany(e => e.Orders)
+                .WithRequired(e => e.Course)
+                .HasForeignKey(e => e.Course_ID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Course>()
+                .HasMany(e => e.Ratings)
+                .WithOptional(e => e.Course)
+                .HasForeignKey(e => e.Course_ID);
+
+            modelBuilder.Entity<Course>()
                 .HasMany(e => e.Descriptions)
                 .WithRequired(e => e.Course)
                 .HasForeignKey(e => e.Course_ID)
@@ -90,6 +103,26 @@ namespace OnlineEduDB
                 .IsUnicode(false);
 
             modelBuilder.Entity<MyCourse>()
+                .Property(e => e.Course_ID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.Course_ID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.toEmail)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.toPhone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.Status)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Rating>()
                 .Property(e => e.Course_ID)
                 .IsUnicode(false);
 
@@ -145,6 +178,17 @@ namespace OnlineEduDB
                 .WithRequired(e => e.User)
                 .HasForeignKey(e => e.User_ID)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Orders)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.User_ID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Ratings)
+                .WithOptional(e => e.User)
+                .HasForeignKey(e => e.User_ID);
 
             modelBuilder.Entity<Video>()
                 .Property(e => e.Video_url)

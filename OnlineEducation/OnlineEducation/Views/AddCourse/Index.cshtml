@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Nhập thông tin khóa học";
+    Layout = "~/Views/Shared/Admin_LayoutPage.cshtml";
+}
+<div class="header-2">Thêm Khoá Học</div>
+<nav>
+    <ul>
+        <li>
+            <a href="/AddCourse/Index">THÔNG TIN KHOÁ HỌC </a>
+        </li>
+        <li>
+            <a href="/AddCourse/Desc">Miêu Tả Khoá Học </a>
+        </li>
+        <li>
+            <a href="/AddCourse/Chapter">Chương Khoá Học </a>
+        </li>
+        <li>
+            <a href="/AddCourse/Video">VIDEO KHOÁ HỌC </a>
+        </li>
+    </ul>
+</nav>
+<div class="tab1">
+    <div class="header-2">NHẬP THÔNG TIN KHOÁ HỌC NÀY</div>
+    <div class="container">
+        <div class="row">
+            <div class="col" style="padding: 0px; border: 0px solid rgb(221, 221, 221); margin-right: 20px;">
+                <p class="m-b-10 f-w-600">Chọn Khóa học</p>
+                <select style="text-transform: none; width: 100%; height: 60px; padding: 10px;">
+                    <option value="0 ">Chọn Giáo Viên:</option>
+                    <option value="1 ">Front End</option>
+                    <option value="2 ">Back End</option>
+                    <option value="3 ">Full Stack</option>
+                </select>
+            </div>
+            <div class="col " style="padding: 0px; border: 0px solid rgb(221, 221, 221);">
+                <p class="m-b-10 f-w-600 ">Chọn Khóa học</p>
+                <select style="text-transform: none; width: 100%; height: 60px; padding: 10px;">
+                    <option value="0 ">Chọn Giáo Viên:</option>
+                    <option value="1 ">Front End</option>
+                    <option value="2 ">Back End</option>
+                    <option value="3 ">Full Stack</option>
+                </select>
+            </div>
+            <div class="w-100 " style="border: 0px; padding: 1px;"></div>
+            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                <p class="m-b-10 f-w-600 ">Tên Khóa Học</p>
+                <input type="text " class="form-control " placeholder="Tên Khóa Học ">
+            </div>
+            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                <p class="m-b-10 f-w-600 ">Active Code</p>
+                <input type="text " class="form-control " placeholder="Active Code ">
+            </div>
+            <div class="w-100" style="border: 0px; padding: 1px;"></div>
+            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                <p class="m-b-10 f-w-600 ">Giá</p>
+                <input type="text " class="form-control " placeholder="Giá ">
+            </div>
+            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                <p class="m-b-10 f-w-600 ">Mã Khóa Học</p>
+                <input type="text " class="form-control " placeholder="Mã Khóa Học ">
+            </div>
+            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                <p class="m-b-10 f-w-600 ">Ảnh</p>
+                <input type="text " class="form-control " placeholder="Ảnh ">
+            </div>
+            <div class="w-100 " style="border: 0px; margin: 20px;"></div>
+            <button class="btn btn-primary profile-button " type="button ">Submit</button>
+        </div>
+    </div>
+</div>

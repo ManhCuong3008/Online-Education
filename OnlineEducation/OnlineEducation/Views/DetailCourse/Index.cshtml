@@ -9,6 +9,7 @@
     int count = 1;
     int count1 = 1;
     var courseDAO = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
+    string star1 = "", star2 = "", star3 = "", star4 = "", star5 = "";
 }
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -27,21 +28,88 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-
-
 <link href="~/Content/css/Registration.css" rel="stylesheet" />
+
+
+<style>
+
+    div.stars {
+        width: 270px;
+        display: inline-block;
+    }
+
+    input.star {
+        display: none;
+    }
+
+    label.star {
+        float: right;
+        padding: 10px;
+        font-size: 18px;
+        color: #444;
+        transition: all .2s;
+    }
+
+    input.star:checked ~ label.star:before {
+        content: '\f005';
+        color: #FD4;
+        transition: all .25s;
+    }
+
+    input.star-5:checked ~ label.star:before {
+        color: #FE7;
+        text-shadow: 0 0 20px #952;
+    }
+
+    input.star-1:checked ~ label.star:before {
+        color: #F62;
+    }
+
+    label.star:hover {
+        transform: rotate(-15deg) scale(1.3);
+    }
+
+    label.star:before {
+        content: '\f006';
+        font-family: FontAwesome;
+    }
+
+    #wapper-start {
+        margin: 0 auto;
+        width: 66%;
+        margin-bottom: 50px;
+        padding-bottom: 20px;
+        background-color: #fff;
+        border-radius: 10px 10px 10px 10px;
+        border: 1px solid #efefef;
+        transition: all 0.4s ease;
+        box-shadow: 0 1px 5px 0 rgb(0 0 0 / 25%);
+    }
+
+    #total-rating {
+        width: 100%;
+        margin: 0px auto;
+        text-align: center;
+    }
+
+        #total-rating p {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+</style>
 
 <div id="main">
     <div id="InformationCourse">
         <div class="LeftInformationCourse">
             <div class="NameOfCourse">@currentCourse.CourseName</div>
+
             <div class="InforCourse">
                 @foreach (OnlineEduDB.Description i in ViewBag.descTitle)
                 {
-                    <div>
-                        @i.Description1
-                    </div>
-                }
+    <div>
+        @i.Description1
+    </div>}
             </div>
             <div class="IntroTeacher" style="width: 100%; height: 30%; display: flex; margin-bottom: 10px; margin-top: 10px;">
                 <div style=" width: 20%; height: 100%;"><img src="~/Content/images/@teacher.Url_Image" style="width: 120px; height: 120px; border-radius: 50%; padding: auto;"></div>
@@ -54,14 +122,75 @@
             <div class="Button">
                 @if (ViewBag.status == "Viewer")
                 {
-                    <button class="buttonClickBuy">MUA NGAY CHỈ VỚI @currentCourse.Price VNĐ</button>
-                }
+    <a href="/Order?courseID=@currentCourse.CourseID" class="buttonClickBuy">MUA NGAY CHỈ VỚI @currentCourse.Price VNĐ</a>}
             </div>
         </div>
+
         <div class="RightInformationCourse">
             <iframe src="https://www.youtube.com/embed/CFD9EFcNZTQ"></iframe>
             <!-- <img src="https://www.g24i.org/wp-content/uploads/2020/03/kissanime.jpg"> -->
         </div>
+    </div>
+    <div class="title-Content-CourseView">
+        đánh giá khóa học 
+    </div>
+    <hr>
+    <div id="wapper-start">
+        
+            @using (Html.BeginForm("Vote", "DetailCourse"))
+            {
+                int Score = (int)ViewBag.score;
+                if (ViewBag.Ratestatus != "Vote")
+                {
+                    star1 = "disabled";
+                    star2 = "disabled";
+                    star3 = "disabled";
+                    star4 = "disabled";
+                    star5 = "disabled";
+                    if (Score == 1)
+                    {
+                        star1 = "checked";
+                    }
+                    else if (Score == 2)
+                    {
+                        star2 = "checked";
+                    }
+                    else if (Score == 3)
+                    {
+                        star3 = "checked";
+                    }
+                    else if (Score == 4)
+                    {
+                        star4 = "checked";
+                    }
+                    else if (Score == 5)
+                    {
+                        star5 = "checked";
+                    }
+                }
+            <div class="stars" style="width: 60%;">
+            <input class="star star-5" id="star-5" type="radio" name="star5" @star5 />
+            <label class="star star-5" for="star-5"></label>
+            <input class="star star-4" id="star-4" type="radio" name="star4" @star4 />
+            <label class="star star-4" for="star-4"></label>
+            <input class="star star-3" id="star-3" type="radio" name="star3" @star3 />
+            <label class="star star-3" for="star-3"></label>
+            <input class="star star-2" id="star-2" type="radio" name="star2" @star2 />
+            <label class="star star-2" for="star-2"></label>
+            <input class="star star-1" id="star-1" type="radio" name="star1" @star1 />
+            <label class="star star-1" for="star-1"></label>
+            @if (ViewBag.Ratestatus == "Vote")
+            {
+                <input type="hidden" value="@currentCourse.CourseID" name="CourseID" />
+                <button class="btn-dangky" type="submit">Đánh giá </button>
+            }
+            </div>
+          }
+       
+    <div id="total-rating">
+        <p>Điểm đánh giá: @ViewBag.score</p>
+        <p>Số lượt đánh giá: @ViewBag.totalVote</p>
+    </div>
     </div>
     <div class="title-Content-CourseView">
         bạn sẽ học được gì
@@ -72,10 +201,9 @@
             <div class="content">
                 @foreach (OnlineEduDB.Description i in ViewBag.listDescLearn)
                 {
-                    <p class="content-item">
-                        @i.Description1
-                    </p>
-                }
+    <p class="content-item">
+        @i.Description1
+    </p>}
             </div>
         </div>
         <div class="title-Content-CourseView">
@@ -85,12 +213,11 @@
         <div id="cover-title-content">
             @foreach (OnlineEduDB.Description i in ViewBag.listDescIntro)
             {
-                <div class="content">
-                    <p>
-                        👉 @i.Description1
-                    </p>
-                </div>
-            }
+<div class="content">
+    <p>
+        👉 @i.Description1
+    </p>
+</div>      }
         </div>
     </div>
     <div id="cover-title-content2">
@@ -104,38 +231,32 @@
                 {
                     if (currentCourse.CourseID == item.Course_ID)
                     {
-                            if (count == 1&& ViewBag.status == "Viewer")
-                            {
-                                <div class="accordion-item-header Leaned">
-                                    Chương @count: @item.Title
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="accordion-item-header">
-                                    Chương @count: @item.Title
-                                </div>
-                            }
-                        <div class="accordion-item-body">
-                            @foreach (OnlineEduDB.Video item1 in courseDAO.getListVideobyChapterID(item.ChapterID))
-                            {
-                                <div class="accordion-item-body-content">
-                                    <div class="content-item"> Bài @count1. @item1.Title</div>
-                                    @if (ViewBag.status == "Viewer" && count1 <= 2)
-                                    {
-                                        <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học thử</a>
-                                    }
-                                    @if (ViewBag.status != "Viewer")
-                                    {
-                                        <a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>
-                                    }
-                                </div>
-                                count1++;
-                            }
-                        </div>
-                    }
-                    count++;
-                }
+                        if (count == 1 && ViewBag.status == "Viewer")
+                        {
+    <div class="accordion-item-header Leaned">
+        Chương @count: @item.Title
+    </div> }
+else
+{
+<div class="accordion-item-header">
+    Chương @count: @item.Title
+</div> }
+<div class="accordion-item-body">
+    @foreach (OnlineEduDB.Video item1 in courseDAO.getListVideobyChapterID(item.ChapterID))
+    {
+<div class="accordion-item-body-content">
+    <div class="content-item"> Bài @count1. @item1.Title</div>
+    @if (ViewBag.status == "Viewer" && count1 <= 2)
+    {
+<a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học thử</a>}
+    @if (ViewBag.status != "Viewer")
+    {
+<a style=" margin-left: 80px;" class="btn btn-success" href="/Study?courseID=@currentCourse.CourseID&&videoID=@item1.VideoID">Học</a>}
+</div>count1++;
+}
+</div>}
+count++;
+}
             </div>
         </div>
     </div>

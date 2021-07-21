@@ -11,7 +11,19 @@ namespace OnlineEducation.Controllers
         // GET: Error
         public ActionResult Index()
         {
-            ViewBag.message = "Không tìm thấy khóa học với từ khóa trên";
+            string message = Request["message"];
+            if (message== "DataNull")
+            {
+                ViewBag.message = "Khóa học hiện tại vẫn chưa có dữ liệu";
+            }
+            else if (message == "SearchError")
+            {
+                ViewBag.message = "Không tìm thấy khóa học với từ khóa trên";
+            }
+            else
+            {
+                ViewBag.message = "ERROR";
+            }
             return View();
         }
     }

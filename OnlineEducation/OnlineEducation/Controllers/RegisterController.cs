@@ -56,7 +56,7 @@ namespace OnlineEducation.Controllers
                 userModel.Email = email;
                 userModel.PhoneNumber = phone;
                 userModel.Role_ID = 2;
-                userDAO.addUser(userModel);
+                userDAO.AddUser(userModel);
              
                 if (userDAO.getUser(username, password)==null)
                 {

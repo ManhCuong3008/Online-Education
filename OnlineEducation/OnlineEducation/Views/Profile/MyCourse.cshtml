@@ -32,7 +32,7 @@
                                     <div>
                                         <div class="img-div">
                                             <a href="/detailcourse?CourseID=@item.CourseID">
-                                                <img src="~/Content/images/kh7.jpg" alt="" />
+                                                <img src="~/Content/images/@item.Image_url" alt="" />
                                             </a>
                                         </div>
                                         <a href="/detailcourse?CourseID=@item.CourseID">
@@ -54,7 +54,7 @@
                             <div class="khoahoc fcrse_1">
                                 <a href="/detailcourse?CourseID=@item.CourseID"
                                    class="khoahoc fcrse_img">
-                                    <img src="~/Content/images/kh7.jpg" alt="" />
+                                    <img src="~/Content/images/@item.Image_url" alt="" />
                                 </a>
                                 <div class="khoahoc fcrse_content">
                                     <h3 class="khoahoc bl-title">
@@ -65,7 +65,9 @@
                                         <div>
                                             <div class="khoahoc auth1lnkprce">
                                                 <div class="khoahoc education_block_author">
-                                                    <h5><a href="/Study?courseID=@item.CourseID&&videoID=@courseDao.getVideoIdMyCourse(item.CourseID)" tabindex="-1">Vào Học</a></h5>
+                                                    <h5><a href="/Study?courseID=@item.CourseID&&videoID=@courseDao.getVideoIdOneByCourseID(item.CourseID)" tabindex="-1">Vào Học</a></h5>
+                                                    @*<p>@courseDao.getVideoIdOneByCourseID(item.CourseID)</p>*@
+                                                    @*<p>@item.CourseID</p>*@
                                                 </div>
                                                 <a href="/detailcourse?CourseID=@item.CourseID">
                                                     <div class="khoahoc shrt-cart-btn">

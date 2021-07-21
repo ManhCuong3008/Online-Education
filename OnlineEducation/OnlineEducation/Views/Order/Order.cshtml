@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var listOrder = ViewBag.ListOrder as List<OnlineEduDB.Order>;
+    var courseDAO = ViewBag.courseDAO   as OnlineEducation.Model.CourseDAO;
+    var userDAO  = ViewBag.userDAO as OnlineEducation.Model.UserDAO;
+}
+<link href="~/Content/css/VerifyOrder.css" rel="stylesheet" />
+
+<div id="wapper-verify">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tài khoản</th>
+                <th>Học viên</th>
+                <th>Email</th>
+                <th>SĐT</th>
+                <th>Đăng ký khóa học</th>
+                <th>Xác nhận</th>
+            </tr>
+        <thead>
+        <tbody>
+            <form action="">
+                @{ 
+                   int count = 1;
+                }
+                @foreach (OnlineEduDB.Order item in listOrder)
+                {
+                    OnlineEduDB.User user = userDAO.getUserByUserID(item.User_ID);
+                    OnlineEduDB.Course course = courseDAO.getCourseByID(item.Course_ID);
+                    <tr>
+                        <td>@count</td>
+                        <td>@user.Username</td>
+                        <td>@user.FullName</td>
+                        <td>@item.toEmail</td>
+                        <td>@item.toPhone</td>
+                        <td>@course.CourseName</td>
+                        <td>
+                            <input type="hidden" value="1">
+                            <input type="hidden" value="1">
+                            <button>Gửi mã</button>
+                        </td>
+                    </tr>
+                    count++;
+                }
+            </form>
+        </tbody>
+        <table>
+</div>
+
+

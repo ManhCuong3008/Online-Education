@@ -1,0 +1,222 @@
+    .pc-tab>input,
+    .pc-tab section>div {
+        display: none;
+    }
+    
+    #tab1:checked~section .tab1,
+    #tab2:checked~section .tab2,
+    #tab3:checked~section .tab3,
+    #tab4:checked~section .tab4 {
+        display: inline-table;
+    }
+    
+    *,
+    *:after,
+    *::before {
+        box-sizing: border-box;
+    }
+    
+    .pc-tab {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .pc-tab ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .pc-tab ul li label {
+        float: left;
+        padding: 15px 25px;
+        border: 1px soild #ddd;
+        border-bottom: 0;
+        background-color: #fff;
+        color: #444;
+    }
+    
+    .pc-tab ul li label:hover {
+        background-color: #222736;
+        color: #fff;
+    }
+    
+    .pc-tab ul li label:active {
+        background-color: #fff;
+    }
+    
+    .pc-tab ul li:not(:last-child) label {
+        border-right-width: 0;
+    }
+    
+    .pc-tab section {
+        clear: both;
+    }
+    
+    .pc-tab section div {
+        padding: 20px;
+        width: 100%;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        line-height: 1.5em;
+        letter-spacing: 0.5px;
+        color: #444;
+    }
+    
+    .pc-tab section div h2 {
+        margin: 0;
+        letter-spacing: 1px;
+        color: #34495e;
+    }
+    
+    #tab1:checked~nav,
+    tab1 label,
+    #tab2:checked~nav,
+    tab2 label,
+    #tab3:checked~nav,
+    tab3 label,
+    #tab4:checked~nav,
+    tab4 label {
+        background-color: #fff;
+        color: #111;
+        position: relative;
+        text-transform: uppercase;
+    }
+    
+    #tab1:checked~nav,
+    tab1 label:after,
+    #tab2:checked~nav,
+    tab2 label:after,
+    #tab3:checked~nav,
+    tab3 label:after,
+    #tab4:checked~nav,
+    tab4 label:after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: #fff;
+        bottom: -1px;
+        display: contents;
+    }
+    /* Multi Step Form Course Education */
+    
+    .step {
+        display: none;
+    }
+    
+    .step.active {
+        display: block;
+    }
+    
+    .step2 {
+        display: none;
+    }
+    
+    .step2.active {
+        display: block;
+    }
+    
+    form {
+        width: 100%;
+    }
+    
+    .section div {
+        /* padding: 20px; */
+        width: 100%;
+        /* border: 1px solid #ddd; */
+        background-color: #fff;
+        /* line-height: 1.5em; */
+        letter-spacing: 0.5px;
+        color: #444;
+    }
+    
+    .tab1 .container {
+        border: none;
+    }
+    
+    .container .row .col select option {
+        font-size: 16px;
+        font-weight: inherit;
+        border: 10px black solid;
+    }
+    
+    .container .row .col input {
+        font-size: 20px;
+        font-weight: inherit;
+        width: 100%;
+        height: 90%;
+        margin-bottom: 0px;
+    }
+    /* Video Course */
+    
+    .accordion {
+        width: 100%;
+        max-width: 1000px;
+        margin: 2rem auto;
+    }
+    
+    .contentBx {
+        background-color: #fff;
+        color: #111;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+    }
+    
+    .accordion-item-header {
+        padding: 0.5rem 0.5rem 0.5rem 3rem;
+        min-height: 3.5rem;
+        line-height: 1.25rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .accordion-item-header::after {
+        font-family: "Font Awesome 5 Free";
+        content: "\f107";
+        font-size: 2rem;
+        position: absolute;
+        right: 1rem;
+    }
+    
+    .accordion-item-header.active::after {
+        font-family: "Font Awesome 5 Free";
+        content: "\f106";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 10000;
+    }
+    
+    .accordion-item-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+    
+    .accordion-item-body-content {
+        padding: 1rem;
+        line-height: 1.5rem;
+        display: flex;
+        border-top: 1px solid;
+        border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+    }
+    
+    .title-Content-CourseView {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    
+    .content {
+        padding-top: 20px;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 1%;
+    }

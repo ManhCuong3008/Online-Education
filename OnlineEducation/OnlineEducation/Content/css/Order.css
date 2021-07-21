@@ -1,0 +1,132 @@
+﻿
+#info-order {
+    width: 960px;
+    margin: 0px auto;
+    margin-top: 100px;
+    padding: 50px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#info-student {
+    box-sizing: border-box;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 20px;
+}
+
+#info-cart {
+    box-sizing: border-box;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.order-body {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    margin-right: 2rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: 0px 5px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #468966;
+    border-color: #468966;
+    font-size: 16px;
+}
+
+#info-cart .total-order {
+    border-top: 1px solid #c1c1c1;
+    padding-top: 5px;
+    font-weight: 600;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-body .summary {
+    border-bottom: 1px solid #c1c1c1;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #468966;
+    font-size: 16px;
+}
+
+ul.list-course-order {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    font-size: 16px;
+}
+.total-order {
+    font-size: 16px;
+}
+.order-head h3 {
+    font-size: 18px;
+    padding-bottom: 10px;
+    color: #3B5B8C;
+    font-weight:700;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 16px;
+}
+.course-name {
+    color: #e36686;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif !important;
+}

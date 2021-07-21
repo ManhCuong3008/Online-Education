@@ -16,7 +16,6 @@ namespace OnlineEducation.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            string message = "";
             User user = (User)Session["UserModel"];
             if (user != null)
             {
@@ -42,7 +41,7 @@ namespace OnlineEducation.Controllers
             List<Course> ListCourse = new List<Course>();
             if (textSearch=="")
             {
-                return RedirectToAction("Index", "Error");
+                return Redirect("/Error?message=SearchError");
             }
             if (sortBy== "ascPrice")
             {

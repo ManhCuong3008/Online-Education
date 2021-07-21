@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Desc";
+    Layout = "~/Views/Shared/Admin_LayoutPage.cshtml";
+}
+
+<div class="header-2">Thêm Khoá Học</div>
+<nav>
+    <ul>
+        <li>
+            <a href="/AddCourse/Index">THÔNG TIN KHOÁ HỌC </a>
+        </li>
+        <li>
+            <a href="/AddCourse/Desc">Miêu Tả Khoá Học </a>
+        </li>
+        <li>
+            <a href="/AddCourse/Chapter">Chương Khoá Học </a>
+        </li>
+        <li>
+            <a href="/AddCourse/Video">VIDEO KHOÁ HỌC </a>
+        </li>
+    </ul>
+</nav>
+<div class="tab2">
+    <form>
+        <div class="header-2">NHẬP DỮ LIỆU MIÊU TẢ KHOÁ HỌC NÀY</div>
+        <div class="step step-1 index active">
+            <div class="row" style="border: none;">
+                <div class="col" style="border: none;">
+                    <h5>Bạn Sẽ Học Được Gì?</h5>
+                    <input type="text" class="form-control" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                </div>
+                <div class="col" style="border: none;">
+                    <h5>Thông Tin Khoá Học</h5>
+                    <input type="text" class="form-control" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                </div>
+                <button class="btn next-btn btn-primary profile-button" type="button">Tiếp Tục</button>
+            </div>
+        </div>
+        <div class="step step-2">
+            <h5>Bạn Sẽ Học Được Gì?</h5>
+            <div class="input-group mb-3" style="border: none;">
+                <input style="margin-top: 10px; width: 80%;float: left;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" style="width: 80%;">
+                <input style="margin-top: 10px; width: 80%;float: left;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" style="width: 80%;">
+            </div>
+            <h5>Thông Tin Khoá Học</h5>
+            <div class="input-group mb-3" style="border: none;">
+                <textarea style="margin-top: 10px; width: 80%;float: left; height: 200px;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+                <textarea style="margin-top: 10px; width: 80%;float: left; height: 200px;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn previous-btn btn-primary profile-button" type="button">Quay Trở Lại</button>
+                <button class="btn submit-btn btn-primary profile-button" style="float: right;" type="submit">Lưu Thông Tin</button>
+            </div>
+        </div>
+    </form>
+</div>

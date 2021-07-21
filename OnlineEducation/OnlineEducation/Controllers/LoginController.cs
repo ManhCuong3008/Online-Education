@@ -39,7 +39,15 @@ namespace OnlineEducation.Controllers
                 messagelogin = "";
                 Session["UserModel"] = user;
                 Session.Timeout = 15;
-                return RedirectToAction("Index","Home");
+                if (user.Role_ID==1)
+                {
+                    return RedirectToAction("Index", "Admin"); // điều hướng qua admin
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                
             }
             //Session.Add("messagelogin", messagelogin);
             ViewBag.messagelogin = messagelogin;

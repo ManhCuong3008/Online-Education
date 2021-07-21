@@ -22,18 +22,24 @@ namespace OnlineEducation.Controllers
                 ViewBag.UserModel = user;
             }
             string CourseID = Request["CourseID"];
+            int videoid = Convert.ToInt32(Request["videoID"]);
+  
+            // kiểm tra xem người dùng đã mua khóa học hay chưa 
             MyCourse myCourse = courseDAO.getMyCourse(userid, CourseID);
             string status = "Viewer";
             if (myCourse != null)
             {
                 status = "customer";
             }
-            
-            int videoid = Convert.ToInt32(Request["videoID"]);
+
             Video beforeVideo = null;
             Video afterVideo = null;
             Course course = courseDAO.getCourseByID(CourseID);
             Video currentVideo = courseDAO.getVideoByID(videoid);
+            if (course==null|| currentVideo==null)
+            {
+                return Redirect("/Error?message=DataNull");
+            }
             List<Video> ListVideo = courseDAO.getListVideobyChapterID(currentVideo.Chapter_ID);
             for (int i = 0; i < ListVideo.Count; i++)
             {

@@ -101,12 +101,12 @@ namespace OnlineEducation.Model
         }
 
 
-        public int getVideoIdMyCourse(string courseId)
-        {
-            Chapter chapter1 = getListChapterByCourseID(courseId)[0];
-            Video video = getListVideobyChapterID(chapter1.ChapterID)[0];
-            return Convert.ToInt32(video.VideoID);
-        }
+        //public int getVideoIdMyCourse(string courseId)
+        //{
+        //    Chapter chapter1 = getListChapterByCourseID(courseId)[0];
+        //    Video video = getListVideobyChapterID(chapter1.ChapterID)[0];
+        //    return Convert.ToInt32(video.VideoID);
+        //}
 
         public List<Course> getListCourseOffer(int userid)
         {
@@ -115,5 +115,32 @@ namespace OnlineEducation.Model
                 ).Take(3).ToList();
             return listOffer;
         }
+
+        public int getVideoIdOneByCourseID(string courseId) { 
+            var Video1 = myDB.Videos.SqlQuery(
+                "SELECT * FROM dbo.Video AS v JOIN(SELECT TOP(1) ChapterID FROM dbo.Chapter WHERE Course_ID = '"+courseId+"') AS c ON c.ChapterID = v.Chapter_ID ORDER BY v.VideoID ASC"
+                ).FirstOrDefault();
+            if (Video1==null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Video1.VideoID;
+            }
+        }
+
+        public void AddOrder(Order obj)
+        {
+            myDB.Orders.Add(obj); // thêm
+            myDB.SaveChanges(); // Lưu
+        }
+
+        public Order getOrder(int userid, string courseID)
+        {
+            return myDB.Orders.Where(o => o.User_ID ==userid&&o.Course_ID==courseID).FirstOrDefault();
+        }
+
+
     }
 }

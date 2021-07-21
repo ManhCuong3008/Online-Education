@@ -13,6 +13,8 @@ namespace OnlineEduDB
         public Course()
         {
             Chapters = new HashSet<Chapter>();
+            Orders = new HashSet<Order>();
+            Ratings = new HashSet<Rating>();
             Descriptions = new HashSet<Description>();
             MyCourses = new HashSet<MyCourse>();
         }
@@ -46,6 +48,12 @@ namespace OnlineEduDB
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chapter> Chapters { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rating> Ratings { get; set; }
 
         public virtual Teacher Teacher { get; set; }
 

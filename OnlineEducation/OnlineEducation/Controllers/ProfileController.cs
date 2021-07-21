@@ -65,8 +65,15 @@ namespace OnlineEducation.Controllers
             int videoID = 0;
             ViewBag.courseDao = courseDAO;
             List<MyCourseModel> listMyCourse = courseDAO.getListMyCourseByUserID(user.UserID);
-            ViewBag.listMyCourse = listMyCourse;
-            ViewBag.ListCourseOffer = courseDAO.getListCourseOffer(user.UserID);
+            List<Course> ListCourseOffer = courseDAO.getListCourseOffer(user.UserID);
+            if (listMyCourse!=null)
+            {
+                ViewBag.listMyCourse = listMyCourse;
+            }
+            if (ListCourseOffer!=null)
+            {
+                ViewBag.ListCourseOffer = ListCourseOffer;
+            }
             ViewBag.videoID = videoID;
             return View();
         }

@@ -2,6 +2,7 @@
 using OnlineEducation.Model;
 using OnlineEduDB;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +15,7 @@ namespace OnlineEducation.Controllers
 
         UserDAO userDAO = new UserDAO();
         CourseDAO courseDAO = new CourseDAO();
-
+        RatingDAO ratingDAO = new RatingDAO();
         // GET: Home
         public ActionResult Index() // đã add layout 
         {
@@ -23,10 +24,12 @@ namespace OnlineEducation.Controllers
             {
                 ViewBag.UserModel = user;
             }
+           
             List<Course> ListHL = courseDAO.getListCoursebyCategory(1);
             List<Course> ListFood = courseDAO.getListCoursebyCategory(5);
             ViewBag.ListHL = ListHL;
             ViewBag.ListFood = ListFood;
+            ViewBag.ratingDAO = ratingDAO;
             ViewBag.courseDAO = courseDAO;
             return View();
         }

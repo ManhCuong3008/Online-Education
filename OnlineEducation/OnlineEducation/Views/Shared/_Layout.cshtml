@@ -27,10 +27,13 @@
 
     <script src="~/Content/SlideShow/jquery.min.js"></script>
     <script src="~/Content/SlideShow/owl.carousel.min.js"></script>
-
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <title>@ViewBag.Title</title>
 </head>
 <body>
+@{ 
+    OnlineEduDB.User user = ViewBag.UserModel as OnlineEduDB.User;
+}
     <nav id="nav" style=" background-color:#FFFFFF;">
         <div class="nav-top">
             <div>
@@ -45,7 +48,7 @@
                 <div class="dn-dx">
                     <ul class="nav navbar-nav">
 
-                        @if (ViewBag.UserModel == null)
+                        @if (user == null)
                         {
                             <a class="dn-dx__login">@Html.ActionLink("Đăng nhập", "Index", "Login")</a>
                             <span>|</span>
@@ -53,7 +56,15 @@
                         }
                         else
                         {
-                            <a class="dn-dx__login" href="/profile">@ViewBag.UserModel.FullName</a>
+                            
+                            if (user.Role_ID!=1)
+                            {
+                                <a class="dn-dx__login" href="/profile">@user.FullName</a>
+                            }
+                            else
+                            {
+                                <a class="dn-dx__login" href="/Admin/Index">@user.FullName</a>
+                             }
                             <span>|</span>
                             <a class="dn-dx__signup" href="/logout">Đăng xuất</a>
                         }

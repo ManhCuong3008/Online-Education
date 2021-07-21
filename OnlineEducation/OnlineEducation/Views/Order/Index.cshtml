@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    var user = ViewBag.UserModel as OnlineEduDB.User;
+    var course = ViewBag.course as OnlineEduDB.Course;
+}
+<link href="~/Content/css/Order.css" rel="stylesheet" />
+<div id="info-order">
+    <div class="container">
+        <div class="row">
+            <div id="info-student" class="col-12 col-lg-6">
+                <div class="order-head">
+                    <h3>Thông tin nhập học</h3>
+                </div>
+                <div class="order-body">
+                    @using (Html.BeginForm("Verify", "Order"))
+                    {
+                        <p style="color:green; padding-bottom:10px;font-weight:700;">@ViewBag.message</p>
+                        <div class="form-group">
+                            <label for="client_name">Họ và tên</label>
+                            <input type="text" class="form-control" id="client_name" name="FullName"
+                                   required="required" value="@user.FullName" placeholder="Họ và tên" disabled>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="client_email">Email</label>
+                            <input type="email" class="form-control" id="client_email" placeholder="Email"
+                                   name="email" value="@ViewBag.email" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="client_tel">Số điện thoại</label>
+                            <input type="tel" class="form-control" id="client_tel" name="phone"
+                                   placeholder="Số điện thoại" required="required" value="@ViewBag.phone">
+                        </div>
+                        <input type="hidden" name="courseID" value="@course.CourseID">
+                        <input type="hidden" name="userID" value="@user.UserID">
+                        <button type="submit" name="sm_step1" class="btn btn-primary">Đăng ký học</button>
+                    }
+                </div>
+
+            </div>
+            <div id="info-cart" class="col-12 col-lg-6">
+                <div class="order-head">
+                    <h3>Khóa học đã chọn</h3>
+                </div>
+                <div class="order-body">
+                    <p class="summary">Đã chọn khóa học</p>
+                    <ul class="list-course-order">
+                        <li class="item-order mb-3">
+                            <div class="course-name">@course.CourseName<div>
+                        </li>
+                    </ul>
+                    <p class="total-order">
+                        <span class="">Thành tiền</span>
+                        <span class="total-payment">@course.Price VNĐ</span>
+                    </p>
+                </div>
+
+                <p class="text-muted py-3">
+                    Chú ý: Bạn đang trong tiến trình đăng ký nhập học, sau khi nhập thông tin
+                    cá nhân bạn sẽ nhận được hướng dẫn thanh toán.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
