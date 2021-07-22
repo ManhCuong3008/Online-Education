@@ -1,4 +1,5 @@
-﻿using OnlineEducation.Model;
+﻿using OnlineEducation.EmailService;
+using OnlineEducation.Model;
 using OnlineEduDB;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace OnlineEducation.Controllers
     {
         UserDAO userDAO = new UserDAO();
         CourseDAO courseDAO = new CourseDAO();
-
+        OrderDAO orderDAO = new OrderDAO();
         // GET: Order
         public ActionResult Index()
         {
@@ -89,28 +90,7 @@ namespace OnlineEducation.Controllers
             return View("Index");
         }
 
-        public ActionResult Order()
-        {
-            OrderDAO orderDAO = new OrderDAO();
-            List<Order> ListOrder = orderDAO.getListOrder();
-            ViewBag.ListOrder = ListOrder;
-            ViewBag.courseDAO = courseDAO;
-            ViewBag.userDAO = userDAO;
 
-            //string smtpUserName = "email cua ban";
-            //string smtpPassword = "mat khau cua ban";
-            //string smtpHost = "smtp.gmail.com";
-            //int smtpPort = 587; //587,25
-
-            //string emailTo = "email nguoi nhan";
-            //string subject = "Chu de....";
-            //string body = string.Format("Bạn vừa nhận được liên hê từ: <b>{0}</b><br/>Email: {1}<br/>Nội dung: </br>");
-
-           // EmailService service = new EmailService();
-           // bool kq = service.Send(smtpUserName, smtpPassword, smtpHost, smtpPort, emailTo, subject, body);
-
-            return View();
-        }
-
+        
     }
 }

@@ -65,24 +65,18 @@ namespace OnlineEducation.Model
             mydb.SaveChanges();
         }
 
-        //public void addUser(User user)
-        //{
-        //    string query = "INSERT INTO dbo.[User]( Username ,Password ,FullName ,Email ,PhoneNumber ,Role_ID) VALUES(@u,@pw,@fn,@e,@p,@roleid)";
-        //    string username = user.Username;
-        //    string password = user.Password;
-        //    string fullname = user.FullName;
-        //    string emaill = user.Email;
-        //    string phone = user.PhoneNumber;
-        //    int RoleID = user.Role_ID;
-        //    mydb.Database.ExecuteSqlCommand(query,
-        //        new SqlParameter("@u", username),
-        //        new SqlParameter("@pw", password),
-        //        new SqlParameter("@fn", fullname),
-        //        new SqlParameter("@e", emaill),
-        //        new SqlParameter("@p", phone),
-        //        new SqlParameter("@roleid", RoleID)
-        //        );
-        //}
+        public void addUserFacebook(User user)
+        {
+            if (user != null)
+            {
+                var original = mydb.Users.SingleOrDefault(x => x.Username == user.Username);
+                if (original == null)
+                {
+                    mydb.Users.Add(user);
+                    mydb.SaveChanges();
+                }
+            }
+        }
 
     }
 }

@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @if (ViewBag.totalChapter == null)
+        {
+            using (Html.BeginForm("Generate", "Demo", FormMethod.Post))
+            {
+                <p>Nhập số chương học</p>
+                <input type="text" name="totalChapter">
+                <button>Submit</button>
+            }
+        }
+        else
+        {
+            using (Html.BeginForm("SaveData", "Demo", FormMethod.Post))
+            {
+                for (int i = 1; i <= ViewBag.totalChapter; i++)
+                {
+                    string chaptername = "chapter" + i;
+                    <p>Chapter:@i</p>
+                    <input type="text" name="@chaptername">
+                }
+                <br><button>Save</button>
+            }
+        }
+    </div>
+</body>
+</html>

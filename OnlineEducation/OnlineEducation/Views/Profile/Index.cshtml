@@ -4,14 +4,21 @@
                 var user = ViewBag.UserModel as OnlineEduDB.User; }
 
 <link href="~/Content/css/user.css" rel="stylesheet" />
-
+<style>
+    body {
+        background-color: #FFFFFF !important;
+    }
+</style>
 <section class="tcnvcd ctn-sn ctn-sn-1" style="margin-top: 110px">
     <div class="tcnvcd nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="tcnvcd nav-link active" id="nav-hscn-tab" data-bs-target="#hscn" role="tab" href="/Profile/Index">
+            HỒ SƠ CÁ NHÂN
+        </a>
         <a class="tcnvcd nav-link" id="nav-khdm-tab" data-bs-target="#khdm" role="tab" href="/Profile/MyCourse">
             KHÓA HỌC ĐÃ MUA
         </a>
-        <a class="tcnvcd nav-link active" id="nav-hscn-tab" data-bs-target="#hscn" role="tab" href="/Profile/Index">
-            HỒ SƠ CÁ NHÂN
+        <a class="tcnvcd nav-link" id="nav-khdm-tab" data-bs-target="#khdm" role="tab" href="/Profile/ActiveCourse">
+            KÍCH HOẠT KHÓA HỌC
         </a>
     </div>
     <div class="tcnvcd sn tab-content" id="nav-tabContent">

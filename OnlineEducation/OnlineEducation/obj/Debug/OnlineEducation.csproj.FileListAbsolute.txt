@@ -222,3 +222,5 @@ C:\Users\NguyenManhCuong\Desktop\Github\Prn292-Project\Project-CShap\OnlineEduca
 C:\Users\NguyenManhCuong\Desktop\Github\Prn292-Project\Project-CShap\OnlineEducation\OnlineEducation\obj\Debug\OnlineEducation.csproj.CopyComplete
 C:\Users\NguyenManhCuong\Desktop\Github\Prn292-Project\Project-CShap\OnlineEducation\OnlineEducation\obj\Debug\OnlineEducation.dll
 C:\Users\NguyenManhCuong\Desktop\Github\Prn292-Project\Project-CShap\OnlineEducation\OnlineEducation\obj\Debug\OnlineEducation.pdb
+C:\Users\NguyenManhCuong\Desktop\Github\Prn292-Project\Project-CShap\OnlineEducation\OnlineEducation\bin\Facebook.dll
+C:\Users\NguyenManhCuong\Desktop\Github\Prn292-Project\Project-CShap\OnlineEducation\OnlineEducation\bin\Facebook.xml

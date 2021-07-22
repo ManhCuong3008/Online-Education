@@ -130,9 +130,20 @@ namespace OnlineEducation.Model
             }
         }
 
+        public void AddCourse(Course obj)
+        {
+            myDB.Courses.Add(obj); // thêm
+            myDB.SaveChanges(); // Lưu
+        }
+
         public void AddOrder(Order obj)
         {
             myDB.Orders.Add(obj); // thêm
+            myDB.SaveChanges(); // Lưu
+        }
+        public void AddMycourse(MyCourse obj)
+        {
+            myDB.MyCourses.Add(obj); // thêm
             myDB.SaveChanges(); // Lưu
         }
 

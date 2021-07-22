@@ -1,8 +1,59 @@
-﻿
-@{
-    ViewBag.Title = "ActiveCourse";
+﻿@{
+    ViewBag.Title = "Kích hoạt khóa học";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var courseDao = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
+}
 
-<h2>Form nhập mã đăng ký khóa học</h2>
+<link href="~/Content/css/user.css" rel="stylesheet" />
+<link href="~/Content/css/style.css" rel="stylesheet" />
+
+<section class="tcnvcd ctn-sn ctn-sn-1" style="margin-top:110px">
+    <div class="tcnvcd nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="tcnvcd nav-link " id="nav-hscn-tab" data-bs-target="#hscn" role="tab" href="/Profile/Index">
+            HỒ SƠ CÁ NHÂN
+        </a>
+        <a class="tcnvcd nav-link " id="nav-khdm-tab" data-bs-target="#khdm" role="tab" href="/Profile/MyCourse">
+            KHÓA HỌC ĐÃ MUA
+        </a>
+        <a class="tcnvcd nav-link active" id="nav-khdm-tab" data-bs-target="#khdm" role="tab" href="/Profile/ActiveCourse">
+            KÍCH HOẠT KHÓA HỌC
+        </a>
+    </div>
+
+    <link href="~/Content/css/ActiveCourse.css" rel="stylesheet" />
+
+    <div id="active-course" class="py-4 py-lg-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div id="active-info" class="text-center">
+                        <h3 class="text-center text-20 font-weight">Kích hoạt khóa học</h3>
+                        <p style="color:forestgreen;">@ViewBag.message<p>
+                        <div class="section-detail">
+                            <p class="text-20">Bạn cần nhập mã kích hoạt vào bên dưới để kích hoạt khóa học!</p>
+                            @using (Html.BeginForm("VerifyActive", "Profile",FormMethod.Post))
+                            {
+                                <div class="form-group">
+                                    <input type="text" class="form-control text-center text-20" name="codeActive"
+                                           id="reg_code_active" placeholder="XXXXX-XXXXX-XXXXX" required="required">
+                                </div>
+                                <input type="submit" class="btn btn-primary w-100 text-20" name="submit_active"
+                                       value="Kích hoạt">
+                                <small id="" class="form-text text-muted">
+                                    <b>Chú ý:</b> Mã kích hoạt bạn được nhận qua email sau khi
+                                    đăng ký và thanh toán thành công khóa học. Mỗi mã chỉ được kích hoạt một lần trên
+                                    một tài khoản!
+                                </small>
+                            }
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 

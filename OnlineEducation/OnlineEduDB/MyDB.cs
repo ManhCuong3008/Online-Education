@@ -12,7 +12,6 @@ namespace OnlineEduDB
         {
         }
 
-        public virtual DbSet<Active> Actives { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Chapter> Chapters { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
@@ -28,19 +27,6 @@ namespace OnlineEduDB
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Active>()
-                .Property(e => e.ActiveID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Active>()
-                .Property(e => e.Code)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Active>()
-                .HasMany(e => e.Courses)
-                .WithOptional(e => e.Active)
-                .HasForeignKey(e => e.Active_ID);
-
             modelBuilder.Entity<Category>()
                 .HasMany(e => e.Courses)
                 .WithRequired(e => e.Category)

@@ -1,38 +1,39 @@
 ﻿
-@{
-    ViewBag.Title = "Trang cá nhân";
+@{ ViewBag.Title = "Trang cá nhân";
     Layout = "~/Views/Shared/Admin_LayoutPage.cshtml";
-}
+    var user = ViewBag.UserModel as OnlineEduDB.User;}
 
-<div class="page is-active" data-page="1">
-    <div class="header-2">Hồ Sơ</div>
-    <div class="container rounded bg-white mt-5">
-        <div class="row">
-            <div class="col-md-4 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://pbs.twimg.com/profile_images/966352947763470336/Qig_TlcZ_400x400.jpg" width="300"><span class="font-weight-bold" style="margin-top: 30px;">John Doe</span><span class="text-black-50">john_doe12@bbb.com</span><span>United States</span></div>
-            </div>
-            <div class="col-md-8">
-                <div class="p-3 py-5">
-                    <div class="row mt-2">
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="First Name"></div>
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Last Name"></div>
+@using (Html.BeginForm("Update", "Admin", FormMethod.Post))
+{
+    <div class="page is-active" data-page="1">
+        <div class="header-2">Hồ Sơ</div>
+        <div class="container rounded bg-white mt-5">
+            <div class="row">
+                <div class="col-md-4 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://pbs.twimg.com/profile_images/966352947763470336/Qig_TlcZ_400x400.jpg" width="300"><span class="font-weight-bold" style="margin-top: 30px;">@user.FullName</span><span class="text-black-50">@user.Email</span><span>VietNam</span></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="p-3 py-5">
+                        <p style="color:red;">@ViewBag.message</p>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><input type="text" class="tcnvcd form-control" id="fullname" name='fullname' value="@user.FullName"><br></div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><input style="color:gray;" type="text" class="tcnvcd form-control" id="username" name="username" value="@user.Username" disabled></div>
+                            <div class="col-md-6"><input type="text" class="tcnvcd form-control" id="password" name="password" value="@user.Password"></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><input type="number" name="phone" class="tcnvcd form-control" id="phone" value="@user.PhoneNumber"></div>
+                            <div class="col-md-6"><input type="email" class="tcnvcd form-control" id="email" name="email" value="@user.Email"></div>
+                        </div>
+
+                        <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Email"></div>
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Phone number"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="address"></div>
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Country"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Bank Name"></div>
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Account Number"></div>
-                    </div>
-                    <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+}
+
 

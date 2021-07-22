@@ -3,6 +3,10 @@
     ViewBag.Title = "Nhập thông tin khóa học";
     Layout = "~/Views/Shared/Admin_LayoutPage.cshtml";
 }
+@{
+    //List<OnlineEduDB.Teacher> listteacher = ViewBag.listTeachers as List<OnlineEduDB.Teacher>;
+}
+
 <div class="header-2">Thêm Khoá Học</div>
 <nav>
     <ul>
@@ -23,49 +27,55 @@
 <div class="tab1">
     <div class="header-2">NHẬP THÔNG TIN KHOÁ HỌC NÀY</div>
     <div class="container">
-        <div class="row">
-            <div class="col" style="padding: 0px; border: 0px solid rgb(221, 221, 221); margin-right: 20px;">
-                <p class="m-b-10 f-w-600">Chọn Khóa học</p>
-                <select style="text-transform: none; width: 100%; height: 60px; padding: 10px;">
-                    <option value="0 ">Chọn Giáo Viên:</option>
-                    <option value="1 ">Front End</option>
-                    <option value="2 ">Back End</option>
-                    <option value="3 ">Full Stack</option>
-                </select>
+        @using (Html.BeginForm("addcourse", "AddCourse", FormMethod.Post))
+        {
+            <div class="row">
+                <p style="color:red;">@ViewBag.message</p>
+                <div class="col" style="padding: 0px; border: 0px solid rgb(221, 221, 221); margin-right: 20px;">
+                    <p class="m-b-10 f-w-600">Chọn giáo viên</p>
+                    <select id="teacher" name="teacher" style="text-transform: none; width: 100%; height: 60px; padding: 10px;">
+                        @foreach (OnlineEduDB.Teacher item in ViewBag.listTeacher)
+                        {
+                            <option value="@item.TeacherID"> @item.Name</option>
+                        }
+
+                    </select>
+                </div>
+                <div class="col " style="padding: 0px; border: 0px solid rgb(221, 221, 221);">
+                    <p class="m-b-10 f-w-600 ">Chọn thể loại</p>
+                    <select id="category" name="category" style="text-transform: none; width: 100%; height: 60px; padding: 10px;">
+                        @foreach (OnlineEduDB.Category item in ViewBag.listCategory)
+                        {
+                            <option value="@item.CategoryID">@item.CategoryName</option>
+                        }
+                    </select>
+                </div>
+                <div class="w-100 " style="border: 0px; padding: 1px;"></div>
+                <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                    <p class="m-b-10 f-w-600 ">Tên Khóa Học</p>
+                    <input type="text " class="form-control " id="coursename" name="coursename">
+                </div>
+                <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                    <p class="m-b-10 f-w-600 ">Active Code</p>
+                    <input type="text " class="form-control" id="activecode" name="activecode">
+                </div>
+                <div class="w-100" style="border: 0px; padding: 1px;"></div>
+                <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                    <p class="m-b-10 f-w-600 ">Giá</p>
+                    <input type="text " class="form-control" id="price" name="price">
+                </div>
+                <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                    <p class="m-b-10 f-w-600 ">Mã Khóa Học</p>
+                    <input type="text " class="form-control" id="courseid" name="courseid">
+                </div>
+                <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
+                    <p class="m-b-10 f-w-600 ">Ảnh</p>
+                    <input type="text " class="form-control" id="image" name="image">
+                </div>
+                <div class="w-100 " style="border: 0px; margin: 20px;"></div>
+                <button class="btn btn-primary profile-button " type="submit">Submit</button>
             </div>
-            <div class="col " style="padding: 0px; border: 0px solid rgb(221, 221, 221);">
-                <p class="m-b-10 f-w-600 ">Chọn Khóa học</p>
-                <select style="text-transform: none; width: 100%; height: 60px; padding: 10px;">
-                    <option value="0 ">Chọn Giáo Viên:</option>
-                    <option value="1 ">Front End</option>
-                    <option value="2 ">Back End</option>
-                    <option value="3 ">Full Stack</option>
-                </select>
-            </div>
-            <div class="w-100 " style="border: 0px; padding: 1px;"></div>
-            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
-                <p class="m-b-10 f-w-600 ">Tên Khóa Học</p>
-                <input type="text " class="form-control " placeholder="Tên Khóa Học ">
-            </div>
-            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
-                <p class="m-b-10 f-w-600 ">Active Code</p>
-                <input type="text " class="form-control " placeholder="Active Code ">
-            </div>
-            <div class="w-100" style="border: 0px; padding: 1px;"></div>
-            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
-                <p class="m-b-10 f-w-600 ">Giá</p>
-                <input type="text " class="form-control " placeholder="Giá ">
-            </div>
-            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
-                <p class="m-b-10 f-w-600 ">Mã Khóa Học</p>
-                <input type="text " class="form-control " placeholder="Mã Khóa Học ">
-            </div>
-            <div class="col " style="padding: 10px; border: 0px solid rgb(221, 221, 221); ">
-                <p class="m-b-10 f-w-600 ">Ảnh</p>
-                <input type="text " class="form-control " placeholder="Ảnh ">
-            </div>
-            <div class="w-100 " style="border: 0px; margin: 20px;"></div>
-            <button class="btn btn-primary profile-button " type="button ">Submit</button>
-        </div>
+        }
+
     </div>
 </div>

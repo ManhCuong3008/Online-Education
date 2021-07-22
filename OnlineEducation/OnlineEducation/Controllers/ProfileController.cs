@@ -12,6 +12,7 @@ namespace OnlineEducation.Controllers
     {
         UserDAO userDAO = new UserDAO();
         CourseDAO courseDAO = new CourseDAO();
+        OrderDAO orderDAO = new OrderDAO();
         // GET: Profile
         public ActionResult Index()
         {
@@ -80,8 +81,68 @@ namespace OnlineEducation.Controllers
 
         public ActionResult ActiveCourse()
         {
+            User UserModel = (User)Session["UserModel"];
+            if (UserModel != null)
+            {
+                ViewBag.UserModel = UserModel;
+            }
+            string message =  Request["message"];
+            if (message != null)
+            {
+                if (message != "fail"&& message != "actived")
+                {
+                    Course course = courseDAO.getCourseByID(message);
+                    ViewBag.message = "Kích hoạt thành công khóa học: " + course.CourseName;
+                }
+                else if (message == "actived")
+                {
+                    ViewBag.message = "Khóa học này đã được kích hoạt rồi";
+                }
+                else
+                {
+                    ViewBag.message = "Kích hoạt thất bại, nhập sai mã khóa học";
+                }
+            }
             return View();
         }
+
+        [HttpPost]
+        public ActionResult VerifyActive()
+        {
+
+            User user = (User)Session["UserModel"];
+            int userid = 0;
+            if (user != null)
+            {
+                ViewBag.UserModel = user;
+                userid = user.UserID;
+            }
+            else
+            {
+               return Redirect("/login");
+            }
+            string codeActive = Request["codeActive"];
+            
+            Course coursePayment = orderDAO.getCourseByActive(codeActive);
+            if (coursePayment != null)
+            {
+                MyCourse myCourse = new MyCourse();
+                myCourse.Course_ID = coursePayment.CourseID;
+                myCourse.User_ID = userid;
+              
+                if (courseDAO.getMyCourse(userid, coursePayment.CourseID)!=null)
+                {
+                    return Redirect("/Profile/ActiveCourse?message=actived");
+                }
+                else
+                {
+                    courseDAO.AddMycourse(myCourse);
+                    return Redirect("/Profile/ActiveCourse?message=" + coursePayment.CourseID + "");
+                }
+            }
+         return  Redirect("/Profile/ActiveCourse?message=fail");
+        }
+
 
     }
 }

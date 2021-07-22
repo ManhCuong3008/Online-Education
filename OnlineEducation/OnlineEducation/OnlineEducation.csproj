@@ -50,6 +50,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -100,6 +103,7 @@
     <Content Include="Content\Admin\CourseTab.css" />
     <Content Include="Content\Admin\CourseTab.js" />
     <Content Include="Content\Admin\CourseTab2.js" />
+    <Content Include="Content\css\ActiveCourse.css" />
     <Content Include="Content\css\Home.css" />
     <Content Include="Content\css\login\includeHTML.js" />
     <Content Include="Content\css\login\style.css" />
@@ -168,6 +172,7 @@
     <Content Include="Content\SlideShow\owl.carousel.js" />
     <Content Include="Content\SlideShow\owl.carousel.min.js" />
     <Content Include="Content\stylesheets\style.css" />
+    <Content Include="Content\Templete\Active.html" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -175,6 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddCourseController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\DetailCourseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -188,11 +194,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\CategoryDAO.cs" />
     <Compile Include="Model\CourseDAO.cs" />
     <Compile Include="Model\MyCourseModel.cs" />
     <Compile Include="Model\OrderDAO.cs" />
     <Compile Include="Model\RatingDAO.cs" />
     <Compile Include="Model\RatingModel.cs" />
+    <Compile Include="Model\TeacherDAO.cs" />
     <Compile Include="Model\UserDAO.cs" />
     <Compile Include="Paging\PageRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -217,7 +225,6 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\Shared\Admin_LayoutPage.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Manager.cshtml" />
@@ -225,6 +232,7 @@
     <Content Include="Views\AddCourse\Desc.cshtml" />
     <Content Include="Views\AddCourse\Chapter.cshtml" />
     <Content Include="Views\AddCourse\Video.cshtml" />
+    <Content Include="Views\Demo\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -237,7 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineEduDB\OnlineEduDB.csproj">
-      <Project>{917e9cab-49c4-478b-a575-305d6463b936}</Project>
+      <Project>{7367036c-add9-457c-b512-c94a5e55298a}</Project>
       <Name>OnlineEduDB</Name>
     </ProjectReference>
   </ItemGroup>

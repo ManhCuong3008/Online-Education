@@ -25,7 +25,7 @@
             </tr>
         <thead>
         <tbody>
-            <form action="">
+            
                 @{
                     int count = 1;
                 }
@@ -33,6 +33,7 @@
                 {
                     OnlineEduDB.User user = userDAO.getUserByUserID(item.User_ID);
                     OnlineEduDB.Course course = courseDAO.getCourseByID(item.Course_ID);
+                    using (Html.BeginForm("SendGmail", "Admin",FormMethod.Post)) {
                     <tr>
                         <td>@count</td>
                         <td>@user.Username</td>
@@ -41,16 +42,15 @@
                         <td>@item.toPhone</td>
                         <td>@course.CourseName</td>
                         <td>
-                            <input type="hidden" value="1">
-                            <input type="hidden" value="1">
+                            <input type="hidden" name="OrderID" value="@item.OrderID">
                             <button>Gửi mã</button>
                         </td>
                     </tr>
+                    }
                     count++;
                 }
-            </form>
         </tbody>
-        <table>
+        </table>
 </div>
 
 
