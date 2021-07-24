@@ -66,6 +66,7 @@ namespace OnlineEducation.Controllers
                 {
                     messageregister = "Đăng ký tài khoản thành công";
                     Session["UserModel"] = userModel;
+                    ViewBag.UserModel = userModel;
                     Session.Timeout = 15;
                 }
             }

@@ -24,17 +24,18 @@ namespace OnlineEducation.Controllers
             }
             else
             {
+                // Session["Url"] = Request.Url.ToString();
                 return Redirect("/Login");
             }
             string courseID = Request["courseID"];
             Course course = courseDAO.getCourseByID(courseID);
-            if (course!=null)
+            if (course != null)
             {
                 ViewBag.course = course;
             }
             else
             {
-               return Redirect("/Error?message=error");
+                return Redirect("/Error?message=error");
             }
             ViewBag.email = user.Email;
             ViewBag.phone = user.PhoneNumber;
@@ -61,8 +62,8 @@ namespace OnlineEducation.Controllers
 
             string email = Request["email"];
             string phone = Request["phone"];
-            
-            if (email==""|| phone=="")
+
+            if (email == "" || phone == "")
             {
                 ViewBag.message = "Thông tin không được để trống";
             }
@@ -77,20 +78,26 @@ namespace OnlineEducation.Controllers
                 order.User_ID = user.UserID;
                 order.Status = "verify";
                 courseDAO.AddOrder(order);
-                if (courseDAO.getOrder(user.UserID, courseID)!=null)
+                Order orderPayment = courseDAO.getOrder(user.UserID, courseID);
+                if (orderPayment != null)
                 {
-                    ViewBag.message = "Đăng ký học thành công";
-                }
-                else
-                {
-                    ViewBag.message = "Đăng ký không thất bại, hệ thống đang lỗi";
+                    ViewBag.orderPayment = orderPayment.OrderID;
+                    return View("Payment");
                 }
             }
 
-            return View("Index");
+            return View();
         }
 
-
+        public ActionResult Payment()
+        {
+            return View();
+        }
         
+        public ActionResult Success()
+        {
+            return View();
+        }
     }
 }
+

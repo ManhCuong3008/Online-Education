@@ -1,84 +1,97 @@
 ﻿
 @{ ViewBag.Title = "Đăng nhập";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 <div class="form-ctn">
-    @*em sử dụng phương thức beginForm để sử dụng thay thế cho thẻ form
-        với cách em sẽ chỉ định được controller và action mà e muốn(với cái form này)*@
-
     @using (Html.BeginForm("CheckLogin", "Login", FormMethod.Post))
     {
-<input type="hidden" name="_token" value="W2gijDDalPkcKeO8wOWv8hwpSZv2sdNWEUsfphLs">
-                <div class="w-100 " style="border: 0px; margin: 20px;"></div>
-                                <h1>ĐĂNG NHẬP</h1>
-                                                <p style="color:red;">@ViewBag.messagelogin</p>
-                                                                <input style="width: 95%; height: 50px;" type="text" id="username" name="username" placeholder="Tên đăng nhập" value="@ViewBag.username" />
-                                                                                <input style="width: 95%; height: 50px;" type="password" class="password_form" name="password" placeholder="Mật khẩu" value="@ViewBag.password" /> //<button class="btn btn-dangky" type="submit" style="text-transform: uppercase;"> Đăng Nhập </button>
-                                                                                                //<a class="btn btn-facebook" href="/Login/LoginFacebook" style="text-transform: uppercase; margin: 5px 5px 5px 5px ">FACEBOOK</a>
-                                                                                <button type="submit" class="btn btn-info btn btn-dangky" style="width: 95%; height: 50px;">Đăng Nhập</button>
-                                                                                                <div class="container">
-                                                                                                    <div class="row row-cols-2">
-                                                                                                        <div class="col" style="padding:5px">
-                                                                                                            <a href="/Login/LoginFacebook" title="Facebook" class="btn btn-facebook btn-lg"><i class="fab fa-facebook-square"></i> Facebook</a>
-                                                                                                        </div>
-                                                                                                        <div class="col">
-                                                                                                            <a href="#" title="Google" class="btn btn-google btn-lg"><i class="fab fa-facebook-square"></i> Google</a>
-                                                                                                        </div>
-                                                                                                        <div class="w-100 " style="border: 0px; margin: 5px;"></div>
-                                                                                                        <div class="col">
-                                                                                                            <a href="/register" data-language="68">Chưa có tài khoản?</a>
-                                                                                                        </div>
-                                                                                                        <div class="col">
-                                                                                                            <a class="forgot-pass" href="#" data-language="70">Quên mật khẩu?</a>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
+        <input type="hidden" name="_token" value="W2gijDDalPkcKeO8wOWv8hwpSZv2sdNWEUsfphLs">
+        <div class="w-100 " style="border: 0px; margin: 20px;"></div>
+        <h1>ĐĂNG NHẬP</h1>
+        <p style="color:red;">@ViewBag.messagelogin</p>
+        <input style="width: 95%; height: 50px;" type="text" id="username" name="username" placeholder="Tên đăng nhập" value="@ViewBag.username" />
+        <input style="width: 95%; height: 50px;" type="password" class="password_form" name="password" placeholder="Mật khẩu" value="@ViewBag.password" /> //<button class="btn btn-dangky" type="submit" style="text-transform: uppercase;"> Đăng Nhập </button>
+        //<a class="btn btn-facebook" href="/Login/LoginFacebook" style="text-transform: uppercase; margin: 5px 5px 5px 5px ">FACEBOOK</a>
+        <button type="submit" class="btn btn-info btn btn-dangky" style="width: 95%; height: 50px;">Đăng Nhập</button>
+        <div class="container">
+            <div class="row row-cols-2">
+                <div class="col">
+                    <a href="/Login/LoginFacebook" title="Facebook" class="btn btn-facebook btn-lg">Facebook</a>
+                </div>
+                <div class="col">
+                    <a href="#" title="Google" class="btn btn-google btn-lg">Google</a>
+                </div>
+                <div class="w-100 " style="border: 0px; margin: 5px;"></div>
+                <div class="col">
+                    <a href="/register" data-language="68">Chưa có tài khoản?</a>
+                </div>
+                <div class="col">
+                    <a class="forgot-pass" href="#" data-language="70">Quên mật khẩu?</a>
+                </div>
+            </div>
+        </div>
 
 
-                                                                                                                <style>
+        <style>
+            .col {
+                position: relative;
+            }
 
-                                                                                                                    .btn-facebook {
-                                                                                                                        background: #3B5998;
-                                                                                                                        padding-left: 20px;
-                                                                                                                        padding-right: 20px;
-                                                                                                                        color: #fff;
-                                                                                                                        width: 100%;
-                                                                                                                        height: 50px;
-                                                                                                                        font-size: 19px;
-                                                                                                                        text-transform: uppercase;
-                                                                                                                        text-align: center;
-                                                                                                                    }
+            .btn-facebook {
+                background: #3B5998;
+                color: #fff;
+                width: 100%;
+                font-size: 19px;
+                text-transform: uppercase;
+                text-align: center;
+                padding: 10px 20px;
+                margin-top: 5px;
+            }
 
-                                                                                                                        .btn-facebook:link, .btn-facebook:visited {
-                                                                                                                            color: #fff;
-                                                                                                                        }
+                .btn-facebook:before {
+                    content: url('../../Content/images/facebook.png');
+                    position: absolute;
+                    top: 14px;
+                    left: 20px;
+                }
 
-                                                                                                                        .btn-facebook:active, .btn-facebook:hover {
-                                                                                                                            background: #263961;
-                                                                                                                            color: #fff;
-                                                                                                                        }
+            .btn-google {
+                background: #D2504D;
+                color: #fff;
+                width: 100%;
+                font-size: 19px;
+                text-transform: uppercase;
+                text-align: center;
+                padding: 10px 20px;
+                margin-top: 5px;
+            }
 
-                                                                                                                    .btn-google {
-                                                                                                                        background: #D2504D;
-                                                                                                                        padding-left: 20px;
-                                                                                                                        padding-right: 20px;
-                                                                                                                        color: #fff;
-                                                                                                                        width: 100%;
-                                                                                                                        height: 50px;
-                                                                                                                        font-size: 19px;
-                                                                                                                        text-transform: uppercase;
-                                                                                                                        text-align: center;
-                                                                                                                    }
+                .btn-google:before {
+                    content: url('../../Content/images/gmail.png');
+                    position: absolute;
+                    top: 14px;
+                    left: 20px;
+                }
 
-                                                                                                                    .btn-facebook:link, .btn-facebook:visited {
-                                                                                                                        color: #fff;
-                                                                                                                    }
+            .btn-facebook:link, .btn-facebook:visited {
+                color: #fff;
+            }
 
-                                                                                                                    .btn-facebook:active, .btn-goole:hover {
-                                                                                                                        background: #D2504D;
-                                                                                                                        color: #fff;
-                                                                                                                    }
-                                                                                                                </style>
-                                                                                                                                <div class="w-100 " style="border: 0px; margin: 20px;"></div>}
+            .btn-facebook:active, .btn-facebook:hover {
+                background: #263961;
+                color: #fff;
+            }
+
+
+            .btn-facebook:link, .btn-facebook:visited {
+                color: #fff;
+            }
+
+            .btn-facebook:active, .btn-goole:hover {
+                background: #D2504D;
+                color: #fff;
+            }
+        </style>
+
+        <div class="w-100 " style="border: 0px; margin: 20px;"></div>}
 
 </div>
-

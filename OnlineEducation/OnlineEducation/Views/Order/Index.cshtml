@@ -7,6 +7,12 @@
     var user = ViewBag.UserModel as OnlineEduDB.User;
     var course = ViewBag.course as OnlineEduDB.Course;
 }
+
+<style>
+    body {
+        background-color: #FFFFFF !important;
+    }
+</style>
 <link href="~/Content/css/Order.css" rel="stylesheet" />
 <div id="info-order">
     <div class="container">
@@ -18,7 +24,6 @@
                 <div class="order-body">
                     @using (Html.BeginForm("Verify", "Order"))
                     {
-                        <p style="color:green; padding-bottom:10px;font-weight:700;">@ViewBag.message</p>
                         <div class="form-group">
                             <label for="client_name">Họ và tên</label>
                             <input type="text" class="form-control" id="client_name" name="FullName"

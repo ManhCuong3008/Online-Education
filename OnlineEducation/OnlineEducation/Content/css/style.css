@@ -440,7 +440,7 @@ nav > ul {
 }
 
 nav .logo {
-    width: 9.5%;
+    width: 15.5%;
     margin-right: 2%;
 }
 
@@ -2067,6 +2067,7 @@ body.homepage {
 .homepage.section--1st-right img {
     width: 100%;
     border-radius: 10px;
+    height: 88%;
 }
 
 .homepage.section--2nd {
@@ -7266,7 +7267,7 @@ body.khoahoc {
     }
 
 .khoahoc.bar-content img {
-    width: auto;
+    width: 100px;
     height: auto;
     max-height: 76px;
 }

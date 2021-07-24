@@ -37,7 +37,7 @@ namespace OnlineEducation.Model
             {
                 RatingModel ratingModel = new RatingModel();
                 ratingModel.CourseID1 = courseID;
-                ratingModel.Score1 = (double)(from r in myDB.Ratings where r.Course_ID == courseID select r.Score).Average();
+                ratingModel.Score1 = Math.Round((double)(from r in myDB.Ratings where r.Course_ID == courseID select r.Score).Average(),2);
                 ratingModel.TotalVote = Convert.ToInt32((from r in myDB.Ratings where r.Course_ID == courseID select r.Score).Count());
                 return ratingModel;
             }

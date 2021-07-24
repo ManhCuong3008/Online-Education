@@ -47,6 +47,19 @@ namespace OnlineEducation.Controllers
                 }
                 else
                 {
+                    try
+                    {
+                        string url = Session["Url"].ToString();
+                        if (url != "")
+                        {
+                            return Redirect(url);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 

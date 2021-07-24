@@ -6,7 +6,7 @@
 
 <div class="header-2">Thêm Khoá Học</div>
 <nav>
-    <ul>
+    <ul style=" margin-top: 0; margin-bottom: 1rem; display: flex; justify-content: space-around; font-size: 16px; text-transform: uppercase;">
         <li>
             <a href="/AddCourse/Index">THÔNG TIN KHOÁ HỌC </a>
         </li>
@@ -22,36 +22,73 @@
     </ul>
 </nav>
 <div class="tab2">
-    <form>
+  
         <div class="header-2">NHẬP DỮ LIỆU MIÊU TẢ KHOÁ HỌC NÀY</div>
-        <div class="step step-1 index active">
-            <div class="row" style="border: none;">
-                <div class="col" style="border: none;">
+
+    
+
+        <div class="row" style="border: none;">
+            <p style="color:red;">@ViewBag.message</p>
+            @if (ViewBag.totallearn == null || ViewBag.totalintro == null)
+            {
+               
+                using (Html.BeginForm("GenDesc", "AddCourse", FormMethod.Post))
+                {
+                     <div class="row" style="border: none;">
+                         
+                         <div class="col" style="border: none;">
+                             <h5>Bạn Sẽ Học Được Gì?</h5>
+                             <input type="text" name="totallearn" class="form-control" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                         </div>
+                         <div class="col" style="border: none;">
+                             <h5>Thông Tin Khoá Học</h5>
+                             <input type="text" name="totalintro" class="form-control" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                         </div>
+                         <button>Tiếp Tục</button>
+                     </div>
+                }
+            }
+            else
+            {
+                using (Html.BeginForm("AddDesc", "AddCourse", FormMethod.Post))
+                {
+                    
+                    <div class="row">
+                        <div class="col">
+                            <h5>Course ID</h5>
+                            <input type="text" class="form-control" id="myInput" name="courseid" placeholder="Nhập Course ID" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>          
+                    </div>
+                    <h5>Tiêu Đề</h5>
+                    <div class="input-group mb-3" style="border: none;">                 
+                            <input style="margin-top: 10px; width: 80%;float: left;" type="text" name="title" class="form-control" placeholder="title" aria-label="" aria-describedby="basic-addon2" style="width: 80%;">                                            
+                    </div>
                     <h5>Bạn Sẽ Học Được Gì?</h5>
-                    <input type="text" class="form-control" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                </div>
-                <div class="col" style="border: none;">
+                    <div class="input-group mb-3" style="border: none;">
+                        @for (int i = 1; i <= ViewBag.totallearn; i++)
+                        {
+                            string learn = "learn" + i;
+                            <input style="margin-top: 10px; width: 80%;float: left;" type="text" name="@learn" class="form-control" placeholder="learn" aria-label="" aria-describedby="basic-addon2" style="width: 80%;">                      
+                        }
+                    </div>
                     <h5>Thông Tin Khoá Học</h5>
-                    <input type="text" class="form-control" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                </div>
-                <button class="btn next-btn btn-primary profile-button" type="button">Tiếp Tục</button>
-            </div>
+                    <div class="input-group mb-3" style="border: none;">
+                        @for (int i = 1; i <= ViewBag.totalintro; i++)
+                        {
+                            string intro = "intro" + i;
+                            <input style="margin-top: 10px; width: 80%;float: left;" type="text" name="@intro" class="form-control" placeholder="intro" aria-label="" aria-describedby="basic-addon2" style="width: 80%;">                      
+                        }
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input type="hidden" name="totallearn" value="@ViewBag.totallearn">
+                        <input type="hidden" name="totalintro" value="@ViewBag.totalintro">
+                        <button class="btn submit-btn btn-primary profile-button" style="float: right;" type="submit">Lưu Thông Tin</button>
+                    </div>
+                }
+            }
+           
+            
+         
         </div>
-        <div class="step step-2">
-            <h5>Bạn Sẽ Học Được Gì?</h5>
-            <div class="input-group mb-3" style="border: none;">
-                <input style="margin-top: 10px; width: 80%;float: left;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" style="width: 80%;">
-                <input style="margin-top: 10px; width: 80%;float: left;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" style="width: 80%;">
-            </div>
-            <h5>Thông Tin Khoá Học</h5>
-            <div class="input-group mb-3" style="border: none;">
-                <textarea style="margin-top: 10px; width: 80%;float: left; height: 200px;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
-                <textarea style="margin-top: 10px; width: 80%;float: left; height: 200px;" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
-            </div>
-            <div class="col-sm-4">
-                <button class="btn previous-btn btn-primary profile-button" type="button">Quay Trở Lại</button>
-                <button class="btn submit-btn btn-primary profile-button" style="float: right;" type="submit">Lưu Thông Tin</button>
-            </div>
-        </div>
-    </form>
 </div>

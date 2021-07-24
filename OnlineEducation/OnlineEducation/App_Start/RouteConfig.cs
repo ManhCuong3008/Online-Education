@@ -19,10 +19,17 @@ namespace OnlineEducation
             );
 
             routes.MapRoute(
+              name: "category",
+              url: "category",
+              defaults: new { controller = "Home", action = "Category" }
+          );
+
+            routes.MapRoute(
                name: "contact",
                url: "contact",
                defaults: new { controller = "Home", action = "Contact" }
            );
+
 
             routes.MapRoute(
                 name: "logout",

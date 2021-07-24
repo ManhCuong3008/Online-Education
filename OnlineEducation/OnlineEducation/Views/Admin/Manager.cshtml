@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/Admin_LayoutPage.cshtml";
 }
 @{
-    var listOrder = ViewBag.ListOrder as List<OnlineEduDB.Order>;
     var courseDAO = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
     var userDAO = ViewBag.userDAO as OnlineEducation.Model.UserDAO;
 }
@@ -12,6 +11,7 @@
 
 <div class="header-2">Quản lý đơn đặt hàng</div>
 <div id="wapper-verify">
+    <h1>Danh sách học viên đã mua khóa học trên hệ thống</h1>
     <table class="styled-table">
         <thead>
             <tr>
@@ -20,8 +20,7 @@
                 <th>Học viên</th>
                 <th>Email</th>
                 <th>SĐT</th>
-                <th>Đăng ký khóa học</th>
-                <th>Xác nhận</th>
+                <th>Đã mua khóa học</th>
             </tr>
         <thead>
         <tbody>
@@ -29,24 +28,18 @@
                 @{
                     int count = 1;
                 }
-                @foreach (OnlineEduDB.Order item in listOrder)
+                @foreach (OnlineEduDB.MyCourse item in ViewBag.ListMyCourse)
                 {
                     OnlineEduDB.User user = userDAO.getUserByUserID(item.User_ID);
                     OnlineEduDB.Course course = courseDAO.getCourseByID(item.Course_ID);
-                    using (Html.BeginForm("SendGmail", "Admin",FormMethod.Post)) {
                     <tr>
                         <td>@count</td>
                         <td>@user.Username</td>
                         <td>@user.FullName</td>
-                        <td>@item.toEmail</td>
-                        <td>@item.toPhone</td>
+                        <td>@user.Email</td>
+                        <td>@user.PhoneNumber</td>
                         <td>@course.CourseName</td>
-                        <td>
-                            <input type="hidden" name="OrderID" value="@item.OrderID">
-                            <button>Gửi mã</button>
-                        </td>
                     </tr>
-                    }
                     count++;
                 }
         </tbody>

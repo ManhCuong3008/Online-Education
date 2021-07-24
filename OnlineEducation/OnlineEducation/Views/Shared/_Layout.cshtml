@@ -85,12 +85,12 @@
                     {
                         if (ViewBag.txtSearch != null)
                         {
-                            <input required id="search_value" class="search__input" type="text" name="txtSearch" placeholder="@ViewBag.txtSearch" style="width: 100%" autocomplete="on" />
+                            <input required id="search_value" class="search__input" type="text" name="txtSearch" placeholder="@ViewBag.txtSearch" style="width: 149%; border-radius: 5px;" autocomplete="on" />
                         }
                         else
                         {
                             <input required id="search_value" class="search__input" type="text" name="txtSearch"
-                                   placeholder="Bạn đang cần tìm khóa học..." style="width: 100%" autocomplete="on"/>
+                                   placeholder="Bạn đang cần tìm khóa học..." style="width: 149%; border-radius: 5px;" autocomplete="on"/>
                         }
                     }
                 </div>
@@ -98,7 +98,7 @@
 
             <li class="links">
                 <a class="homepage" href="/home" >Trang chủ</a>
-                <a class="homepage" href="/home" >Khóa học</a>
+                <a class="homepage" href="/category?CaID=1&&index=1" >Khóa học</a>
                 <a class="ct" href="/contact">Liên hệ</a>
             </li>
             <li class="language">

@@ -67,9 +67,7 @@ namespace OnlineEducation.Controllers
         [HttpGet]
         public ActionResult Manager()
         {
-            OrderDAO orderDAO = new OrderDAO();
-            List<Order> ListOrder = orderDAO.getListOrder();
-            ViewBag.ListOrder = ListOrder;
+            ViewBag.ListMyCourse = courseDAO.getListALlMyCourse();
             ViewBag.courseDAO = courseDAO;
             ViewBag.userDAO = userDAO;
             return View();
@@ -98,7 +96,7 @@ namespace OnlineEducation.Controllers
             if (result == true)
             {
                 orderDAO.updateOrder(orderID, "paymented");
-                return Redirect("/Admin/Manager");
+                return Redirect("/Order/Success");
             }
             else
             {

@@ -20,11 +20,20 @@ namespace OnlineEducation.Model
         {
             return myDB.Courses.Where(c => c.CourseName.Contains(courseName)).OrderBy(c => c.CourseName).Skip(page.getOffset()).Take(page.getLimit()).ToList();
         }
+        public List<Course> getListByOffsetBycategory(PageRequest page, int CategoryID)
+        {
+            return myDB.Courses.Where(c => c.CategoryCourse == CategoryID).OrderBy(c => c.CourseName).Skip(page.getOffset()).Take(page.getLimit()).ToList();
+        }
 
         public MyCourse getMyCourse(int userid, string courseID)
         {
             return myDB.MyCourses.Where(mc => mc.User_ID == userid && mc.Course_ID == courseID).FirstOrDefault();
         }
+        public List<MyCourse> getListALlMyCourse()
+        {
+            return myDB.MyCourses.ToList();
+        }
+
 
         public List<Course> getListAscByOffset(PageRequest page, string courseName)
         {
@@ -43,6 +52,17 @@ namespace OnlineEducation.Model
         {
             return myDB.Courses.Where(c => c.CategoryCourse == category).OrderBy(c => SqlFunctions.Checksum(Guid.NewGuid())).Take(6).ToList();
         }
+
+        public List<Category> getAllCategory()
+        {
+            return myDB.Categories.ToList();
+        }
+
+        public List<Course> getListCourseByCategoryId(int categoryID)
+        {
+            return myDB.Courses.Where(c => c.CategoryCourse == categoryID).ToList();
+        }
+
 
         public Course getCourseByID(string id)
         {
@@ -116,6 +136,15 @@ namespace OnlineEducation.Model
             return listOffer;
         }
 
+        public List<Course> getListHL()
+        {
+            var getListHL = myDB.Courses.SqlQuery(
+                "SELECT * FROM dbo.Course AS c JOIN (SELECT Course_ID, AVG(Score) AS Diem  FROM dbo.Rating GROUP  BY Course_ID ) AS r  ON r.Course_ID = c.CourseID ORDER BY r.Diem DESC"
+                ).Take(8).ToList();
+            return getListHL;
+        }
+
+
         public int getVideoIdOneByCourseID(string courseId) { 
             var Video1 = myDB.Videos.SqlQuery(
                 "SELECT * FROM dbo.Video AS v JOIN(SELECT TOP(1) ChapterID FROM dbo.Chapter WHERE Course_ID = '"+courseId+"') AS c ON c.ChapterID = v.Chapter_ID ORDER BY v.VideoID ASC"
@@ -129,6 +158,8 @@ namespace OnlineEducation.Model
                 return Video1.VideoID;
             }
         }
+
+        
 
         public void AddCourse(Course obj)
         {

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ var courseDao = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
+    var listCurrentCourse = ViewBag.ListCouserCurrent as List<OnlineEduDB.Course>;
+}
+
+<link href="~/Content/css/Category.css" rel="stylesheet" />
+<link href="~/Content/css/user.css" rel="stylesheet" />
+<link href="~/Content/css/style.css" rel="stylesheet" />
+<style>
+    body {
+        background-color: #FFFFFF !important;
+    }
+</style>
+    <link href="~/Content/css/Category/Category.css" rel="stylesheet" />
+    <div id="wrapper">
+        <div class="tcnvcd nav nav-tabs" id="nav-tab" role="tablist" style="text-align:center;">
+            @foreach (OnlineEduDB.Category item in ViewBag.listCategory)
+            {
+                if (ViewBag.CategoryID == item.CategoryID)
+                {
+                    <a class="tcnvcd nav-link active" id="nav-khdm-tab" style="font-size:17px; font-weight:700;" data-bs-target="#khdm" role="tab" href="/category?CaID=@item.CategoryID">
+                        @item.CategoryName
+                    </a>
+                }
+                else
+                {
+                    <a class="tcnvcd nav-link " id="nav-khdm-tab" style="font-size:17px;font-weight:700;" data-bs-target="#khdm" role="tab" href="/category?CaID=@item.CategoryID">
+                        @item.CategoryName
+                    </a>
+                }
+            }
+        </div>
+        <div id="tabsTop">
+            <div class="tabTop">
+                @foreach (OnlineEduDB.Course item in listCurrentCourse)
+                {
+                    <div class="item">
+                        <div class="card_item">
+                            <div class="card_inner">
+                                <a href="/detailcourse?CourseID=@item.CourseID"><img src="~/Content/images/@item.Image_url"></a>
+                                <div class="role_name">
+                                    <a style="color:#e36686;" href="/detailcourse?CourseID=@item.CourseID">@item.CourseName</a>
+                                </div>
+                                <div class="real_name">Gv: @courseDao.getTeacherByID(Convert.ToInt32(item.Teacher_ID)).Name</div>
+                                <div class="film">@item.Price VNĐ</div>
+                                <div class="nav-detail">
+                                    <a class="register-course" href="">Đăng ký ngay</a>
+                                    <a class="detail-course" href="/detailcourse?CourseID=@item.CourseID">Xem chi tiết</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+                 <center>
+                <div class="paging">
+                    @if (ViewBag.totalPage > 1)
+                    {
+                        for (int i = 1; i <= ViewBag.totalPage; i++)
+                        {
+                            if (ViewBag.index == i)
+                            {
+                                <a class="active" href="/category?CaID=@ViewBag.CategoryID&&index=@i">@i</a>
+                            }
+                            else
+                            {
+                                <a href="/category?CaID=@ViewBag.CategoryID&&index=@i">@i</a>
+                            }
+                        }
+                    }
+                </div>
+            </center>
+        </div>
+    </div>
+

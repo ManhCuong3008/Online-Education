@@ -15,6 +15,8 @@ namespace OnlineEducation.Controllers
         // GET: DetailCourse
         public ActionResult Index()
         {
+            //to save current url
+            Session["Url"] = Request.Url.ToString();
 
             User user = (User)Session["UserModel"];
             int userid = 0;

@@ -6,7 +6,7 @@
 
 <div class="header-2">Thêm Khoá Học</div>
 <nav>
-    <ul>
+    <ul style=" margin-top: 0; margin-bottom: 1rem; display: flex; justify-content: space-around; font-size: 16px; text-transform: uppercase;">
         <li>
             <a href="/AddCourse/Index">THÔNG TIN KHOÁ HỌC </a>
         </li>
@@ -22,28 +22,62 @@
     </ul>
 </nav>
 <div class="tab3 ">
-    <form>
-        <div class="header-2">NHẬP SỐ CHƯƠNG HỌC CỦA KHOÁ HỌC NÀY</div>
-        <div class="step2 step-1 index active">
-            <div class="row">
-                <div class="col">
-                    <h5>Nhập số Chương Trong Khoá Học Này</h5>
-                    <input type="text" class="form-control" id="myInput" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+    <div class="header-2">NHẬP SỐ CHƯƠNG HỌC CỦA KHOÁ HỌC NÀY</div>
+
+
+
+
+    <div class="row">
+        <p style="color:red;">@ViewBag.message</p>
+        @if (ViewBag.totalchap == null)
+        {
+            using (Html.BeginForm("GenChap", "AddCourse", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col">
+                        <h5>Nhập số Chương Trong Khoá Học Này</h5>
+                        <input type="text" name="totalchap" class="form-control" id="myInput" placeholder="Nhập Số Lượng" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    </div>
+                    <button class="btn next-btn2 btn-primary profile-button"> Tiếp Tục</button>
                 </div>
-                <button class="btn next-btn2 btn-primary profile-button" type="button" onclick="creatMenu();"> Tiếp Tục</button>
+            }
+        }
 
-            </div>
-        </div>
-        <div class="step2 step-2 ">
-            <h5>Bạn Sẽ Học Được Gì?</h5>
-            <div class="col">
-                <ul id="menu">
-            </div>
-            <div class="col-sm-4">
-                <button class="btn previous-btn2 btn-primary profile-button" type="button">Quay Trở Lại</button>
-                <button class="btn submit-btn2 btn-primary profile-button" style="float: right;" type="submit">Lưu Thông Tin</button>
-            </div>
-        </div>
-    </form>
+        else
+        {
+            using (Html.BeginForm("AddChap", "AddCourse", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col">
+                        <h5>Course ID</h5>
+                        <input type="text" name="courseid" class="form-control" id="myInput" placeholder="Nhập Course ID" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    @for (int i = 1; i <= ViewBag.totalchap; i++)
+                    {
+                        string chapter = "chapter" + i;
+                        <h5>Chương:@i</h5>
+                        <div class="col">
+                            <input type="text" name="@chapter" class="form-control" id="myInput" placeholder="Nhập Tiêu Dề Chương Học" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                    }
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="hidden" name="totalchap" value="@ViewBag.totalchap">
+                    <button class="btn submit-btn2 btn-primary profile-button" style="float: right;" type="submit">Lưu Thông Tin</button>
+                </div>
+
+            }
+        }
+
+
+
+
+
+    </div>
 </div>
-

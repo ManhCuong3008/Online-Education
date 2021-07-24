@@ -104,6 +104,8 @@
     <Content Include="Content\Admin\CourseTab.js" />
     <Content Include="Content\Admin\CourseTab2.js" />
     <Content Include="Content\css\ActiveCourse.css" />
+    <Content Include="Content\css\ActiveSuccsess.css" />
+    <Content Include="Content\css\Category.css" />
     <Content Include="Content\css\Home.css" />
     <Content Include="Content\css\login\includeHTML.js" />
     <Content Include="Content\css\login\style.css" />
@@ -137,6 +139,7 @@
     <Content Include="Content\images\food8.jpg" />
     <Content Include="Content\images\food9.jpg" />
     <Content Include="Content\images\github.png" />
+    <Content Include="Content\images\gmail.png" />
     <Content Include="Content\images\hp20.png" />
     <Content Include="Content\images\hp21.png" />
     <Content Include="Content\images\hp22.png" />
@@ -195,7 +198,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\CategoryDAO.cs" />
+    <Compile Include="Model\ChapterDAO.cs" />
     <Compile Include="Model\CourseDAO.cs" />
+    <Compile Include="Model\DescriptionDAO.cs" />
     <Compile Include="Model\MyCourseModel.cs" />
     <Compile Include="Model\OrderDAO.cs" />
     <Compile Include="Model\RatingDAO.cs" />
@@ -233,6 +238,9 @@
     <Content Include="Views\AddCourse\Chapter.cshtml" />
     <Content Include="Views\AddCourse\Video.cshtml" />
     <Content Include="Views\Demo\Index.cshtml" />
+    <Content Include="Views\Order\Payment.cshtml" />
+    <Content Include="Views\Order\Success.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

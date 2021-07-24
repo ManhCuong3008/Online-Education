@@ -1,16 +1,12 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{
-    var teacher = ViewBag.teacher as OnlineEduDB.Teacher;
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+@{ var teacher = ViewBag.teacher as OnlineEduDB.Teacher;
     var currentCourse = ViewBag.Course as OnlineEduDB.Course;
     int count = 1;
     int count1 = 1;
     var courseDAO = ViewBag.courseDAO as OnlineEducation.Model.CourseDAO;
-    string star1 = "", star2 = "", star3 = "", star4 = "", star5 = "";
-}
+    string star1 = "", star2 = "", star3 = "", star4 = "", star5 = ""; }
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -29,8 +25,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <link href="~/Content/css/Registration.css" rel="stylesheet" />
-
-
 <style>
 
     div.stars {
@@ -96,7 +90,6 @@
             font-size: 18px;
             font-weight: 700;
         }
-
 </style>
 
 <div id="main">
@@ -132,65 +125,65 @@
         </div>
     </div>
     <div class="title-Content-CourseView">
-        đánh giá khóa học 
+        đánh giá khóa học
     </div>
     <hr>
     <div id="wapper-start">
-        
-            @using (Html.BeginForm("Vote", "DetailCourse"))
+
+        @using (Html.BeginForm("Vote", "DetailCourse"))
+        {
+            int Score = (int)ViewBag.score;
+            if (ViewBag.Ratestatus != "Vote")
             {
-                int Score = (int)ViewBag.score;
-                if (ViewBag.Ratestatus != "Vote")
+                star1 = "disabled";
+                star2 = "disabled";
+                star3 = "disabled";
+                star4 = "disabled";
+                star5 = "disabled";
+                if (Score == 1)
                 {
-                    star1 = "disabled";
-                    star2 = "disabled";
-                    star3 = "disabled";
-                    star4 = "disabled";
-                    star5 = "disabled";
-                    if (Score == 1)
-                    {
-                        star1 = "checked";
-                    }
-                    else if (Score == 2)
-                    {
-                        star2 = "checked";
-                    }
-                    else if (Score == 3)
-                    {
-                        star3 = "checked";
-                    }
-                    else if (Score == 4)
-                    {
-                        star4 = "checked";
-                    }
-                    else if (Score == 5)
-                    {
-                        star5 = "checked";
-                    }
+                    star1 = "checked";
                 }
-            <div class="stars" style="width: 60%;">
-            <input class="star star-5" id="star-5" type="radio" name="star5" @star5 />
-            <label class="star star-5" for="star-5"></label>
-            <input class="star star-4" id="star-4" type="radio" name="star4" @star4 />
-            <label class="star star-4" for="star-4"></label>
-            <input class="star star-3" id="star-3" type="radio" name="star3" @star3 />
-            <label class="star star-3" for="star-3"></label>
-            <input class="star star-2" id="star-2" type="radio" name="star2" @star2 />
-            <label class="star star-2" for="star-2"></label>
-            <input class="star star-1" id="star-1" type="radio" name="star1" @star1 />
-            <label class="star star-1" for="star-1"></label>
-            @if (ViewBag.Ratestatus == "Vote")
-            {
-                <input type="hidden" value="@currentCourse.CourseID" name="CourseID" />
-                <button class="btn-dangky" type="submit">Đánh giá </button>
+                else if (Score == 2)
+                {
+                    star2 = "checked";
+                }
+                else if (Score == 3)
+                {
+                    star3 = "checked";
+                }
+                else if (Score == 4)
+                {
+                    star4 = "checked";
+                }
+                else if (Score == 5)
+                {
+                    star5 = "checked";
+                }
             }
-            </div>
-          }
-       
-    <div id="total-rating">
-        <p>Điểm đánh giá: @ViewBag.score</p>
-        <p>Số lượt đánh giá: @ViewBag.totalVote</p>
-    </div>
+<div class="stars" style="width: 60%;">
+    <input class="star star-5" id="star-5" type="radio" name="star5" @star5 />
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" name="star4" @star4 />
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" name="star3" @star3 />
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" name="star2" @star2 />
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" name="star1" @star1 />
+    <label class="star star-1" for="star-1"></label>
+</div> if (ViewBag.Ratestatus == "Vote")
+{
+<div class="voting">
+    <input type="hidden" value="@currentCourse.CourseID" name="CourseID" />
+    <button class="btn-dangky" type="submit">Đánh giá </button>
+</div>}
+}
+
+        <div id="total-rating">
+            <p>Điểm đánh giá: @ViewBag.score</p>
+            <p>Số lượt đánh giá: @ViewBag.totalVote</p>
+        </div>
     </div>
     <div class="title-Content-CourseView">
         bạn sẽ học được gì
@@ -286,5 +279,6 @@ count++;
         });
     </script>
 </div>
+
 
 
